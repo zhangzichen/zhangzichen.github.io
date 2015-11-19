@@ -52,35 +52,26 @@
 
 
 <meta name="description" content="简介
-hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github上。
-怎样搭建hexo博客–
-安装Git作用：把本地的hexo内容提交到github上。
-安装Xcode就自带Git，这步可以忽略。
-安装Node.js作用：用来生成静态页面的。">
+Hexo是一个很好的博客，个人觉得他的界面干净利落，阅读体验也是很好。初次接触Hexo是在朋友的介绍下才知道的，hexo是需要手动搭建（觉得B格很高），在朋友的帮助下也终于是完成了。开篇记录一下搭建的过程希望能帮助到浏览到这里的朋友我的系统为OS X，windows也可以参考。
+hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github上。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简单玩转Hexo">
 <meta property="og:url" content="http://yoursite.com/2014/11/19/简单玩转Hexo/index.html">
 <meta property="og:site_name" content="张飞">
 <meta property="og:description" content="简介
-hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github上。
-怎样搭建hexo博客–
-安装Git作用：把本地的hexo内容提交到github上。
-安装Xcode就自带Git，这步可以忽略。
-安装Node.js作用：用来生成静态页面的。">
+Hexo是一个很好的博客，个人觉得他的界面干净利落，阅读体验也是很好。初次接触Hexo是在朋友的介绍下才知道的，hexo是需要手动搭建（觉得B格很高），在朋友的帮助下也终于是完成了。开篇记录一下搭建的过程希望能帮助到浏览到这里的朋友我的系统为OS X，windows也可以参考。
+hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github上。">
 <meta property="og:image" content="http://i13.tietuku.com/328dad03b5d45c6a.png">
 <meta property="og:image" content="http://i13.tietuku.com/a866c741cacf10af.png">
 <meta property="og:image" content="http://img-storage.qiniudn.com/15-11-3/92193733.jpg">
 <meta property="og:image" content="http://i13.tietuku.com/4614dd21ce29ef47.png">
 <meta property="og:image" content="http://i13.tietuku.com/ea3165bdd678afb9.png">
-<meta property="og:updated_time" content="2015-11-19T08:24:43.000Z">
+<meta property="og:updated_time" content="2015-11-19T10:47:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单玩转Hexo">
 <meta name="twitter:description" content="简介
-hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github上。
-怎样搭建hexo博客–
-安装Git作用：把本地的hexo内容提交到github上。
-安装Xcode就自带Git，这步可以忽略。
-安装Node.js作用：用来生成静态页面的。">
+Hexo是一个很好的博客，个人觉得他的界面干净利落，阅读体验也是很好。初次接触Hexo是在朋友的介绍下才知道的，hexo是需要手动搭建（觉得B格很高），在朋友的帮助下也终于是完成了。开篇记录一下搭建的过程希望能帮助到浏览到这里的朋友我的系统为OS X，windows也可以参考。
+hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github上。">
 
 
 
@@ -271,11 +262,14 @@ hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网
 
       
         <span itemprop="articleBody"><h1 id="简介">简介</h1><hr>
+<p>Hexo是一个很好的博客，个人觉得他的界面干净利落，阅读体验也是很好。初次接触Hexo是在朋友的介绍下才知道的，hexo是需要手动搭建（觉得B格很高），在朋友的帮助下也终于是完成了。<br>开篇记录一下搭建的过程希望能帮助到浏览到这里的朋友<br>我的系统为OS X，windows也可以参考。</p>
 <p>hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github上。</p>
+<a id="more"></a>
 <h1 id="怎样搭建hexo博客">怎样搭建hexo博客</h1><p>–</p>
 <h3 id="安装Git">安装Git</h3><p>作用：把本地的hexo内容提交到github上。</p>
 <p>安装Xcode就自带Git，这步可以忽略。</p>
-<h3 id="安装Node-js">安装Node.js</h3><p>作用：用来生成静态页面的。<br><a id="more"></a><br>到<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>官网下载就OK。</p>
+<h3 id="安装Node-js">安装Node.js</h3><p>作用：用来生成静态页面的。</p>
+<p>到<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>官网下载就OK。</p>
 <h3 id="安装Hexo">安装Hexo</h3><p>Node和Git都安装好后，可执行如下命令安装hexo:</p>
 <pre><code>npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> hexo</span>
 </code></pre><h3 id="初始化">初始化</h3><p>我们可以创建一个新文件夹作为hexo的安装目录，把所有的hexo文件都放里面，主要是为了方便管理。<br>然后，执行init命令初始化Hexo到你指定目录：（以下有两种方式初始化）</p>
