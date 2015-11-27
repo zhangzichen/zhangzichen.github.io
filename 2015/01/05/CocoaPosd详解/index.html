@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS,可视化编程," />
+  <meta name="keywords" content="CocoaPosd使用详解,工具," />
 
 
 
@@ -51,26 +51,33 @@
 
 
 
-<meta name="description" content="1.1 什么是Xib？xib就是一种文件的后缀，我们要使用Interface Builder工具对它进行编辑。xib的作用就是描绘页面中的布局，可以让我们及时看到效果，并且也比代码要方便快速的多。">
+<meta name="description" content="CocoaPosd是什么？当我们开发iOS项目时候，会经常使用到第三方类库，并且会使用很多。
+大家的做法基本上都是到GitHub上下载一个一个的类库，然后导入到工程中，并且引入各种的类库，做各种的配置。有时候还要处理ARC与MRC的问题，很麻烦。
+还有一种情况，就是当第三方类库出现升级的情况时候，我们还需要删掉旧的，下载新的，再重新导入。
+以上问题超级的烦人。。。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="可视化编程之-Xib">
-<meta property="og:url" content="http://yoursite.com/2014/12/11/可视化编程之-Xib/index.html">
+<meta property="og:title" content="CocoaPosd详解">
+<meta property="og:url" content="http://yoursite.com/2015/01/05/CocoaPosd详解/index.html">
 <meta property="og:site_name" content="张飞">
-<meta property="og:description" content="1.1 什么是Xib？xib就是一种文件的后缀，我们要使用Interface Builder工具对它进行编辑。xib的作用就是描绘页面中的布局，可以让我们及时看到效果，并且也比代码要方便快速的多。">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1eo7p5ta6mfj21kw148ae6.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1eo7pppa1nhj20be0dwmy3.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1eo7re14u6wj214k0nwdi0.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1eo7rh05g5gj214k0nwgos.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1eo7rk9hhm0j21kw14k0y3.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1eo7rn9la4gj20y40ecwgm.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1eo7pwi0fvzj21kw0yeags.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1eo7s4ekfjyj21a80sin2n.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1eo7qn53z9kj20fg0860th.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1eo7qx1mei1j20fg096dgq.jpg">
-<meta property="og:updated_time" content="2015-11-27T09:55:11.000Z">
+<meta property="og:description" content="CocoaPosd是什么？当我们开发iOS项目时候，会经常使用到第三方类库，并且会使用很多。
+大家的做法基本上都是到GitHub上下载一个一个的类库，然后导入到工程中，并且引入各种的类库，做各种的配置。有时候还要处理ARC与MRC的问题，很麻烦。
+还有一种情况，就是当第三方类库出现升级的情况时候，我们还需要删掉旧的，下载新的，再重新导入。
+以上问题超级的烦人。。。">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1es45z04v3dj20x40li0v3.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1es465iqjdsj20ba02qglt.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1es4677n31fj20gw02mjrt.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1es46bo14gij20xq0d641m.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1es46tz82zfj20ck036aac.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1es47gd8m90j20z8086n1h.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1es47gtuyr8j20bg0o6wgr.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1es47jgxnhvj20ko05i3zm.jpg">
+<meta property="og:updated_time" content="2015-11-27T12:00:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="可视化编程之-Xib">
-<meta name="twitter:description" content="1.1 什么是Xib？xib就是一种文件的后缀，我们要使用Interface Builder工具对它进行编辑。xib的作用就是描绘页面中的布局，可以让我们及时看到效果，并且也比代码要方便快速的多。">
+<meta name="twitter:title" content="CocoaPosd详解">
+<meta name="twitter:description" content="CocoaPosd是什么？当我们开发iOS项目时候，会经常使用到第三方类库，并且会使用很多。
+大家的做法基本上都是到GitHub上下载一个一个的类库，然后导入到工程中，并且引入各种的类库，做各种的配置。有时候还要处理ARC与MRC的问题，很麻烦。
+还有一种情况，就是当第三方类库出现升级的情况时候，我们还需要删掉旧的，下载新的，再重新导入。
+以上问题超级的烦人。。。">
 
 
 
@@ -82,7 +89,7 @@
   };
 </script>
 
-  <title> 可视化编程之-Xib | 张飞 </title>
+  <title> CocoaPosd详解 | 张飞 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -212,7 +219,7 @@
             
             
               
-                可视化编程之-Xib
+                CocoaPosd详解
               
             
           </h1>
@@ -221,8 +228,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-12-11T21:13:26+08:00" content="2014-12-11">
-              2014-12-11
+            <time itemprop="dateCreated" datetime="2015-01-05T21:16:01+08:00" content="2015-01-05">
+              2015-01-05
             </time>
           </span>
 
@@ -231,8 +238,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术篇/" itemprop="url" rel="index">
-                    <span itemprop="name">技术篇</span>
+                  <a href="/categories/iOS开发相关工具/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发相关工具</span>
                   </a>
                 </span>
 
@@ -260,42 +267,56 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="1-1_什么是Xib？">1.1 什么是Xib？</h2><p>xib就是一种文件的后缀，我们要使用Interface Builder工具对它进行编辑。xib的作用就是描绘页面中的布局，可以让我们及时看到效果，并且也比代码要方便快速的多。<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1eo7p5ta6mfj21kw148ae6.jpg" alt=""></p>
-<a id="more"></a>
-<p>当我们使用MVC模式去编写项目的时候，创建了一个UIViewController，它就是MVC中的C，还需要创建一个View，表示MVC中的V。之前我们的做法都是继承UIView类，创建一个自定义View，然后把所有有关视图的代码都写到自定义View中，虽然把Controller类进行了瘦身，但是View中的代码依然看起来让人头疼，每添加一个小控件都需要好几行的代码，一个简单的登录页面，就需要一大段的代码，很烦人。不过有了xib，我们做一个登录页面出来，不仅不需要写代码了，还可以通过拖线的方式把属性、方法都生成，非常的方便。</p>
-<h2 id="1-2_nib又是什么东西？">1.2 nib又是什么东西？</h2><p>项目进行编译之后，xib文件会保存到我们的Bundle中，被编译成了nib文件，</p>
-<p><img src="http://ww2.sinaimg.cn/large/9c2363adgw1eo7pppa1nhj20be0dwmy3.jpg" alt=""></p>
-<p>简单来说，<code>xib</code>就是编译之前的格式，<code>nib</code>就是编译之后的格式。至于你到底叫它xib还是nib，都随你喜欢啦</p>
-<h2 id="1-3-_如何使用">1.3. 如何使用</h2><h3 id="1-3-1_xib文件的创建">1.3.1 xib文件的创建</h3><p>当我们创建视图控制器的时候，我们把这个选项选中，<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1eo7re14u6wj214k0nwdi0.jpg" alt=""></p>
-<p>这样我们就可以创建一个自带xib文件的视图控制器了。</p>
-<p>如果说创建视图控制器的时候忘记勾选了，也不要着急，我们可以单独创建一个xib文件，<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1eo7rh05g5gj214k0nwgos.jpg" alt=""></p>
-<p>单独创建xib文件的时候，名字最好和它所对应的控制器相同。</p>
-<p>注意，虽然你单独创建出来了xib文件，但是需要注意的是，我们还要将xib和控制器类进行关联，<br>在Class中输入xib对应的控制器的类名，<br><img src="http://ww4.sinaimg.cn/large/9c2363adgw1eo7rk9hhm0j21kw14k0y3.jpg" alt=""></p>
-<p>除了这个，还有：在File’s Owner上右击，会出现黑色的HUD，找到view，右侧有个小圈圈，鼠标放到上面会变成小加号，拖动到xib上。<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1eo7rn9la4gj20y40ecwgm.jpg" alt=""></p>
+        <span itemprop="articleBody"><p><img src="http://ww4.sinaimg.cn/large/9c2363adgw1es45z04v3dj20x40li0v3.jpg" alt=""></p>
+<h3 id="CocoaPosd是什么？">CocoaPosd是什么？</h3><p>当我们开发iOS项目时候，会经常使用到第三方类库，并且会使用很多。</p>
+<p>大家的做法基本上都是到GitHub上下载一个一个的类库，然后导入到工程中，并且引入各种的类库，做各种的配置。有时候还要处理ARC与MRC的问题，很麻烦。</p>
+<p>还有一种情况，就是当第三方类库出现升级的情况时候，我们还需要删掉旧的，下载新的，再重新导入。</p>
+<p>以上问题超级的烦人。。。<br><a id="more"></a></p>
+<p>CocoaPods就是类库管理工具，刚刚提到所有麻烦的操作，CocoaPods都能解决。</p>
+<p>作为一名程序员，掌握CocoaPods已经和你会使用UIButton一样重要了!</p>
+<h3 id="安装CocoaPosd">安装CocoaPosd</h3><p>安装CocoaPods需要本地Ruby环境，默认情况下，Mac自带Ruby环境，可以通过在<code>终端</code>输入命令<code>ruby -v</code>查看Ruby版本，接下来进行安装，使用如下命令：</p>
+<p><code>$ sudo gem install CocoaPods</code></p>
+<p>输入以上命令，可能会一直没有反应，或者出现ERROR。注意了，我们在天朝，是有一堵墙的，挡住了，所以你安装失败。不过没关系，我们可以使用另外一个地址来访问CocoaPods。</p>
+<p>既然官网地址被墙了，我们就使用淘宝的，淘宝的Ruby镜像可以帮助我们访问CocoaPods，分别在终端输入如下命令，将Ruby镜像替换为淘宝的镜像地址:</p>
+<p><code>$ gem sources —remove https://rubygems.org/</code><br><code>$ gem sources -a https://ruby.taobao.org/</code></p>
+<p>完成之后，我们可以使用如下命令来查看Ruby镜像是否已经指向了淘宝：</p>
+<p><code>$ gem sources -l</code></p>
+<p>如果看到如下信息，表示已经成功！！！<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1es465iqjdsj20ba02qglt.jpg" alt=""></p>
+<p>下面，重新执行安装命令，等待安装结束就可以了<br><code>$ sudo gem install CocoaPods</code></p>
+<p>等待执行完毕，看到如下提示，恭喜你，安装完成。</p>
+<p><img src="http://ww2.sinaimg.cn/large/9c2363adgw1es4677n31fj20gw02mjrt.jpg" alt=""></p>
+<p>如果遇到其它的安装问题，请自行Google解决吧。</p>
+<h3 id="使用CocoaPods">使用CocoaPods</h3><p>安装已经完成了，下面就来教大家如何使用。</p>
+<p>做一个项目，项目中需要使用SDWebImage，看看如何使用CocoaPods进行安装</p>
+<p>首先使用如下命令，查看CocoaPods是否支持SDWebImage类库</p>
+<p><code>$ pod search SDWebImage</code></p>
+<p>可以看到下面这些搜索结果，表示SDWebImage是可以的，<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1es46bo14gij20xq0d641m.jpg" alt=""></p>
+<p>注意圈住的那一行，一会需要使用。这行信息是告诉CocoaPods去下载哪一个第三方类库和它的哪一个版本，是一条配置信息。</p>
+<h3 id="下面创建空的项目，然后使用CocoaPods往项目中导入SDWebImage类库：">下面创建空的项目，然后使用CocoaPods往项目中导入SDWebImage类库：</h3><p><strong>1&gt;.</strong>创建项目 CocoaPods_Test，保存到桌面</p>
+<p><strong>2&gt;.</strong>在终端输入 <code>cd空格</code>，拖入项目文件夹，回车，进入项目所在的根目录</p>
+<p><strong>3&gt;.</strong>通过命令行创建<code>Podfile</code>文件，该文件的作用是配置第三方类库的信息，就是告诉CocoaPods去管理哪些类库</p>
+<p><code>$ vim Podfile</code></p>
+<p>vim打开文件后，按<code>i</code>进入编辑模式，输入如下文字：<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1es46tz82zfj20ck036aac.jpg" alt=""></p>
+<p>里面的<code>pod &#39;SDWebImage&#39;, &#39;~&gt; 3.7.1&#39;</code>就是我们在上面圈住的那一行。</p>
+<p>输入完成后按<code>ESC</code>退出编辑模式，接着输入<code>:wq</code>，并按回车键进行保存并退出。</p>
+<p><strong>上面的操作完成之后，我们可以在项目根目录发现一个没有后缀的Podfile文件，这就是刚刚创建的文件，里面保存了需要使用的第三方类库的信息。(注意：Podfile文件必须和.xcodeproj文件在同一目录下)</strong></p>
+<p><strong>4&gt;.</strong>接下来，我们就可以使用命令来安装第三方类库了，(确保终端路径在项目根目录)运行如下命令：</p>
+<p><code>$ pod install</code></p>
+<p>当我们看到这样的提示，就表示你操作成功：<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1es47gd8m90j20z8086n1h.jpg" alt=""></p>
+<p><strong>注意最后一句话：”Please close any current Xcode sessions and use ‘CocoaPods_Test.xcworkspace’for this project from now on”。这就是告诉我们，从现在开始需要使用这个文件来打开项目，而不在是之前的.xcodeproj</strong></p>
+<p><strong>5&gt;.</strong>双击项目中的<code>CocoaPods_Test.xcworkspace</code>文件来打开项目，你会看到如下目录结构：<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1es47gtuyr8j20bg0o6wgr.jpg" alt=""></p>
+<p>我们会发现多了一个Pods的依赖工程，打开Pods文件夹后，发现SDWebImage已经在这里面了。</p>
+<p><strong>6&gt;.</strong>现在，我们就可以在想要使用SDWebImage的文件中，引入需要的文件，然后就可以正常使用了。</p>
+<p><strong>7&gt;.</strong>到现在为止，你已经学会了如何使用CocoaPods来添加第三方类库。如果我们需要使用多个第三方类库，只需要修改Podfile文件就可以了，如下：<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1es47jgxnhvj20ko05i3zm.jpg" alt=""></p>
 <blockquote>
-<p>   NOTE:</p>
-<p>   自己创建的Xib与控制器关联需要两步：</p>
-<p>   1.将xib与自己的控制器类究竟强行管理关联</p>
-<p>   2.xi的view与控制器的view进行关联</p>
+<p>NOTE:</p>
+<p>怎么样，过程很简单吧。只需要: 1.查询 2.修改Podfile文件 3.安装 即可完成!</p>
 </blockquote>
-<h3 id="1-3-2_控件的添加">1.3.2 控件的添加</h3><p> 使用方式就是大家经常所说的托控件，只需要将右下角的控件拖到我们页面中：<br> <img src="http://ww1.sinaimg.cn/large/9c2363adgw1eo7pwi0fvzj21kw0yeags.jpg" alt=""></p>
-<p> 我们把控件都摆放好位置之后，运行会发现并不是居中的，这是因为我们Size Classes的关系，大家暂时先不用管，你要做的就是把所有的控件往左边靠，然后摆个大概的位置就好了。</p>
-<h3 id="1-3-3_控件与属性或者事件的绑定">1.3.3 控件与属性或者事件的绑定</h3><p>当我们摆放好控件的位置之后，就可以运行看效果了，这个时候效果都出现没有问题，但是我们会发现点击的时候没有作用，那是因为我们还没有给控件绑定事件，那么，该如何做呢？</p>
-<p>打开<code>Assistant Editor</code>编辑模式，也就是同时可以显示两个类的文件的模式，左侧显示我们的xib文件，右侧显示xib文件对应的控制器。</p>
-<p>正式开始拖线，选中要生成属性的控件，按住<code>Control</code>键，拖动到右侧，就会出现如下效果：</p>
-<p><img src="http://ww2.sinaimg.cn/large/9c2363adgw1eo7s4ekfjyj21a80sin2n.jpg" alt=""></p>
-<p>松开手后，你会看到这样一个框：<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1eo7qn53z9kj20fg0860th.jpg" alt=""></p>
-<p>connection中选择默认的Outlet，意思是生成一个属性。然后在Name中输入属性的名字，其它地方不用修改，选择，Connect按钮。这样我们就将控件与控制器中的一个属性关联起来了。</p>
-<p><img src="http://ww1.sinaimg.cn/large/9c2363adgw1eo7qx1mei1j20fg096dgq.jpg" alt=""></p>
-<p>拖动按钮的事件几乎相同，选中一个button，然后按住<code>Control</code>键进行拖动，刚刚connection中不再是选择Outlet，而是选择Action，Name的位置填写事件方法的名称，type的位置填写生成方法的参数类型，其它默认，然后点击Connect按钮，进行事件的创建。</p>
-<p>创建好了事件之后，我们去实现事件方法，效果很简单：点击按钮，显示输入的用户名和密码：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - 按钮事件</span></span><br><span class="line"><span class="preprocessor">#pragma mark 登录</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)loginButtonAction:(<span class="built_in">UIButton</span> *)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *messageStr = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@\n%@"</span>, _userNameTextField<span class="variable">.text</span>, _passwordTextField<span class="variable">.text</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIAlertController</span> *alertC = [<span class="built_in">UIAlertController</span> alertControllerWithTitle:<span class="string">@"提示"</span> message:messageStr preferredStyle:<span class="built_in">UIAlertControllerStyleAlert</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIAlertAction</span> *cancelAlertAction = [<span class="built_in">UIAlertAction</span> actionWithTitle:<span class="string">@"取消"</span> style:<span class="built_in">UIAlertActionStyleCancel</span> handler:^(<span class="built_in">UIAlertAction</span> *action) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"取消按钮"</span>);</span><br><span class="line">    &#125;];</span><br><span class="line">    [alertC addAction:cancelAlertAction];</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span> showDetailViewController:alertC sender:<span class="literal">nil</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="1-4_可视化编程有什么优势？">1.4 可视化编程有什么优势？</h2><ul>
-<li>xib让我们创建应用程序的页面更加的快速，节省了更多的时间</li>
-<li>快速的帮助我们创建出来了属性和方法，还是节省了很多的时间</li>
-<li>xib比较简洁，只描述了当前页面的一些内容</li>
-<li>所见即所得，比代码直观</li>
-</ul>
+<h3 id="其他">其他</h3><p>当我们想要重新安装CocoaPods的时候，需要卸载这个东西，很简单，只需要执行以下命令即可：</p>
+<p><code>$ sudo gem uninstall CocoaPods</code></p>
+<p>如果安装了多个版本，选择All，即可全部卸载！</p>
+<p>第三方版本号的各种写法与含义：</p>
+<p>```pod ‘AFNetworking’      //不显式指定依赖库版本，表示每次都获取最新版本<br>pod ‘AFNetworking’,  ‘2.0’     //只使用2.0版本<br>pod ‘AFNetworking’, ‘&gt;2.0’     //使用高于2.0的版本<br>pod ‘AFNetworking’, ‘&gt;=2.0’     //使用大于或等于2.0的版本<br>pod ‘AFNetworking’, ‘<2.0' 使用小于2.0的版本="" pod="" 'afnetworking',="" '<="2.0'" 使用小于或等于2.0的版本="" '~="">0.1.2’     //使用大于等于0.1.2但小于0.2的版本，相当于&gt;=0.1.2并且&lt;0.2.0<br>pod ‘AFNetworking’, ‘~&gt;0.1’     //使用大于等于0.1但小于1.0的版本<br>pod ‘AFNetworking’, ‘~&gt;0’     //高于0的版本，写这个限制和什么都不写是一个效果，都表示使用最新版本</2.0'></p>
 </span>
       
     </div>
@@ -304,9 +325,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
+            <a href="/tags/CocoaPosd使用详解/" rel="tag">#CocoaPosd使用详解</a>
           
-            <a href="/tags/可视化编程/" rel="tag">#可视化编程</a>
+            <a href="/tags/工具/" rel="tag">#工具</a>
           
         </div>
       
@@ -315,17 +336,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/12/02/Vim-编辑器/" rel="next" title="Vim 编辑器">
-                <i class="fa fa-chevron-left"></i> Vim 编辑器
+              <a href="/2014/12/23/可视化编程之Storyboard/" rel="next" title="可视化编程之Storyboard">
+                <i class="fa fa-chevron-left"></i> 可视化编程之Storyboard
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2014/12/23/可视化编程之Storyboard/" rel="prev" title="可视化编程之Storyboard">
-                可视化编程之Storyboard <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -445,7 +462,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1_什么是Xib？"><span class="nav-number">1.</span> <span class="nav-text">1.1 什么是Xib？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2_nib又是什么东西？"><span class="nav-number">2.</span> <span class="nav-text">1.2 nib又是什么东西？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-_如何使用"><span class="nav-number">3.</span> <span class="nav-text">1.3. 如何使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1_xib文件的创建"><span class="nav-number">3.1.</span> <span class="nav-text">1.3.1 xib文件的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2_控件的添加"><span class="nav-number">3.2.</span> <span class="nav-text">1.3.2 控件的添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3_控件与属性或者事件的绑定"><span class="nav-number">3.3.</span> <span class="nav-text">1.3.3 控件与属性或者事件的绑定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4_可视化编程有什么优势？"><span class="nav-number">4.</span> <span class="nav-text">1.4 可视化编程有什么优势？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CocoaPosd是什么？"><span class="nav-number">1.</span> <span class="nav-text">CocoaPosd是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装CocoaPosd"><span class="nav-number">2.</span> <span class="nav-text">安装CocoaPosd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用CocoaPods"><span class="nav-number">3.</span> <span class="nav-text">使用CocoaPods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下面创建空的项目，然后使用CocoaPods往项目中导入SDWebImage类库："><span class="nav-number">4.</span> <span class="nav-text">下面创建空的项目，然后使用CocoaPods往项目中导入SDWebImage类库：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">5.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
