@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo博客(搭建、使用)," />
+  <meta name="keywords" content="iOS,真机," />
 
 
 
@@ -51,27 +51,48 @@
 
 
 
-<meta name="description" content="简介
-Hexo是一个很好的博客，个人觉得他的界面干净利落，阅读体验也是很好。初次接触Hexo是在朋友的介绍下才知道的，hexo是需要手动搭建（觉得B格很高），在朋友的帮助下也终于是完成了。开篇记录一下搭建的过程希望能帮助到浏览到这里的朋友我的系统为OS X，windows也可以参考。
-hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github上。">
+<meta name="description" content="1.证书：安装到电脑上的cer文件，只有安装了证书的电脑，才可以进行真机调试
+2.App ID：就是应用程序的Bundle ID，每个应用程序都有一个唯一的Bundle ID，但是我们没必要为每一个应用程序都添加，我们可以使用通配符:*号
+3.测试设备UDID：每台设备都有唯一的标识码，叫做UDID，我们需要将测试设备的UDID添加到账号中，否则无法进行测试
+4.描述文件：里面包含：证书，App">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简单玩转Hexo">
-<meta property="og:url" content="http://yoursite.com/2014/11/19/简单玩转Hexo/index.html">
+<meta property="og:title" content="iOS添加测试设备与调试">
+<meta property="og:url" content="http://yoursite.com/2015/01/18/iOS添加测试设备与调试/index.html">
 <meta property="og:site_name" content="张飞">
-<meta property="og:description" content="简介
-Hexo是一个很好的博客，个人觉得他的界面干净利落，阅读体验也是很好。初次接触Hexo是在朋友的介绍下才知道的，hexo是需要手动搭建（觉得B格很高），在朋友的帮助下也终于是完成了。开篇记录一下搭建的过程希望能帮助到浏览到这里的朋友我的系统为OS X，windows也可以参考。
-hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github上。">
-<meta property="og:image" content="http://i13.tietuku.com/328dad03b5d45c6a.png">
-<meta property="og:image" content="http://i13.tietuku.com/a866c741cacf10af.png">
-<meta property="og:image" content="http://img-storage.qiniudn.com/15-11-3/92193733.jpg">
-<meta property="og:image" content="http://i13.tietuku.com/4614dd21ce29ef47.png">
-<meta property="og:image" content="http://i13.tietuku.com/ea3165bdd678afb9.png">
-<meta property="og:updated_time" content="2015-11-27T09:53:56.000Z">
+<meta property="og:description" content="1.证书：安装到电脑上的cer文件，只有安装了证书的电脑，才可以进行真机调试
+2.App ID：就是应用程序的Bundle ID，每个应用程序都有一个唯一的Bundle ID，但是我们没必要为每一个应用程序都添加，我们可以使用通配符:*号
+3.测试设备UDID：每台设备都有唯一的标识码，叫做UDID，我们需要将测试设备的UDID添加到账号中，否则无法进行测试
+4.描述文件：里面包含：证书，App">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvdzn1oh9j20ic08jjrw.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvbbcl3hdj21ba0yewkl.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvbfai0z2j21j80vkjye.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1esvbhe4mqmj21hm12mthp.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvbi3peeij214m0pkq6y.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvbj2vozhj21200g0q5a.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvbk8t4i3j215410kdn3.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1esvbmn71wvj20py0fwdjm.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvbnhpmmzj20y80o8whn.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvbp13bymj20nk09gmy0.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvbpz7mttj21500t4tdl.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvbrqc35hj214k0wsgqa.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvc205aqij21hy0k2tc6.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvc3c19y9j214u0todjq.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvc5elesxj214w0tmq93.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvc8iw99cj213812wjw4.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvc9w26pmj20vy0nadhl.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvcoz1pbgj20ee0hs3zg.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvcq5u045j215403k0t2.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1esvcrvzzajj20iy0g0wgc.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvcsm92wvj21900xcwop.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvcu1vlbaj212e0sqq69.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvcutfvnhj21520w60wz.jpg">
+<meta property="og:updated_time" content="2015-11-28T13:40:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="简单玩转Hexo">
-<meta name="twitter:description" content="简介
-Hexo是一个很好的博客，个人觉得他的界面干净利落，阅读体验也是很好。初次接触Hexo是在朋友的介绍下才知道的，hexo是需要手动搭建（觉得B格很高），在朋友的帮助下也终于是完成了。开篇记录一下搭建的过程希望能帮助到浏览到这里的朋友我的系统为OS X，windows也可以参考。
-hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github上。">
+<meta name="twitter:title" content="iOS添加测试设备与调试">
+<meta name="twitter:description" content="1.证书：安装到电脑上的cer文件，只有安装了证书的电脑，才可以进行真机调试
+2.App ID：就是应用程序的Bundle ID，每个应用程序都有一个唯一的Bundle ID，但是我们没必要为每一个应用程序都添加，我们可以使用通配符:*号
+3.测试设备UDID：每台设备都有唯一的标识码，叫做UDID，我们需要将测试设备的UDID添加到账号中，否则无法进行测试
+4.描述文件：里面包含：证书，App">
 
 
 
@@ -83,7 +104,7 @@ hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网
   };
 </script>
 
-  <title> 简单玩转Hexo | 张飞 </title>
+  <title> iOS添加测试设备与调试 | 张飞 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -213,7 +234,7 @@ hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网
             
             
               
-                简单玩转Hexo
+                iOS添加测试设备与调试
               
             
           </h1>
@@ -222,8 +243,8 @@ hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-11-19T14:06:53+08:00" content="2014-11-19">
-              2014-11-19
+            <time itemprop="dateCreated" datetime="2015-01-18T21:14:28+08:00" content="2015-01-18">
+              2015-01-18
             </time>
           </span>
 
@@ -232,8 +253,8 @@ hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/兴趣篇/" itemprop="url" rel="index">
-                    <span itemprop="name">兴趣篇</span>
+                  <a href="/categories/技术篇/" itemprop="url" rel="index">
+                    <span itemprop="name">技术篇</span>
                   </a>
                 </span>
 
@@ -261,115 +282,36 @@ hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网
       
 
       
-        <span itemprop="articleBody"><h1 id="简介">简介</h1><hr>
-<p>Hexo是一个很好的博客，个人觉得他的界面干净利落，阅读体验也是很好。初次接触Hexo是在朋友的介绍下才知道的，hexo是需要手动搭建（觉得B格很高），在朋友的帮助下也终于是完成了。<br>开篇记录一下搭建的过程希望能帮助到浏览到这里的朋友<br>我的系统为OS X，windows也可以参考。</p>
-<p>hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github上。</p>
+        <span itemprop="articleBody"><p><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvdzn1oh9j20ic08jjrw.jpg" alt=""></p>
+<blockquote>
+<p>1.证书：安装到电脑上的<code>cer</code>文件，只有安装了证书的电脑，才可以进行真机调试</p>
+<p>2.App ID：就是应用程序的<code>Bundle ID</code>，每个应用程序都有一个唯一的<code>Bundle ID</code>，但是我们没必要为每一个应用程序都添加，我们可以使用通配符:<code>*</code>号</p>
+<p>3.测试设备UDID：每台设备都有唯一的标识码，叫做UDID，我们需要将测试设备的UDID添加到账号中，否则无法进行测试</p>
+<p>4.描述文件：里面包含：<code>证书</code>，<code>App ID</code>，<code>测试设备UDID</code>。就是用来描述，哪台电脑可以进行测试，哪台真机可以测试，哪个应用程序可以测试</p>
+</blockquote>
 <a id="more"></a>
-<h1 id="怎样搭建hexo博客">怎样搭建hexo博客</h1><p>–</p>
-<h3 id="安装Git">安装Git</h3><p>作用：把本地的hexo内容提交到github上。</p>
-<p>安装Xcode就自带Git，这步可以忽略。</p>
-<h3 id="安装Node-js">安装Node.js</h3><p>作用：用来生成静态页面的。</p>
-<p>到<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>官网下载就OK。</p>
-<h3 id="安装Hexo">安装Hexo</h3><p>Node和Git都安装好后，可执行如下命令安装hexo:</p>
-<pre><code>npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> hexo</span>
-</code></pre><h3 id="初始化">初始化</h3><p>我们可以创建一个新文件夹作为hexo的安装目录，把所有的hexo文件都放里面，主要是为了方便管理。<br>然后，执行init命令初始化Hexo到你指定目录：（以下有两种方式初始化）</p>
-<p>方式一：直接指定目录</p>
-<pre><code>hexo init folder
-<span class="string">folder:</span>是制定目录的文件路径。例：<span class="regexp">/Documents/</span>hexo
-</code></pre><p>方式二：进入指定目录（cd / 文件夹路径）</p>
-<pre><code><span class="title">hexo</span> init
-</code></pre><p>终端执行成功后显示结果：</p>
-<pre><code>[info] Copying data
-[info] You are almost done! Don't forget <span class="keyword">to</span> <span class="command">run</span> `npm install` <span class="keyword">before</span> start blogging <span class="keyword">with</span> Hexo!
-</code></pre><h3 id="安装依赖包">安装依赖包</h3><pre><code>sudo npm <span class="keyword">install</span>
-</code></pre><h3 id="生成静态页">生成静态页</h3><p>cd 到你的hexo安装目录（工作目录），执行如下命令</p>
-<pre><code>hexo <span class="keyword">generate</span> 简写 hexo <span class="keyword">g</span>
-</code></pre><p>必须到你新建的hexo安装目录下执行，否则不成功</p>
-<h3 id="生成静态网页，本地启动测试">生成静态网页，本地启动测试</h3><pre><code>hexo <span class="keyword">server</span> 简写 hexo s
-</code></pre><p>到此本地服务已经完成，可以再浏览器中输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a>进行查看。接下来需要把我们创建的静态页面托管到github上，别人才能访问到</p>
-<h2 id="问题">问题</h2><p>这里可能会出现一些问题导致本地的预览界面出不来</p>
-<ul>
-<li><p>问题1：</p>
-<pre><code>Besides,utilities are separated into <span class="tag">a</span> standalone<span class="class">.hexo</span><span class="class">.util</span> is not
-reachable anymore.
-</code></pre><p>解决方法：（执行命令）</p>
-<pre><code>npm <span class="operator"><span class="keyword">install</span> hexo-<span class="keyword">server</span> <span class="comment">--save</span></span>
-</code></pre></li>
-<li>问题2：</li>
-</ul>
-<p>什么都没有显示或者显示<code>Cannot GET/</code></p>
-<p>解决方法，由于2.6以后就更新了，我们需要手动配置些东西，执行命令：</p>
-<pre><code>npm <span class="operator"><span class="keyword">install</span> hexo-renderer-ejs <span class="comment">--save</span>
-或
-npm <span class="keyword">install</span> hexo-renderer-stylus <span class="comment">--save</span>
-或
-npm <span class="keyword">install</span> hexo-renderer-marked <span class="comment">--save    </span></span>
-</code></pre><h2 id="部署到Github账号">部署到Github账号</h2><h3 id="注册Github账号">注册Github账号</h3><p>这里就不再赘述，已有Github账号可以跳过此步骤。没有的点击<a href="">官网</a>去注册。</p>
-<h3 id="新建repository（仓库）">新建repository（仓库）</h3><p>登陆Github账号后，点击右上角的“+”号按钮，选择“New repository”<br><img src="http://i13.tietuku.com/328dad03b5d45c6a.png" alt=""></p>
-<p>在Create a new repository界面填写格式如下图所示: 用户名.github.io</p>
-<p>填写完成点Create repository创建完成</p>
-<p><img src="http://i13.tietuku.com/a866c741cacf10af.png" alt=""></p>
-<h3 id="生成SSH_Keys：">生成SSH Keys：</h3><p>我们如何让本地git项目与远程的github建立联系？这时候就要用到SSH Keys</p>
+<h3 id="1-添加证书">1.添加证书</h3><p>1.首先，我们需要先登录开发者中心： <a href="https://developer.apple.com" target="_blank" rel="external">开发者中心</a>，注意，需要使用付费过的账号<br>2.点击开发者中心（Member Center）来到如下页面，然后点击选中区域，准备进行证书的生成<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvbbcl3hdj21ba0yewkl.jpg" alt=""><br>3.我们可以看到开发的三种方向，我们自然会选择<code>iOS开发方向</code>的内容，苹果已经告诉了我们操作的流程，分别是：<code>证书</code>、<code>应用程序标识</code>、<code>测试设备</code>、<code>描述文件</code>，我们按照步骤操作就好了，点击<code>Certificates</code><br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvbfai0z2j21j80vkjye.jpg" alt=""></p>
+<p>4.选择<code>Certificates</code>下的<code>Pending</code>，在右侧点击<code>Certificate Signing Request</code>，或者<code>右上角的添加按钮</code>，都可以进行证书的添加<br><img src="http://ww4.sinaimg.cn/large/9c2363adgw1esvbhe4mqmj21hm12mthp.jpg" alt=""><br>5.选择真机调试的证书，下面的选项是添加远程推送的证书的，后面的文章中再介绍<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvbi3peeij214m0pkq6y.jpg" alt=""><br>6.直接点击本页下面的<code>Continue</code>按钮，继续操作<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvbj2vozhj21200g0q5a.jpg" alt=""><br>7.这个页面Balabalabala了很多，直接<code>Continue</code>按钮继续，忽略它<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvbk8t4i3j215410kdn3.jpg" alt=""><br>8.这里需要我们在电脑上创建一个证书，然后上传。在Mac电脑商找到<code>钥匙</code>串应用程序，在菜单里找到<code>证书助理</code>，然后选择<code>从证书颁发机构请求证书</code>，如下：<br><img src="http://ww4.sinaimg.cn/large/9c2363adgw1esvbmn71wvj20py0fwdjm.jpg" alt=""><br>9.重点就是选择存储到本地磁盘，其他内容随意，你喜欢就好<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvbnhpmmzj20y80o8whn.jpg" alt=""><br>10.之后会生成一个后缀是：<code>.certSigningRequest</code>的文件，保存到桌面<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvbp13bymj20nk09gmy0.jpg" alt=""><br>11.刚刚在电脑上创建的证书，需要上传，回到刚刚的网页，选择<code>Choose File...</code>按钮，上传刚刚生成的证书<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvbpz7mttj21500t4tdl.jpg" alt=""><br>12.点击<code>Generate</code>按钮，生成我们需要的证书<br>13.生成之后，点击<code>Download</code>按钮，下载证书到本地，准备后面使用!<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvbrqc35hj214k0wsgqa.jpg" alt=""></p>
 <blockquote>
-<p>生成SSH Keys</p>
+<p>注意：一个账号只能生成一个真机调试证书，多个人只需要使用这一个即可。</p>
+<p>证书已经生成完毕，下面要做的就是注册App ID。</p>
 </blockquote>
-<p>  使用ssh-keygen命令生成密钥对</p>
-<pre><code>ssh-keygen -t rsa -<span class="keyword">C</span> <span class="string">"这里是你申请Github账号时的邮箱"</span>
-</code></pre><p>然后系统会要你输入密码：（我们输入的密码会在你提交项目的时候使用）</p>
-<pre><code>Enter passphrase (empty <span class="keyword">for</span> no passphrase):<span class="variable">&lt;输入加密串&gt;</span>
-Enter same passphrase again:<span class="variable">&lt;再次输入加密串&gt;</span>
-</code></pre><p>（终端提示生成的文件路径）找到你生成的密钥找到id_rsa.pub用终端进入编辑，复制密钥。</p>
-<p><img src="http://img-storage.qiniudn.com/15-11-3/92193733.jpg" alt=""></p>
+<h3 id="2-注册APP_ID">2.注册APP ID</h3><p>1.点击左侧<code>Identifiers</code>下面的<code>App IDs</code>，再点击右上角的<code>加号按钮</code>，进行我们App ID的添加<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvc205aqij21hy0k2tc6.jpg" alt=""></p>
+<p>2.在Name输入框中，输入App ID的描述<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvc3c19y9j214u0todjq.jpg" alt=""><br>3.下面是让我们填写App ID的前缀，我们选择下面的模糊填写方式，就是可以使用<code>*</code>号来代替所有。上面需要输入精确的App ID。如果选择<code>Explicit App ID</code>，可以进行更多功能的测试，例如：Game Center、App Group、Push Notifications等等。但是，该App ID只能针对一个应用程序使用。我们现在添加通用的，所以选择下面的<code>Wildcard App ID</code>，输入类似<code>com.公司名.*</code>的标示符，也可以使用一个<code>*</code>号，代表所有：<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvc5elesxj214w0tmq93.jpg" alt=""><br>4.上面填好内容之后，滑到下面，选择<code>Continue</code>继续<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvc8iw99cj213812wjw4.jpg" alt=""><br>5.下面是让我们确认选中的内容，保证自己选择的内容无误后，点击<code>Submit</code>按钮，进行提交<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvc9w26pmj20vy0nadhl.jpg" alt=""></p>
 <blockquote>
-<p>添加你的SSH Key到ssh-agent</p>
+<p>注意：我们刚刚创建的是通用证书，不可进行远程推送的测试。如果需要测试更多功能，需要添加<code>Explict App ID</code>类型的App ID。</p>
+<p>App ID添加成功，下面，我们需要添加测试设备。</p>
 </blockquote>
-<pre><code><span class="comment">//在后台打开 ssh-agent</span>
-<span class="built_in">eval</span> <span class="string">"$(ssh-agent -s)"</span>
-
-添加你的SSH Key到ssh-agent
-ssh-add ~<span class="regexp">/.ssh/i</span>d_rsa
-</code></pre><h3 id="添加SSH_Key到Github：">添加SSH Key到Github：</h3><blockquote>
-<p>添加SSH Key</p>
+<h3 id="3-添加测试设备">3.添加测试设备</h3><p>1.选择左侧<code>Devices</code>下的<code>All</code>，然后点击右上角的<code>添加</code>按钮，进行真机设备的添加<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvcoz1pbgj20ee0hs3zg.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvcq5u045j215403k0t2.jpg" alt=""><br>2.这里需要我们输入测试设备的名称(内容任意)和设备的UDID，那么，到哪里查看设备的UDID呢？<br>使用数据线，将设备与电脑连接，打开<code>XCode</code>，点击菜单栏中的<code>Window</code>选项，选择<code>Devices</code>选项：<br><img src="http://ww4.sinaimg.cn/large/9c2363adgw1esvcrvzzajj20iy0g0wgc.jpg" alt=""><br>3.进到如下页面，选中你的设备，在右侧可以看到<code>Identifier</code>，右击拷贝其内容<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvcsm92wvj21900xcwop.jpg" alt=""></p>
+<ol>
+<li>然后将获取到的UDID粘贴到输入框中，直接点击<code>Continue</code>按钮，继续<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvcu1vlbaj212e0sqq69.jpg" alt=""></li>
+<li>确认内容无误，然后点击<code>Register</code>按钮，确认注册<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvcutfvnhj21520w60wz.jpg" alt=""><br>6.至此，我们添加了测试设备，马上就可以测试啦，继续..<blockquote>
+<p>注意：每个账号可以添加100个测试设备，即便使设备不可以，也是占用名额的，需要过完一年之后，才会自动清空。</p>
+<p>下面，生成描述文件，马上就快哦了..</p>
 </blockquote>
-<p>通过命令复制SSH Key内容到系统剪贴板</p>
-<pre><code>pbcopy &lt; ~<span class="regexp">/.ssh/id</span>_rsa.pub
-</code></pre><p>登陆Github,点击右侧用户按钮，选择Settings<br><img src="http://i13.tietuku.com/4614dd21ce29ef47.png" alt=""></p>
-<p>点击Add SSH Key 按钮， 将复制的秘钥粘贴到Key 栏</p>
-<p><img src="http://i13.tietuku.com/ea3165bdd678afb9.png" alt=""></p>
-<blockquote>
-<p>测试能不能连接成功</p>
-</blockquote>
-<pre><code><span class="title">ssh</span> -T git<span class="variable">@github</span>.com
-</code></pre><p>执行结果</p>
-<pre><code>Permanently added <span class="keyword">the</span> RSA host key <span class="keyword">for</span> IP address '<span class="number">192.30</span><span class="number">.252</span><span class="number">.130</span>' <span class="keyword">to</span> <span class="keyword">the</span> <span class="type">list</span> <span class="keyword">of</span> known hosts.
-Are you sure you want <span class="keyword">to</span> <span class="keyword">continue</span> connecting (yes/no)?&lt;输入yes&gt;
-Hi username! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span>
-</code></pre><p>现在你已经可以通过SSH链接到Github了</p>
-<p>如果有问题，请再配置。参考网站</p>
-<h3 id="部署">部署</h3><p>编辑 _config.yml(在你的工作目录下)，把下面的your_username换成你的github用户名</p>
-<pre><code><span class="attribute">deploy</span>:
-      <span class="attribute">type</span>: git 
-      <span class="attribute">repo</span>: <span class="attribute">https</span>:<span class="comment">//github.com/your_username/    your_username.github.io.git</span>
-<span class="attribute">branch</span>: master
-</code></pre><p>执行部署命令：</p>
-<pre><code><span class="title">hexo</span> henerate
-hexo deploy
-</code></pre><ul>
-<li><p>问题1</p>
-<p>部署时出现：Error: EACCES, open ‘/Users/Desktop/hexo/public/js/script.js’<br>原因：权限问题在部署命令前加sudo</p>
 </li>
-<li><p>问题2</p>
-<p>deployer找不到git: ERROR Deployer not found: git</p>
-<p>解决方法:<code>npm install hexo-deployer-git –save</code></p>
-</li>
-<li><p>问题3</p>
-<pre><code>{ [<span class="string">Error:</span> Cannot find module <span class="string">'./build/Release/DTraceProviderBindings'</span>] <span class="string">code:</span> <span class="string">'MODULE_NOT_FOUND'</span> }
-{ [<span class="string">Error:</span> Cannot find module <span class="string">'./build/default/DTraceProviderBindings'</span>] <span class="string">code:</span> <span class="string">'MODULE_NOT_FOUND'</span> }
-{ [<span class="string">Error:</span> Cannot find module <span class="string">'./build/Debug/DTraceProviderBindings'</span>] <span class="string">code:</span> <span class="string">'MODULE_NOT_FOUND'</span> }
-</code></pre><p>解决方法：<br><code>npm install hexo --no-optional</code></p>
-</li>
-</ul>
-</span>
+</ol>
+<h3 id="4-生成描述文件">4.生成描述文件</h3></span>
       
     </div>
 
@@ -377,7 +319,9 @@ hexo deploy
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo博客-搭建、使用/" rel="tag">#Hexo博客(搭建、使用)</a>
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/真机/" rel="tag">#真机</a>
           
         </div>
       
@@ -386,13 +330,13 @@ hexo deploy
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2015/01/11/CocoaPosd详解/" rel="next" title="CocoaPosd详解">
+                <i class="fa fa-chevron-left"></i> CocoaPosd详解
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2014/11/25/如何写一篇hexo博客/" rel="prev" title="如何写一篇hexo博客">
-                如何写一篇hexo博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -512,7 +456,7 @@ hexo deploy
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#怎样搭建hexo博客"><span class="nav-number">2.</span> <span class="nav-text">怎样搭建hexo博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Git"><span class="nav-number">2.0.1.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Node-js"><span class="nav-number">2.0.2.</span> <span class="nav-text">安装Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.0.3.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">2.0.4.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装依赖包"><span class="nav-number">2.0.5.</span> <span class="nav-text">安装依赖包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成静态页"><span class="nav-number">2.0.6.</span> <span class="nav-text">生成静态页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成静态网页，本地启动测试"><span class="nav-number">2.0.7.</span> <span class="nav-text">生成静态网页，本地启动测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">2.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到Github账号"><span class="nav-number">2.2.</span> <span class="nav-text">部署到Github账号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册Github账号"><span class="nav-number">2.2.1.</span> <span class="nav-text">注册Github账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建repository（仓库）"><span class="nav-number">2.2.2.</span> <span class="nav-text">新建repository（仓库）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成SSH_Keys："><span class="nav-number">2.2.3.</span> <span class="nav-text">生成SSH Keys：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加SSH_Key到Github："><span class="nav-number">2.2.4.</span> <span class="nav-text">添加SSH Key到Github：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署"><span class="nav-number">2.2.5.</span> <span class="nav-text">部署</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-添加证书"><span class="nav-number">1.</span> <span class="nav-text">1.添加证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-注册APP_ID"><span class="nav-number">2.</span> <span class="nav-text">2.注册APP ID</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-添加测试设备"><span class="nav-number">3.</span> <span class="nav-text">3.添加测试设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-生成描述文件"><span class="nav-number">4.</span> <span class="nav-text">4.生成描述文件</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
