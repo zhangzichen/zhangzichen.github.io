@@ -86,7 +86,19 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvcsm92wvj21900xcwop.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvcu1vlbaj212e0sqq69.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvcutfvnhj21520w60wz.jpg">
-<meta property="og:updated_time" content="2015-11-28T13:40:14.000Z">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvd190zonj20de0egwf5.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1esvd2uyq15j214y044mxn.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1esvd3g8o9jj21520y6n1m.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvd4l46qzj214u0vqwiz.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvdmvuijpj212m0t241q.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1esvd6hohisj213e11qtd2.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvd900f3aj20z20s477b.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvda0i745j20zk0ygwi3.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1esvdfao8hsj20fs07m408.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvdhoskspj214k0nwq5n.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1esvdjoue3bj21bk0k8q6q.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1esvdkuasu5j20ku02umxl.jpg">
+<meta property="og:updated_time" content="2015-11-29T07:18:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS添加测试设备与调试">
 <meta name="twitter:description" content="1.证书：安装到电脑上的cer文件，只有安装了证书的电脑，才可以进行真机调试
@@ -311,7 +323,15 @@
 </blockquote>
 </li>
 </ol>
-<h3 id="4-生成描述文件">4.生成描述文件</h3></span>
+<h3 id="4-生成描述文件">4.生成描述文件</h3><p>1.选择<code>Provisioning Profiles</code>下面的<code>All</code>：<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvd190zonj20de0egwf5.jpg" alt=""></p>
+<p>2.然后点击右上角的<code>添加</code>按钮，进行描述文件的生成<br><img src="http://ww4.sinaimg.cn/large/9c2363adgw1esvd2uyq15j214y044mxn.jpg" alt=""></p>
+<p>3.我们要做的是测试，所以选择<code>iOS App Development</code>，之后<code>Continue</code>按钮继续<br><img src="http://ww4.sinaimg.cn/large/9c2363adgw1esvd3g8o9jj21520y6n1m.jpg" alt=""><br>4.描述文件中，需要App ID，这里选择我们刚刚生成的App ID<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvd4l46qzj214u0vqwiz.jpg" alt=""><br>5.描述文件中，需要证书，在这里选择我们刚刚创建的证书<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvdmvuijpj212m0t241q.jpg" alt=""><br>6.描述文件中，需要测试设备，这里直接选择<code>Select All</code>，可以让所有的测试设备都可以测试，然后点击<code>Continue</code>按钮继续<br><img src="http://ww4.sinaimg.cn/large/9c2363adgw1esvd6hohisj213e11qtd2.jpg" alt=""><br>7.添加了需要的信息后，输入描述文件的名称，然后点击<code>Generate</code>按钮，生成描述文件<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvd900f3aj20z20s477b.jpg" alt=""><br>8.生成描述文件之后，点击Download按钮，下载到本地，准备使用<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvda0i745j20zk0ygwi3.jpg" alt=""></p>
+<blockquote>
+<p>注意：描述文件生成需要:<code>1.App ID</code> <code>2.证书</code> <code>3.添加到此描述文件中的设备</code>，这三样，缺一不可</p>
+<p>OK，证书和描述文件都生成了，只差一步，马上大功告成。</p>
+</blockquote>
+<h3 id="5-导入证书和描述文件">5.导入证书和描述文件</h3><p>1.将测试设备使用数据线连接电脑，双击证书和描述文件，分别安装到电脑和测试设备上，之后就可以测试了<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1esvdfao8hsj20fs07m408.jpg" alt=""><br>2.创建空的工程，注意：这里输入的内容，需要与注册App ID输入的一直，如果注册的时候使用的是一个<code>*</code>号，则这里任意<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvdhoskspj214k0nwq5n.jpg" alt=""><br>3.注意点：这里选的版本需要小于等于你测试机的版本，否则测试机无法使用<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1esvdjoue3bj21bk0k8q6q.jpg" alt=""><br>4.最后一步，将测试设备选成真机，然后<code>cmd + R</code>运行就哦啦<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1esvdkuasu5j20ku02umxl.jpg" alt=""></p>
+</span>
       
     </div>
 
@@ -456,7 +476,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-添加证书"><span class="nav-number">1.</span> <span class="nav-text">1.添加证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-注册APP_ID"><span class="nav-number">2.</span> <span class="nav-text">2.注册APP ID</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-添加测试设备"><span class="nav-number">3.</span> <span class="nav-text">3.添加测试设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-生成描述文件"><span class="nav-number">4.</span> <span class="nav-text">4.生成描述文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-添加证书"><span class="nav-number">1.</span> <span class="nav-text">1.添加证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-注册APP_ID"><span class="nav-number">2.</span> <span class="nav-text">2.注册APP ID</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-添加测试设备"><span class="nav-number">3.</span> <span class="nav-text">3.添加测试设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-生成描述文件"><span class="nav-number">4.</span> <span class="nav-text">4.生成描述文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-导入证书和描述文件"><span class="nav-number">5.</span> <span class="nav-text">5.导入证书和描述文件</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
