@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS,可视化编程," />
+  <meta name="keywords" content="Hexo博客(搭建、使用),hexo 站内搜索," />
 
 
 
@@ -51,26 +51,32 @@
 
 
 
-<meta name="description" content="1.1 什么是Xib？xib就是一种文件的后缀，我们要使用Interface Builder工具对它进行编辑。xib的作用就是描绘页面中的布局，可以让我们及时看到效果，并且也比代码要方便快速的多。">
+<meta name="description" content="利用swiftype为hexo添加站内搜索有了博客，写了辣么多文章没有站内搜索功能怎么行！废话不说开始吧。
+到swiftype网站注册账号首先，要去swiftype的网站https://swiftype.com注册一个账号，然后根据指引建立好自己网站对应的索引。对了有人说注册以后是30天试用，这个没关系，网站给的是30天高级账户的使用（那种有可以建立多个搜索引擎、多账户共同管理、一个引擎index">
 <meta property="og:type" content="article">
-<meta property="og:title" content="可视化编程之-Xib">
-<meta property="og:url" content="http://yoursite.com/2014/12/27/可视化编程之-Xib/index.html">
+<meta property="og:title" content="Swiftype添加站内搜索">
+<meta property="og:url" content="http://yoursite.com/2015/01/27/Swiftype添加站内搜索/index.html">
 <meta property="og:site_name" content="张飞">
-<meta property="og:description" content="1.1 什么是Xib？xib就是一种文件的后缀，我们要使用Interface Builder工具对它进行编辑。xib的作用就是描绘页面中的布局，可以让我们及时看到效果，并且也比代码要方便快速的多。">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1eo7p5ta6mfj21kw148ae6.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1eo7pppa1nhj20be0dwmy3.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1eo7re14u6wj214k0nwdi0.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/9c2363adgw1eo7rh05g5gj214k0nwgos.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/9c2363adgw1eo7rk9hhm0j21kw14k0y3.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1eo7rn9la4gj20y40ecwgm.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1eo7pwi0fvzj21kw0yeags.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1eo7s4ekfjyj21a80sin2n.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/9c2363adgw1eo7qn53z9kj20fg0860th.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/9c2363adgw1eo7qx1mei1j20fg096dgq.jpg">
-<meta property="og:updated_time" content="2015-11-28T03:12:18.000Z">
+<meta property="og:description" content="利用swiftype为hexo添加站内搜索有了博客，写了辣么多文章没有站内搜索功能怎么行！废话不说开始吧。
+到swiftype网站注册账号首先，要去swiftype的网站https://swiftype.com注册一个账号，然后根据指引建立好自己网站对应的索引。对了有人说注册以后是30天试用，这个没关系，网站给的是30天高级账户的使用（那种有可以建立多个搜索引擎、多账户共同管理、一个引擎index">
+<meta property="og:image" content="http://i5.tietuku.com/ac4a8c51a6325812.png">
+<meta property="og:image" content="http://www.jerryfu.net/img/search-engine-for-hexo-with-swiftype-v2/2.jpg">
+<meta property="og:image" content="http://i5.tietuku.com/aa499a1200b4e7ac.png">
+<meta property="og:image" content="http://i5.tietuku.com/a29b2d4d88f6c370.png">
+<meta property="og:image" content="http://i12.tietuku.com/5243bceb97eba65a.png">
+<meta property="og:image" content="http://www.jerryfu.net/img/search-engine-for-hexo-with-swiftype-v2/9.jpg">
+<meta property="og:image" content="http://i12.tietuku.com/795de0220d9b2bf8.png">
+<meta property="og:image" content="http://i12.tietuku.com/36b26daa6290f980.png">
+<meta property="og:image" content="http://www.jerryfu.net/img/search-engine-for-hexo-with-swiftype-v2/14.jpg">
+<meta property="og:image" content="http://i12.tietuku.com/d17740d0b30177a3.png">
+<meta property="og:image" content="http://i12.tietuku.com/c7a13a10340eb487.png">
+<meta property="og:image" content="http://i12.tietuku.com/8532254cdff8371a.png">
+<meta property="og:image" content="http://i5.tietuku.com/f54d8f83f2625c6f.png">
+<meta property="og:updated_time" content="2015-11-30T14:29:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="可视化编程之-Xib">
-<meta name="twitter:description" content="1.1 什么是Xib？xib就是一种文件的后缀，我们要使用Interface Builder工具对它进行编辑。xib的作用就是描绘页面中的布局，可以让我们及时看到效果，并且也比代码要方便快速的多。">
+<meta name="twitter:title" content="Swiftype添加站内搜索">
+<meta name="twitter:description" content="利用swiftype为hexo添加站内搜索有了博客，写了辣么多文章没有站内搜索功能怎么行！废话不说开始吧。
+到swiftype网站注册账号首先，要去swiftype的网站https://swiftype.com注册一个账号，然后根据指引建立好自己网站对应的索引。对了有人说注册以后是30天试用，这个没关系，网站给的是30天高级账户的使用（那种有可以建立多个搜索引擎、多账户共同管理、一个引擎index">
 
 
 
@@ -82,7 +88,7 @@
   };
 </script>
 
-  <title> 可视化编程之-Xib | 张飞 </title>
+  <title> Swiftype添加站内搜索 | 张飞 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -233,7 +239,7 @@
             
             
               
-                可视化编程之-Xib
+                Swiftype添加站内搜索
               
             
           </h1>
@@ -242,8 +248,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-12-27T21:13:26+08:00" content="2014-12-27">
-              2014-12-27
+            <time itemprop="dateCreated" datetime="2015-01-27T21:59:23+08:00" content="2015-01-27">
+              2015-01-27
             </time>
           </span>
 
@@ -252,8 +258,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术篇/" itemprop="url" rel="index">
-                    <span itemprop="name">技术篇</span>
+                  <a href="/categories/兴趣篇/" itemprop="url" rel="index">
+                    <span itemprop="name">兴趣篇</span>
                   </a>
                 </span>
 
@@ -281,42 +287,25 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="1-1_什么是Xib？">1.1 什么是Xib？</h2><p>xib就是一种文件的后缀，我们要使用Interface Builder工具对它进行编辑。xib的作用就是描绘页面中的布局，可以让我们及时看到效果，并且也比代码要方便快速的多。<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1eo7p5ta6mfj21kw148ae6.jpg" alt=""></p>
+        <span itemprop="articleBody"><h2 id="利用swiftype为hexo添加站内搜索">利用swiftype为hexo添加站内搜索</h2><p>有了博客，写了辣么多文章没有站内搜索功能怎么行！废话不说开始吧。</p>
+<h3 id="到swiftype网站注册账号">到swiftype网站注册账号</h3><p>首先，要去swiftype的网站<a href="https://swiftype.com" target="_blank" rel="external">https://swiftype.com</a>注册一个账号，然后根据指引建立好自己网站对应的索引。对了有人说注册以后是30天试用，这个没关系，网站给的是30天高级账户的使用（那种有可以建立多个搜索引擎、多账户共同管理、一个引擎index多个域名的功能的账户），30天到期后你可选择花钱继续用这个高级账户（土豪自便）</p>
 <a id="more"></a>
-<p>当我们使用MVC模式去编写项目的时候，创建了一个UIViewController，它就是MVC中的C，还需要创建一个View，表示MVC中的V。之前我们的做法都是继承UIView类，创建一个自定义View，然后把所有有关视图的代码都写到自定义View中，虽然把Controller类进行了瘦身，但是View中的代码依然看起来让人头疼，每添加一个小控件都需要好几行的代码，一个简单的登录页面，就需要一大段的代码，很烦人。不过有了xib，我们做一个登录页面出来，不仅不需要写代码了，还可以通过拖线的方式把属性、方法都生成，非常的方便。</p>
-<h2 id="1-2_nib又是什么东西？">1.2 nib又是什么东西？</h2><p>项目进行编译之后，xib文件会保存到我们的Bundle中，被编译成了nib文件，</p>
-<p><img src="http://ww2.sinaimg.cn/large/9c2363adgw1eo7pppa1nhj20be0dwmy3.jpg" alt=""></p>
-<p>简单来说，<code>xib</code>就是编译之前的格式，<code>nib</code>就是编译之后的格式。至于你到底叫它xib还是nib，都随你喜欢啦</p>
-<h2 id="1-3-_如何使用">1.3. 如何使用</h2><h3 id="1-3-1_xib文件的创建">1.3.1 xib文件的创建</h3><p>当我们创建视图控制器的时候，我们把这个选项选中，<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1eo7re14u6wj214k0nwdi0.jpg" alt=""></p>
-<p>这样我们就可以创建一个自带xib文件的视图控制器了。</p>
-<p>如果说创建视图控制器的时候忘记勾选了，也不要着急，我们可以单独创建一个xib文件，<br><img src="http://ww3.sinaimg.cn/large/9c2363adgw1eo7rh05g5gj214k0nwgos.jpg" alt=""></p>
-<p>单独创建xib文件的时候，名字最好和它所对应的控制器相同。</p>
-<p>注意，虽然你单独创建出来了xib文件，但是需要注意的是，我们还要将xib和控制器类进行关联，<br>在Class中输入xib对应的控制器的类名，<br><img src="http://ww4.sinaimg.cn/large/9c2363adgw1eo7rk9hhm0j21kw14k0y3.jpg" alt=""></p>
-<p>除了这个，还有：在File’s Owner上右击，会出现黑色的HUD，找到view，右侧有个小圈圈，鼠标放到上面会变成小加号，拖动到xib上。<br><img src="http://ww1.sinaimg.cn/large/9c2363adgw1eo7rn9la4gj20y40ecwgm.jpg" alt=""></p>
-<blockquote>
-<p>   NOTE:</p>
-<p>   自己创建的Xib与控制器关联需要两步：</p>
-<p>   1.将xib与自己的控制器类究竟强行管理关联</p>
-<p>   2.xi的view与控制器的view进行关联</p>
-</blockquote>
-<h3 id="1-3-2_控件的添加">1.3.2 控件的添加</h3><p> 使用方式就是大家经常所说的托控件，只需要将右下角的控件拖到我们页面中：<br> <img src="http://ww1.sinaimg.cn/large/9c2363adgw1eo7pwi0fvzj21kw0yeags.jpg" alt=""></p>
-<p> 我们把控件都摆放好位置之后，运行会发现并不是居中的，这是因为我们Size Classes的关系，大家暂时先不用管，你要做的就是把所有的控件往左边靠，然后摆个大概的位置就好了。</p>
-<h3 id="1-3-3_控件与属性或者事件的绑定">1.3.3 控件与属性或者事件的绑定</h3><p>当我们摆放好控件的位置之后，就可以运行看效果了，这个时候效果都出现没有问题，但是我们会发现点击的时候没有作用，那是因为我们还没有给控件绑定事件，那么，该如何做呢？</p>
-<p>打开<code>Assistant Editor</code>编辑模式，也就是同时可以显示两个类的文件的模式，左侧显示我们的xib文件，右侧显示xib文件对应的控制器。</p>
-<p>正式开始拖线，选中要生成属性的控件，按住<code>Control</code>键，拖动到右侧，就会出现如下效果：</p>
-<p><img src="http://ww2.sinaimg.cn/large/9c2363adgw1eo7s4ekfjyj21a80sin2n.jpg" alt=""></p>
-<p>松开手后，你会看到这样一个框：<br><img src="http://ww2.sinaimg.cn/large/9c2363adgw1eo7qn53z9kj20fg0860th.jpg" alt=""></p>
-<p>connection中选择默认的Outlet，意思是生成一个属性。然后在Name中输入属性的名字，其它地方不用修改，选择，Connect按钮。这样我们就将控件与控制器中的一个属性关联起来了。</p>
-<p><img src="http://ww1.sinaimg.cn/large/9c2363adgw1eo7qx1mei1j20fg096dgq.jpg" alt=""></p>
-<p>拖动按钮的事件几乎相同，选中一个button，然后按住<code>Control</code>键进行拖动，刚刚connection中不再是选择Outlet，而是选择Action，Name的位置填写事件方法的名称，type的位置填写生成方法的参数类型，其它默认，然后点击Connect按钮，进行事件的创建。</p>
-<p>创建好了事件之后，我们去实现事件方法，效果很简单：点击按钮，显示输入的用户名和密码：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - 按钮事件</span></span><br><span class="line"><span class="preprocessor">#pragma mark 登录</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)loginButtonAction:(<span class="built_in">UIButton</span> *)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *messageStr = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@\n%@"</span>, _userNameTextField<span class="variable">.text</span>, _passwordTextField<span class="variable">.text</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIAlertController</span> *alertC = [<span class="built_in">UIAlertController</span> alertControllerWithTitle:<span class="string">@"提示"</span> message:messageStr preferredStyle:<span class="built_in">UIAlertControllerStyleAlert</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIAlertAction</span> *cancelAlertAction = [<span class="built_in">UIAlertAction</span> actionWithTitle:<span class="string">@"取消"</span> style:<span class="built_in">UIAlertActionStyleCancel</span> handler:^(<span class="built_in">UIAlertAction</span> *action) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"取消按钮"</span>);</span><br><span class="line">    &#125;];</span><br><span class="line">    [alertC addAction:cancelAlertAction];</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span> showDetailViewController:alertC sender:<span class="literal">nil</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="1-4_可视化编程有什么优势？">1.4 可视化编程有什么优势？</h2><ul>
-<li>xib让我们创建应用程序的页面更加的快速，节省了更多的时间</li>
-<li>快速的帮助我们创建出来了属性和方法，还是节省了很多的时间</li>
-<li>xib比较简洁，只描述了当前页面的一些内容</li>
-<li>所见即所得，比代码直观</li>
-</ul>
+<h4 id="创建一个引擎">创建一个引擎</h4><p><img src="http://i5.tietuku.com/ac4a8c51a6325812.png" alt=""></p>
+<h4 id="给自己的网站建立一个索引">给自己的网站建立一个索引</h4><p><img src="http://www.jerryfu.net/img/search-engine-for-hexo-with-swiftype-v2/2.jpg" alt=""></p>
+<h4 id="输入自己网站的网址">输入自己网站的网址</h4><p><img src="http://i5.tietuku.com/aa499a1200b4e7ac.png" alt=""></p>
+<h4 id="给创建的搜索引擎起个名字">给创建的搜索引擎起个名字</h4><p><img src="http://i5.tietuku.com/a29b2d4d88f6c370.png" alt=""></p>
+<h4 id="添加引擎成功">添加引擎成功</h4><p><img src="http://i12.tietuku.com/5243bceb97eba65a.png" alt=""></p>
+<h3 id="安装配置">安装配置</h3><p><img src="http://www.jerryfu.net/img/search-engine-for-hexo-with-swiftype-v2/9.jpg" alt=""></p>
+<h4 id="跳转到配置页面">跳转到配置页面</h4><p><strong>SEARCH RESULTS 、AUTO COMPLETE、 COLORS改不改随意，不想折腾保持默认即可</strong><br><img src="http://i12.tietuku.com/795de0220d9b2bf8.png" alt=""></p>
+<h4 id="设置搜索失败界面">设置搜索失败界面</h4><p><img src="http://i12.tietuku.com/36b26daa6290f980.png" alt=""></p>
+<h4 id="设置搜索结果页面">设置搜索结果页面</h4><p><strong>如果不配置的话默认的结果展现方式是这个样子的（弹出一个结果展现框）：</strong></p>
+<p><img src="http://www.jerryfu.net/img/search-engine-for-hexo-with-swiftype-v2/14.jpg" alt=""></p>
+<p><strong>如果想要实现类似我的这种单开一个页面显示搜索结果的话就要进行一下配置</strong></p>
+<p><img src="http://i12.tietuku.com/d17740d0b30177a3.png" alt=""></p>
+<p><strong>最后点击保存就可以了。接下来选择OVERVIEW</strong><br><img src="http://i12.tietuku.com/c7a13a10340eb487.png" alt=""></p>
+<p><strong>选择Install Search</strong><br><img src="http://i12.tietuku.com/8532254cdff8371a.png" alt=""></p>
+<h4 id="复制你的swiftype_搜索引擎的_key">复制你的swiftype 搜索引擎的 key</h4><p><img src="http://i5.tietuku.com/f54d8f83f2625c6f.png" alt=""></p>
+<h3 id="最后">最后</h3><p>然后，编辑 站点配置文件，新增 swiftype_key 字段，值为你的 swiftype 搜索引擎的 key。</p>
 </span>
       
     </div>
@@ -325,9 +314,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
+            <a href="/tags/Hexo博客-搭建、使用/" rel="tag">#Hexo博客(搭建、使用)</a>
           
-            <a href="/tags/可视化编程/" rel="tag">#可视化编程</a>
+            <a href="/tags/hexo-站内搜索/" rel="tag">#hexo 站内搜索</a>
           
         </div>
       
@@ -336,17 +325,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/12/19/Vim-编辑器/" rel="next" title="Vim 编辑器">
-                <i class="fa fa-chevron-left"></i> Vim 编辑器
+              <a href="/2015/01/18/iOS添加测试设备与调试/" rel="next" title="iOS添加测试设备与调试">
+                <i class="fa fa-chevron-left"></i> iOS添加测试设备与调试
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/01/03/可视化编程之Storyboard/" rel="prev" title="可视化编程之Storyboard">
-                可视化编程之Storyboard <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -476,7 +461,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1_什么是Xib？"><span class="nav-number">1.</span> <span class="nav-text">1.1 什么是Xib？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2_nib又是什么东西？"><span class="nav-number">2.</span> <span class="nav-text">1.2 nib又是什么东西？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-_如何使用"><span class="nav-number">3.</span> <span class="nav-text">1.3. 如何使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1_xib文件的创建"><span class="nav-number">3.1.</span> <span class="nav-text">1.3.1 xib文件的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2_控件的添加"><span class="nav-number">3.2.</span> <span class="nav-text">1.3.2 控件的添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3_控件与属性或者事件的绑定"><span class="nav-number">3.3.</span> <span class="nav-text">1.3.3 控件与属性或者事件的绑定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4_可视化编程有什么优势？"><span class="nav-number">4.</span> <span class="nav-text">1.4 可视化编程有什么优势？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用swiftype为hexo添加站内搜索"><span class="nav-number">1.</span> <span class="nav-text">利用swiftype为hexo添加站内搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#到swiftype网站注册账号"><span class="nav-number">1.1.</span> <span class="nav-text">到swiftype网站注册账号</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个引擎"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建一个引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给自己的网站建立一个索引"><span class="nav-number">1.1.2.</span> <span class="nav-text">给自己的网站建立一个索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入自己网站的网址"><span class="nav-number">1.1.3.</span> <span class="nav-text">输入自己网站的网址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给创建的搜索引擎起个名字"><span class="nav-number">1.1.4.</span> <span class="nav-text">给创建的搜索引擎起个名字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加引擎成功"><span class="nav-number">1.1.5.</span> <span class="nav-text">添加引擎成功</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装配置"><span class="nav-number">1.2.</span> <span class="nav-text">安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#跳转到配置页面"><span class="nav-number">1.2.1.</span> <span class="nav-text">跳转到配置页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置搜索失败界面"><span class="nav-number">1.2.2.</span> <span class="nav-text">设置搜索失败界面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置搜索结果页面"><span class="nav-number">1.2.3.</span> <span class="nav-text">设置搜索结果页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制你的swiftype_搜索引擎的_key"><span class="nav-number">1.2.4.</span> <span class="nav-text">复制你的swiftype 搜索引擎的 key</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">1.3.</span> <span class="nav-text">最后</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
