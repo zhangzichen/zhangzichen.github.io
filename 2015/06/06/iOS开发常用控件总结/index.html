@@ -51,16 +51,17 @@
 
 
 
-<meta name="description" content="上一篇记录了UITableView基本的用法，包括创建、设置代理以及代理方法的实现。这一篇来记录一下UITableView的编辑和移动。">
+<meta name="description" content="总结一下iOS开发中最常用的控件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UITableView的编辑和移动">
-<meta property="og:url" content="http://yoursite.com/2015/06/13/UITableView的编辑和移动/index.html">
+<meta property="og:title" content="iOS开发常用控件总结">
+<meta property="og:url" content="http://yoursite.com/2015/06/06/iOS开发常用控件总结/index.html">
 <meta property="og:site_name" content="张飞">
-<meta property="og:description" content="上一篇记录了UITableView基本的用法，包括创建、设置代理以及代理方法的实现。这一篇来记录一下UITableView的编辑和移动。">
-<meta property="og:updated_time" content="2015-12-03T01:48:32.000Z">
+<meta property="og:description" content="总结一下iOS开发中最常用的控件">
+<meta property="og:image" content="http://yoursite.com/post_image/zhishidian.jpg">
+<meta property="og:updated_time" content="2015-12-03T02:14:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UITableView的编辑和移动">
-<meta name="twitter:description" content="上一篇记录了UITableView基本的用法，包括创建、设置代理以及代理方法的实现。这一篇来记录一下UITableView的编辑和移动。">
+<meta name="twitter:title" content="iOS开发常用控件总结">
+<meta name="twitter:description" content="总结一下iOS开发中最常用的控件">
 
 
 
@@ -72,7 +73,7 @@
   };
 </script>
 
-  <title> UITableView的编辑和移动 | 张飞 </title>
+  <title> iOS开发常用控件总结 | 张飞 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -223,7 +224,7 @@
             
             
               
-                UITableView的编辑和移动
+                iOS开发常用控件总结
               
             
           </h1>
@@ -232,8 +233,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-06-13T13:42:36+08:00" content="2015-06-13">
-              2015-06-13
+            <time itemprop="dateCreated" datetime="2015-06-06T20:09:32+08:00" content="2015-06-06">
+              2015-06-06
             </time>
           </span>
 
@@ -271,79 +272,23 @@
       
 
       
-        <span itemprop="articleBody"><p>上一篇记录了UITableView基本的用法，包括创建、设置代理以及代理方法的实现。这一篇来记录一下UITableView的编辑和移动。<br><a id="more"></a></p>
-<h1 id="编辑">编辑</h1><p>因为数据的操作一般指的是增删改查，所以编辑操作一般值得是对数据的删除。</p>
-<p>删除一般分为以下几步：</p>
-<ol>
-<li>编辑当前页面为可编辑状态。注：即使当前页面为不可编辑状态，也可左滑拉出删除按钮。</li>
-<li>确定可以编辑的行数。</li>
-<li>确定编辑类型。</li>
-<li>处理编辑事件。</li>
+        <span itemprop="articleBody"><p>总结一下iOS开发中最常用的控件<br><img src="/post_image/zhishidian.jpg" alt=""></p>
+<a id="more"></a>
+<h3 id="其中，有几点总结">其中，有几点总结</h3><ul>
+<li>控件的初始化原则为：如果有自己的便利构造器，则使用便利构造器，否则使用alloc init方法。</li>
+<li>UIButton和UISegmentedControl有自己的初始化方法。</li>
+<li>控件在初始化之后需要为它设置位置和大小，即设置控件的frame。其中frame包含origin(x,y)和size(width,height)。切记，控件的frame要整体赋值。</li>
+<li>UIWindow是显示UI界面最基础的控件，相当于演员表演所需的舞台，舞台不存在，那么演员再多也没有存在的意义。理论上一个应用程序只需要一个window就可以完成需求，但是在特殊情况下，可以有多个window。</li>
+<li>所有继承自UIControl的控件都可以直接发出事件，我们可以根据需要捕获并处理这些事件。</li>
+<li>所有继承自UIScrollView的控件都是可以直接滚动的。</li>
+<li>在所有的控件中，有两个控件的用户交互默认是关闭的，它们是UILabel和UIImageView。</li>
+<li>UINavigationBar和UITabBar分别是两个重要的控制器UINavigationController和UITabBarController的重要组成部分。</li>
+<li>UITableView和UICollectionView是两个最重要的信息展示控件。</li>
+</ul>
+<p>暂时想到的就这些了，以后有机会再来补充</p>
+<h2 id="补充">补充</h2><ol>
+<li>UIAlertView和UIActionSheet现在已经合并为一个控件，叫作UIAlertController。</li>
 </ol>
-<h2 id="*_编辑当前页面为可编辑状态">* 编辑当前页面为可编辑状态</h2><p>为了能够改变页面的编辑状态，我们在页面右上角加上一个按钮，用来改变页面的编辑状态。在此之前，我们要在storyboard中Controller对应的页面上包上一层Navigation。</p>
-<pre><code>self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] <span class="string">initWithTitle:</span>@<span class="string">"编辑"</span> <span class="string">style:</span>UIBarButtonItemStylePlain <span class="string">target:</span>self <span class="string">action:</span><span class="annotation">@selector</span>(<span class="string">rightBtnAction:</span>)];
-</code></pre><p>按钮事件为：</p>
-<pre><code>- (<span class="keyword">void</span>)rightBtnAction:(<span class="built_in">UIBarButtonItem</span> *)sender
-{
-    <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.tableView</span><span class="variable">.editing</span> == <span class="literal">YES</span>) {
-        <span class="keyword">self</span><span class="variable">.navigationItem</span><span class="variable">.rightBarButtonItem</span><span class="variable">.title</span> = <span class="string">@"编辑"</span>;
-    }<span class="keyword">else</span>{
-        <span class="keyword">self</span><span class="variable">.navigationItem</span><span class="variable">.rightBarButtonItem</span><span class="variable">.title</span> = <span class="string">@"完成"</span>;
-    }
-    <span class="keyword">self</span><span class="variable">.tableView</span><span class="variable">.editing</span> = !<span class="keyword">self</span><span class="variable">.tableView</span><span class="variable">.editing</span>;
-}
-</code></pre><h2 id="*_确定可以编辑的行数">* 确定可以编辑的行数</h2><p>可以根据条件返回YES/NO。我们这里设置为全部可以编辑。</p>
-<pre><code>- (<span class="built_in">BOOL</span>)tableView:(<span class="built_in">UITableView</span> *)tableView canEditRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath
-{
-    <span class="keyword">return</span> <span class="literal">YES</span>;
-}
-</code></pre><h2 id="*_确定编辑类型">* 确定编辑类型</h2><p>我们一般设置为删除。</p>
-<pre><code>- (<span class="built_in">UITableViewCellEditingStyle</span>)tableView:(<span class="built_in">UITableView</span> *)tableView editingStyleForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath
-{
-    <span class="keyword">return</span> <span class="built_in">UITableViewCellEditingStyleDelete</span>;
-}
-</code></pre><h2 id="*_处理编辑事件">* 处理编辑事件</h2><p><code>在处理事件时，一定要注意数据和界面保持一致，否则会崩溃</code></p>
-<pre><code>- (<span class="typename">void</span>)<span class="string">tableView:</span>(UITableView *)tableView <span class="string">commitEditingStyle:</span>(UITableViewCellEditingStyle)editingStyle <span class="string">forRowAtIndexPath:</span>(NSIndexPath *)indexPath
-{
-    <span class="comment">//该条数据是这个块中最后一条数据</span>
-    <span class="keyword">if</span> ([[self.dataArray <span class="string">objectAtIndex:</span>indexPath.section] count] == <span class="number">1</span>) {
-        <span class="comment">//删除数据</span>
-        [self.dataArray <span class="string">removeObjectAtIndex:</span>indexPath.section];
-        <span class="comment">//更新页面</span>
-        NSIndexSet *set = [NSIndexSet <span class="string">indexSetWithIndex:</span>indexPath.section];
-        [self.tableView <span class="string">deleteSections:</span>set <span class="string">withRowAnimation:</span>UITableViewRowAnimationRight];
-    }<span class="keyword">else</span>{
-        <span class="comment">//删除数据</span>
-        [[self.dataArray <span class="string">objectAtIndex:</span>indexPath.section] <span class="string">removeObjectAtIndex:</span>indexPath.row];
-        <span class="comment">//更新页面</span>
-        [self.tableView <span class="string">deleteRowsAtIndexPaths:</span>@[indexPath] <span class="string">withRowAnimation:</span>UITableViewRowAnimationRight];
-    }
-}
-</code></pre><h1 id="移动">移动</h1><p>移动有跨块移动和不跨块移动，我这里把两种情况写在了一起。</p>
-<p>同样的，移动也是分步骤的，步骤如下：</p>
-<ol>
-<li>设置页面为编辑状态。</li>
-<li>确定每行是否可以移动。</li>
-<li>处理移动事件</li>
-</ol>
-<h2 id="*_设置页面为编辑状态">* 设置页面为编辑状态</h2><p>同编辑过程中的第一步</p>
-<h2 id="*_确定每行是否可以移动">* 确定每行是否可以移动</h2><pre><code>- (<span class="built_in">BOOL</span>)tableView:(<span class="built_in">UITableView</span> *)tableView canMoveRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath
-{
-    <span class="keyword">return</span> <span class="literal">YES</span>;
-}
-</code></pre><h2 id="*_处理移动事件">* 处理移动事件</h2><pre><code>- (void)tableView:(UITableView *)tableView <span class="keyword">moveRowAtIndexPath:(NSIndexPath </span>*)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
-{
-    NSString *<span class="keyword">stringTemp </span>= [[<span class="keyword">self.dataArray </span>objectAtIndex:sourceIndexPath<span class="preprocessor">.section</span>] objectAtIndex:sourceIndexPath.row]<span class="comment">;</span>
-
-    [[<span class="keyword">self.dataArray </span>objectAtIndex:sourceIndexPath<span class="preprocessor">.section</span>] removeObjectAtIndex:sourceIndexPath.row]<span class="comment">;</span>
-    [[<span class="keyword">self.dataArray </span>objectAtIndex:destinationIndexPath<span class="preprocessor">.section</span>] insertObject:<span class="keyword">stringTemp </span>atIndex:destinationIndexPath.row]<span class="comment">;</span>
-
-    <span class="preprocessor">if</span> ([[<span class="keyword">self.dataArray </span>objectAtIndex:sourceIndexPath<span class="preprocessor">.section</span>] count] == <span class="number">0</span>) {
-        [<span class="keyword">self.dataArray </span>removeObjectAtIndex:sourceIndexPath<span class="preprocessor">.section</span>]<span class="comment">;</span>
-        [<span class="keyword">self.tableView </span>reloadData]<span class="comment">;</span>
-    }
-}
-</code></pre><h1 id="总结">总结</h1><p>在UITableView的操作中，唯一需要着重注意的就是数据要和视图一一对应，否则会造成UITableView的崩溃。</p>
 </span>
       
     </div>
@@ -363,16 +308,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/06/11/UITableView/" rel="next" title="UITableView">
-                <i class="fa fa-chevron-left"></i> UITableView
+              <a href="/2015/05/27/Swiftype添加站内搜索/" rel="next" title="Swiftype添加站内搜索">
+                <i class="fa fa-chevron-left"></i> Swiftype添加站内搜索
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/06/15/UITableViewCell的自定义以及重用/" rel="prev" title="UITableViewCell的自定义以及重用">
-                UITableViewCell的自定义以及重用 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/06/11/UITableView/" rel="prev" title="UITableView">
+                UITableView <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -503,7 +448,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#编辑"><span class="nav-number">1.</span> <span class="nav-text">编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#*_编辑当前页面为可编辑状态"><span class="nav-number">1.1.</span> <span class="nav-text">* 编辑当前页面为可编辑状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#*_确定可以编辑的行数"><span class="nav-number">1.2.</span> <span class="nav-text">* 确定可以编辑的行数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#*_确定编辑类型"><span class="nav-number">1.3.</span> <span class="nav-text">* 确定编辑类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#*_处理编辑事件"><span class="nav-number">1.4.</span> <span class="nav-text">* 处理编辑事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移动"><span class="nav-number">2.</span> <span class="nav-text">移动</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#*_设置页面为编辑状态"><span class="nav-number">2.1.</span> <span class="nav-text">* 设置页面为编辑状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#*_确定每行是否可以移动"><span class="nav-number">2.2.</span> <span class="nav-text">* 确定每行是否可以移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#*_处理移动事件"><span class="nav-number">2.3.</span> <span class="nav-text">* 处理移动事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#其中，有几点总结"><span class="nav-number">1.</span> <span class="nav-text">其中，有几点总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number"></span> <span class="nav-text">补充</span></a></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
