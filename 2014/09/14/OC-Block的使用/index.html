@@ -56,9 +56,7 @@ void (^aBlock) (NSString *str);
 // 代码块变量的赋值
 aBlock = ^(NSString *str){
 NSLog(@&quot;%@&quot;, str);
-};
-&amp;lt;!--more--&amp;gt;
-// 提示：在声明代码块的时候，是可以传递多个参数的，中间使用‘,’分隔开就醒了，也可以不写出参数的名称，只写类型就可以，但是不建议这么">
+};">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Block的使用">
 <meta property="og:url" content="http://yoursite.com/2014/09/14/OC-Block的使用/index.html">
@@ -68,10 +66,8 @@ void (^aBlock) (NSString *str);
 // 代码块变量的赋值
 aBlock = ^(NSString *str){
 NSLog(@&quot;%@&quot;, str);
-};
-&amp;lt;!--more--&amp;gt;
-// 提示：在声明代码块的时候，是可以传递多个参数的，中间使用‘,’分隔开就醒了，也可以不写出参数的名称，只写类型就可以，但是不建议这么">
-<meta property="og:updated_time" content="2015-12-14T12:02:14.000Z">
+};">
+<meta property="og:updated_time" content="2015-12-14T12:38:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Block的使用">
 <meta name="twitter:description" content="Block：1.//代码块的声明
@@ -79,9 +75,7 @@ void (^aBlock) (NSString *str);
 // 代码块变量的赋值
 aBlock = ^(NSString *str){
 NSLog(@&quot;%@&quot;, str);
-};
-&amp;lt;!--more--&amp;gt;
-// 提示：在声明代码块的时候，是可以传递多个参数的，中间使用‘,’分隔开就醒了，也可以不写出参数的名称，只写类型就可以，但是不建议这么">
+};">
 
 
 
@@ -292,16 +286,16 @@ NSLog(@&quot;%@&quot;, str);
       
 
       
-        <span itemprop="articleBody"><h3 id="Block：">Block：</h3><h4 id="1-">1.</h4><pre><code><span class="xml">//代码块的声明
-void (^aBlock) (NSString *str);    
-// 代码块变量的赋值
-aBlock = ^(NSString *str)</span><span class="expression">{
-<span class="variable">NSLog</span>(@<span class="string">"%@"</span>, <span class="variable">str</span>);
-}</span><span class="xml">;
-<span class="comment">&lt;!--more--&gt;</span>
-// 提示：在声明代码块的时候，是可以传递多个参数的，中间使用‘,’分隔开就醒了，也可以不写出参数的名称，只写类型就可以，但是不建议这么做，因为别人看你的代码的时候可能会不理解，建议写全。要记住，最后面也是以分号结尾的。
-// 代码块声明的时候返回值不可以省略，但是参数名可以省略
-// 代码块变量赋值的时候返回值可以省略，但是参数吗不可以省略</span>
+        <span itemprop="articleBody"><h3 id="Block：">Block：</h3><h4 id="1-">1.</h4><pre><code><span class="comment">//代码块的声明</span>
+<span class="keyword">void</span> (^aBlock) (NSString *<span class="keyword">str</span>);    
+<span class="comment">// 代码块变量的赋值</span>
+aBlock = ^(NSString *<span class="keyword">str</span>){
+NSLog(@<span class="string">"%@"</span>, <span class="keyword">str</span>);
+};
+</code></pre><a id="more"></a>
+<pre><code><span class="comment">// 提示：在声明代码块的时候，是可以传递多个参数的，中间使用‘,’分隔开就醒了，也可以不写出参数的名称，只写类型就可以，但是不建议这么做，因为别人看你的代码的时候可能会不理解，建议写全。要记住，最后面也是以分号结尾的。</span>
+<span class="comment">// 代码块声明的时候返回值不可以省略，但是参数名可以省略</span>
+<span class="comment">// 代码块变量赋值的时候返回值可以省略，但是参数吗不可以省略</span>
 </code></pre><h4 id="2-">2.</h4><p>代码块的声明比普通变量的声明复杂，普通变量不需要传入参数，并且没有返回值。因为代码块存储的数据是一个函数体，所以声明代码块变量时需要声明参数和返回类型。</p>
 <h4 id="3-">3.</h4><p>‘^’叫做脱字符</p>
 <h4 id="4-">4.</h4><pre><code><span class="comment">// 调用代码块，直接使用名称调用即可，然后传递需要的参数，有返回值的接受下，反之不需要接收</span>

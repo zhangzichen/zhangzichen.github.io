@@ -383,57 +383,18 @@
 
       
         
-          <span itemprop="articleBody">
-            
-              <h3 id="Block：">Block：</h3><h4 id="1-">1.</h4><pre><code><span class="xml">//代码块的声明
-void (^aBlock) (NSString *str);    
-// 代码块变量的赋值
-aBlock = ^(NSString *str)</span><span class="expression">{
-<span class="variable">NSLog</span>(@<span class="string">"%@"</span>, <span class="variable">str</span>);
-}</span><span class="xml">;
-<span class="comment">&lt;!--more--&gt;</span>
-// 提示：在声明代码块的时候，是可以传递多个参数的，中间使用‘,’分隔开就醒了，也可以不写出参数的名称，只写类型就可以，但是不建议这么做，因为别人看你的代码的时候可能会不理解，建议写全。要记住，最后面也是以分号结尾的。
-// 代码块声明的时候返回值不可以省略，但是参数名可以省略
-// 代码块变量赋值的时候返回值可以省略，但是参数吗不可以省略</span>
-</code></pre><h4 id="2-">2.</h4><p>代码块的声明比普通变量的声明复杂，普通变量不需要传入参数，并且没有返回值。因为代码块存储的数据是一个函数体，所以声明代码块变量时需要声明参数和返回类型。</p>
-<h4 id="3-">3.</h4><p>‘^’叫做脱字符</p>
-<h4 id="4-">4.</h4><pre><code><span class="comment">// 调用代码块，直接使用名称调用即可，然后传递需要的参数，有返回值的接受下，反之不需要接收</span>
-<span class="keyword">void</span> (^MyBlock) (NSString *<span class="keyword">str</span>) = ^(NSString *<span class="keyword">str</span>) {
-        NSLog(@<span class="string">"%@"</span>, <span class="keyword">str</span>);
-    };
-    MyBlock(@<span class="string">"abcdefjlfsd"</span>);
-</code></pre><h4 id="5-把代码块像对象一样传递">5.把代码块像对象一样传递</h4><pre><code>// 定义一个参数是代码块的方法
-<span class="type">void</span> useCodeBlock(<span class="type">int</span> (^mmyBlock) (<span class="type">int</span> x, <span class="type">int</span> y)) {
-<span class="type">int</span> <span class="literal">result</span> = mmyBlock(<span class="number">300</span>, <span class="number">200</span>);
-<span class="type">NSLog</span>(@<span class="string">"result = %d"</span>, <span class="literal">result</span>);
-}
-
-// 以代码块作为函数参数
-    <span class="type">int</span> (^addBlock) (<span class="type">int</span> x, <span class="type">int</span> y) = ^(<span class="type">int</span> x, <span class="type">int</span> y) {
-        <span class="keyword">return</span> x + y;
-    };
-    useCodeBlock(addBlock);
-    <span class="type">int</span> (^subBlock) (<span class="type">int</span> x, <span class="type">int</span> y) = ^(<span class="type">int</span> x, <span class="type">int</span> y) {
-        <span class="keyword">return</span>  x - y;
-    };
-    useCodeBlock(subBlock);
-
-    // 以内联定义的代码块作为函数参数
-    useCodeBlock(^<span class="type">int</span> (<span class="type">int</span> x, <span class="type">int</span> y) {
-        <span class="keyword">return</span> x + y;
-    });
-    useCodeBlock(^<span class="type">int</span> (<span class="type">int</span> x, <span class="type">int</span> y) {
-        <span class="keyword">return</span> x - y;
-    });
-// 通常来说，<span class="keyword">block</span>都是一些简短代码片段的封装，适合做工作单元，通常用来坐并发任务、遍历、以及回调。用<span class="keyword">block</span>作为回调函数，可以使得程序员写代码更顺畅，不用中途跑到另一个地方写一个回调函数。采用<span class="keyword">block</span>，可以在调用函数时直接写后续代码处理，将其作为参数传递过去，供其任务执行结束时回调。
-</code></pre><h4 id="6-在代码块中使用全局变量和局部变量">6.在代码块中使用全局变量和局部变量</h4><p>6.1.在代码块中可以使用全局变量，也可以更改</p>
-<p>6.2.在代码块中可以使用局部变量，但是不可以更改，如果要更改局部变量，需要加上‘__block’关键字，注意是两个下划线。</p>
-<h4 id="7-使用代码块进行NSArray和NSMutableArray的排序">7.使用代码块进行NSArray和NSMutableArray的排序</h4><pre><code><span class="preprocessor">#if NS_BLOCK_AVAILABLE</span>
-<span class="keyword">typedef</span> <span class="built_in">NSComparisonResult</span> (^<span class="built_in">NSComparator</span>) (<span class="keyword">id</span> obj1, <span class="keyword">id</span> obj2);
-<span class="preprocessor">#endid</span>
-</code></pre><h4 id="这个写的还很少，以后再补。。。">这个写的还很少，以后再补。。。</h4>
-            
-          </span>
+          <h3 id="Block：">Block：</h3><h4 id="1-">1.</h4><pre><code><span class="comment">//代码块的声明</span>
+<span class="keyword">void</span> (^aBlock) (NSString *<span class="keyword">str</span>);    
+<span class="comment">// 代码块变量的赋值</span>
+aBlock = ^(NSString *<span class="keyword">str</span>){
+NSLog(@<span class="string">"%@"</span>, <span class="keyword">str</span>);
+};
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/09/14/OC-Block的使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -524,129 +485,15 @@ aBlock = ^(NSString *str)</span><span class="expression">{
 
       
         
-          <span itemprop="articleBody">
-            
-              <h3 id="NSArray：">NSArray：</h3><h4 id="只能存放对象。不能存放C语言中基本的数据类型。如int/double/float等等">只能存放对象。不能存放C语言中基本的数据类型。如int/double/float等等</h4><h4 id="数组下标越界不会有警告，运行时会直接报错">数组下标越界不会有警告，运行时会直接报错</h4><pre><code><span class="comment">// 不可变数组NSArray</span>
+          <h3 id="NSArray：">NSArray：</h3><h4 id="只能存放对象。不能存放C语言中基本的数据类型。如int/double/float等等">只能存放对象。不能存放C语言中基本的数据类型。如int/double/float等等</h4><h4 id="数组下标越界不会有警告，运行时会直接报错">数组下标越界不会有警告，运行时会直接报错</h4><pre><code><span class="comment">// 不可变数组NSArray</span>
 <span class="comment">// 在数组从存入nil需要使用NSNull，不可以直接存入nil，因为在数组中nil代表数组结束</span>
 <span class="built_in">NSNull</span> *n = [<span class="built_in">NSNull</span> null];
-&lt;!--more--&gt;
- <span class="comment">// 创建数组对象，并在其中添加几个NSString对象，nil代表数组的结束，不可能更改</span>
-<span class="built_in">NSArray</span> *array1 = [<span class="built_in">NSArray</span> arrayWithObjects:<span class="string">@"one"</span>, <span class="string">@"tow"</span>, n, <span class="string">@"three"</span>, <span class="literal">nil</span>];
-<span class="built_in">NSArray</span> *array2 = [<span class="built_in">NSArray</span> arrayWithObject:<span class="string">@"呵呵，你真逗。。。。。"</span>];
-
-<span class="comment">// 计算数组的长度</span>
-<span class="built_in">NSLog</span>(<span class="string">@"array1 count : %ld"</span>, [array1 count]);
-<span class="built_in">NSLog</span>(<span class="string">@"array2 count : %ld"</span>, [array2 count]);
-
-<span class="comment">// 取出数组中得对象</span>
-<span class="comment">// 简单的使用for循环通过下边来获取对象</span>
-<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; [array1 count]; i++) {
-    <span class="built_in">NSLog</span>(<span class="string">@"array1[%d] = %@"</span>, i, [array1 objectAtIndex:i]);
-}
-
-<span class="comment">// 以消息嵌套的形式实例化一个NSArray对象</span>
-<span class="built_in">NSArray</span> *array3 = [[<span class="built_in">NSArray</span> alloc] initWithObjects:<span class="string">@"abc"</span>, <span class="string">@"def"</span>, <span class="string">@"haha"</span>, <span class="literal">nil</span>];
-<span class="built_in">NSLog</span>(<span class="string">@"array3 = %ld"</span>, [array3  count]);
-<span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, array3); <span class="comment">// 数组使用小括号来包括</span>
-
-<span class="comment">// 释放内存</span>
-[array3 release];
-
-
-
-<span class="comment">// 可变数组NSMutableArray</span>
-<span class="comment">// 通过arrayWithCapacity:来创建一个可变数组，指定长度为10</span>
-<span class="built_in">NSMutableArray</span> *mutableArray1 = [<span class="built_in">NSMutableArray</span> arrayWithCapacity:<span class="number">10</span>];
-
-<span class="comment">// 使用类方法创建一个对象</span>
-mutableArray1 = [<span class="built_in">NSMutableArray</span> arrayWithObjects:<span class="string">@"111"</span>, <span class="literal">nil</span>];
-
-<span class="comment">// 通过addObject对象添加对象</span>
-[mutableArray1 addObject:<span class="string">@"one"</span>];
-[mutableArray1 addObject:<span class="string">@"two"</span>];
-[mutableArray1 addObject:<span class="string">@"three"</span>];
-
-<span class="comment">// 打印数组的长度</span>
-<span class="built_in">NSLog</span>(<span class="string">@"mutableArray count =  %ld"</span>, [mutableArray1 count]);
-
-<span class="comment">// 打印数组</span>
-<span class="built_in">NSLog</span>(<span class="string">@"mutableArray %@"</span>, mutableArray1<span class="variable">.description</span>);
-
-<span class="comment">// 使用for循环打印数组</span>
-<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; [mutableArray1 count]; i++) {
-    <span class="built_in">NSLog</span>(<span class="string">@"mutableArray[%d] = %@"</span>, i, [mutableArray1 objectAtIndex:i]);
-}
-
-<span class="comment">// 删除数组中得对象</span>
-<span class="comment">// [mutableArray1 removeLastObject]; // 删除最后一个对象</span>
-<span class="comment">// [mutableArray1 removeObject:@"111"]; // 删除指定名称的对象</span>
-[mutableArray1 removeObjectAtIndex:<span class="number">1</span>]; <span class="comment">// 删除指定位置的对象</span>
-<span class="comment">// [mutableArray1 removeAllObjects]; // 删除全部对象</span>
-
-<span class="built_in">NSLog</span>(<span class="string">@"mutableArray %@"</span>, mutableArray1<span class="variable">.description</span>);
-
-<span class="comment">// 向可变数组中插入对象, 插入的字符串中有空格的时候会被双引号包围</span>
-[mutableArray1 insertObject:<span class="string">@"new String"</span> atIndex:<span class="number">2</span> ];
-<span class="built_in">NSLog</span>(<span class="string">@"mutableArray %@"</span>, mutableArray1<span class="variable">.description</span>);    
-
-<span class="comment">// 替换数组中对象 // 存入中文时直接打印数组会出现"\U7231\U597d"这种形式，需要从数组中取出来才可以正常显示</span>
-[mutableArray1  replaceObjectAtIndex:<span class="number">3</span> withObject:<span class="string">@"爱好"</span>];
-<span class="built_in">NSLog</span>(<span class="string">@"mutableArray %@"</span>, mutableArray1<span class="variable">.description</span>);
-<span class="built_in">NSString</span> *string = [mutableArray1 lastObject];
-<span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, string);
-
-<span class="comment">// 数组的替换</span>
-<span class="comment">// 数组的简写@[@"0", @"2"]</span>
-<span class="built_in">NSRange</span> range = <span class="built_in">NSMakeRange</span>(<span class="number">1</span>, <span class="number">2</span>);
-<span class="comment">// 对应的进行替换</span>
-[mutableArray1 replaceObjectsInRange:range withObjectsFromArray:@[<span class="string">@"1111111"</span>, <span class="string">@"2222222"</span>]];
-<span class="built_in">NSLog</span>(<span class="string">@"mutableArray %@"</span>, mutableArray1<span class="variable">.description</span>);
-
-
-<span class="comment">// 数组的排序</span>
-<span class="comment">// 可变数组直接在原数组上进行排序，不可变数组排序后产生新的数组</span>
-<span class="built_in">NSMutableArray</span> *array1 = [<span class="built_in">NSMutableArray</span> arrayWithObjects:<span class="string">@"3"</span>, <span class="string">@"6"</span>, <span class="string">@"2"</span>, <span class="string">@"1"</span>, <span class="literal">nil</span>];
-<span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, array1);
-<span class="comment">// 使用选择器进行比较数组，返回一个升序的数组</span>
-[array1 sortUsingSelector:<span class="keyword">@selector</span>(compare:)];
-<span class="built_in">NSLog</span>(<span class="string">@"使用选择排序后： %@"</span>, array1);
-
-<span class="comment">// 使用sortUsingCompare:</span>
-[array1 sortUsingComparator:^<span class="built_in">NSComparisonResult</span>(<span class="keyword">id</span> obj1, <span class="keyword">id</span> obj2) {
-    obj1 = <span class="string">@"1"</span>;
-    obj2 = <span class="string">@"2"</span>;
-    <span class="keyword">return</span> <span class="built_in">NSOrderedDescending</span>;
-    }];
-<span class="built_in">NSLog</span>(<span class="string">@"使用选择排序后： %@"</span>, array1);    
-
-<span class="comment">// 用规定的描述对数组进行排序</span>
-<span class="comment">// NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO];</span>
-<span class="comment">// [array1 sortUsingSelector:[NSArray arrayWithObject:sd]];</span>
-<span class="comment">// NSLog(@"%@", array1);</span>
-
-
-<span class="comment">// 数组的遍历</span>
- <span class="comment">// 创建数组</span>
-    <span class="built_in">NSMutableArray</span> *array1 = [<span class="built_in">NSMutableArray</span> arrayWithObjects:<span class="string">@"3"</span>, <span class="string">@"6"</span>, <span class="string">@"2"</span>, <span class="string">@"1"</span>, <span class="literal">nil</span>];
-<span class="comment">// 可以通过枚举器和nextObject可以返回当前对象</span>
-
-<span class="comment">// 使用NSEnumerator遍历对象,通过给数组发送objectEnumerator获取到整个数组的枚举器</span>
-<span class="built_in">NSEnumerator</span> *enumerator = [array1 objectEnumerator];
-<span class="comment">// 储存数组中每个元素对象</span>
-<span class="keyword">id</span> object = <span class="literal">nil</span>;
-<span class="keyword">while</span> (object = [enumerator nextObject]) { <span class="comment">// 通过nextObject消息读取下一个元素对象</span>
-    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, object);
-}
-
-<span class="comment">// 使用 快速枚举 遍历数组取值</span>
-<span class="keyword">id</span> object1 = <span class="literal">nil</span>;
-<span class="keyword">for</span> (object1 <span class="keyword">in</span> array1) {
-    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, object1);
-
-}
 </code></pre>
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/09/13/OC-NSArray和NSMutableArray/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

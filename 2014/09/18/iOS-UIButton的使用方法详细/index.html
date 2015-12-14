@@ -69,7 +69,7 @@ UIButton *oneButton = [UIButton     buttonWithType:UIButtonTypeCustom];
 //    typedef enum {
 //        UIButtonTypeCustom = 0,           // 自定义，无风格
 //">
-<meta property="og:updated_time" content="2015-12-14T12:00:30.000Z">
+<meta property="og:updated_time" content="2015-12-14T12:36:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UIButton的使用方法详细">
 <meta name="twitter:description" content="// UIButton的常用方法
@@ -289,28 +289,26 @@ UIButton *oneButton = [UIButton     buttonWithType:UIButtonTypeCustom];
       
 
       
-        <span itemprop="articleBody"><pre><code><span class="comment">// UIButton的常用方法</span>
-<span class="built_in">UIButton</span> *oneButton = [<span class="built_in">UIButton</span>     buttonWithType:<span class="built_in">UIButtonTypeCustom</span>]; 
-<span class="comment">// 初始化时设置Button样式</span>
-<span class="comment">// 风格有如下</span>
-<span class="comment">//    typedef enum {</span>
-<span class="comment">//        UIButtonTypeCustom = 0,           // 自定义，无风格</span>
-<span class="comment">//        UIButtonTypeRoundedRect,        // 白色圆角矩形，类似偏好设置表格单元或者地址簿卡片</span>
-<span class="comment">//        UIButtonTypeDetailDisclosure,//蓝色的披露按钮，可放在任何文字旁</span>
-<span class="comment">//        UIButtonTypeInfoLight,//微件(widget)使用的小圆圈信息按钮，可以放在任何文字旁</span>
-<span class="comment">//        UIButtonTypeInfoDark,//白色背景下使用的深色圆圈信息按钮</span>
-<span class="comment">//        UIButtonTypeContactAdd,//蓝色加号(+)按钮，可以放在任何文字旁</span>
-<span class="comment">//    } UIButtonType;</span>
-&lt;!--more--&gt;
-
-
-<span class="comment">// 最常用</span>
-oneButton<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">10</span>, <span class="number">10</span>, <span class="number">300</span>, <span class="number">30</span>); <span class="comment">// 设置oneButton的位置和大小</span>
-oneButton<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> blueColor]; <span class="comment">// 设置oneButton背景色</span>
-oneButton<span class="variable">.alpha</span> = <span class="number">0.8</span>; <span class="comment">// 设置oneButton的透明度范围在0.0-1.0之间</span>
-[oneButton setTitle:<span class="string">@"我是一个UIButton"</span> forState:<span class="built_in">UIControlStateNormal</span>]; <span class="comment">// 设置在什么状态下显示什么文字</span>
-[oneButton setTitleColor:[<span class="built_in">UIColor</span> redColor] forState:<span class="built_in">UIControlStateNormal</span>]; <span class="comment">// 设置什么状态下字体什么颜色</span>
-[oneButton setBackgroundImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"image.jpg"</span>] forState:<span class="built_in">UIControlStateNormal</span>]; <span class="comment">// 设置什么状态下显示的背景图像</span>
+        <span itemprop="articleBody"><pre><code>/<span class="regexp">/ UIButton的常用方法
+UIButton *oneButton = [UIButton     buttonWithType:UIButtonTypeCustom]; 
+/</span><span class="regexp">/ 初始化时设置Button样式
+/</span><span class="regexp">/ 风格有如下
+/</span><span class="regexp">/    typedef enum {
+/</span><span class="regexp">/        UIButtonTypeCustom = 0,           /</span><span class="regexp">/ 自定义，无风格
+/</span><span class="regexp">/        UIButtonTypeRoundedRect,        /</span><span class="regexp">/ 白色圆角矩形，类似偏好设置表格单元或者地址簿卡片
+/</span><span class="regexp">/        UIButtonTypeDetailDisclosure,/</span><span class="regexp">/蓝色的披露按钮，可放在任何文字旁
+/</span><span class="regexp">/        UIButtonTypeInfoLight,/</span><span class="regexp">/微件(widget)使用的小圆圈信息按钮，可以放在任何文字旁
+/</span><span class="regexp">/        UIButtonTypeInfoDark,/</span><span class="regexp">/白色背景下使用的深色圆圈信息按钮
+/</span><span class="regexp">/        UIButtonTypeContactAdd,/</span><span class="regexp">/蓝色加号(+)按钮，可以放在任何文字旁
+/</span><span class="regexp">/    } UIButtonType;</span>
+</code></pre><a id="more"></a>
+<pre><code><span class="comment">// 最常用</span>
+oneButton.frame = CGRectMake(<span class="number">10</span>, <span class="number">10</span>, <span class="number">300</span>, <span class="number">30</span>); <span class="comment">// 设置oneButton的位置和大小</span>
+oneButton.backgroundColor = [UIColor blueColor]; <span class="comment">// 设置oneButton背景色</span>
+oneButton.alpha = <span class="number">0.8</span>; <span class="comment">// 设置oneButton的透明度范围在0.0-1.0之间</span>
+[oneButton <span class="string">setTitle:</span>@<span class="string">"我是一个UIButton"</span> <span class="string">forState:</span>UIControlStateNormal]; <span class="comment">// 设置在什么状态下显示什么文字</span>
+[oneButton <span class="string">setTitleColor:</span>[UIColor redColor] <span class="string">forState:</span>UIControlStateNormal]; <span class="comment">// 设置什么状态下字体什么颜色</span>
+[oneButton <span class="string">setBackgroundImage:</span>[UIImage <span class="string">imageNamed:</span>@<span class="string">"image.jpg"</span>] <span class="string">forState:</span>UIControlStateNormal]; <span class="comment">// 设置什么状态下显示的背景图像</span>
 <span class="comment">// 上面几个方法都提到 共同的参数 forState . 这个参数决定了标题、图像或其他属性将在何种状态下显现。你可以编程令按钮在那个状态变化</span>
 <span class="comment">//    enum {</span>
 <span class="comment">//        UIControlStateNormal       = 0,//常态</span>
@@ -320,19 +318,19 @@ oneButton<span class="variable">.alpha</span> = <span class="number">0.8</span>;
 <span class="comment">//        UIControlStateApplication  = 0x00FF0000,// 当应用程序标志使用时</span>
 <span class="comment">//        UIControlStateReserved     = 0xFF000000 // 为内部框架预留的</span>
 <span class="comment">//    };</span>
-oneButton<span class="variable">.tag</span> = <span class="number">10001</span>; <span class="comment">// 设置标签，用于便于点击的是哪个按钮，常用在委托方法中</span>
-[oneButton<span class="variable">.titleLabel</span> setFont:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">25.0</span>f]]; <span class="comment">// 设置文字的大小</span>
+oneButton.tag = <span class="number">10001</span>; <span class="comment">// 设置标签，用于便于点击的是哪个按钮，常用在委托方法中</span>
+[oneButton.titleLabel <span class="string">setFont:</span>[UIFont <span class="string">systemFontOfSize:</span><span class="number">25.0</span>f]]; <span class="comment">// 设置文字的大小</span>
 
-oneButton<span class="variable">.adjustsImageWhenDisabled</span> = <span class="literal">NO</span>; <span class="comment">// 对按钮进行微调。当按钮禁用时，图像会被画的颜色深一些 默认是YES，禁止设置为NO</span>
-oneButton<span class="variable">.adjustsImageWhenHighlighted</span> = <span class="literal">NO</span>; <span class="comment">// 对按钮进行微调。当按钮高亮是，图像会被画得颜色深一些 默认是YES，禁止设置为NO</span>
+oneButton.adjustsImageWhenDisabled = NO; <span class="comment">// 对按钮进行微调。当按钮禁用时，图像会被画的颜色深一些 默认是YES，禁止设置为NO</span>
+oneButton.adjustsImageWhenHighlighted = NO; <span class="comment">// 对按钮进行微调。当按钮高亮是，图像会被画得颜色深一些 默认是YES，禁止设置为NO</span>
 
-oneButton<span class="variable">.showsTouchWhenHighlighted</span> = <span class="literal">YES</span>; <span class="comment">// 设置点击的时候是否有光照得效果</span>
+oneButton.showsTouchWhenHighlighted = YES; <span class="comment">// 设置点击的时候是否有光照得效果</span>
 
 <span class="comment">// 给按钮添加响应事件</span>
-[oneButton addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(oneButtonTouchUpInside:) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];<span class="comment">//当按钮被按下时会执行oneButtonTouchUpinside:方法。这个方法是自定义的，需要自己写出。参数是(UIButton *)类型</span>
+[oneButton <span class="string">addTarget:</span>self <span class="string">action:</span><span class="annotation">@selector</span>(<span class="string">oneButtonTouchUpInside:</span>) <span class="string">forControlEvents:</span>UIControlEventTouchUpInside];<span class="comment">//当按钮被按下时会执行oneButtonTouchUpinside:方法。这个方法是自定义的，需要自己写出。参数是(UIButton *)类型</span>
 
 <span class="comment">// 添加到view</span>
-[<span class="keyword">self</span><span class="variable">.view</span> addSubview:oneButton];
+[self.view <span class="string">addSubview:</span>oneButton];
 </code></pre></span>
       
     </div>

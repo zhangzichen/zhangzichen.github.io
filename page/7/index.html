@@ -394,149 +394,20 @@ oneSlider.tag = <span class="number">1001</span>; <span class="comment">// 设�
 
       
         
-          <span itemprop="articleBody">
-            
-              <pre><code><span class="comment">// UITextField的常用方法</span>
-<span class="built_in">UITextField</span> *oneTextField = [[<span class="built_in">UITextField</span> alloc] init];
+          <pre><code><span class="comment">// UITextField的常用方法</span>
+UITextField *oneTextField = [[UITextField alloc] init];
 
 <span class="comment">// 最常用</span>
-oneTextField<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">30</span>, <span class="number">30</span>, <span class="number">260</span>, <span class="number">35</span>); <span class="comment">// 设置位置</span>
-oneTextField<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> grayColor]; <span class="comment">// 设置背景颜色</span>
-oneTextField<span class="variable">.alpha</span> = <span class="number">1.0</span>; <span class="comment">// 设置透明度，范围从0.0-1.0之间</span>
-oneTextField<span class="variable">.textColor</span> = [<span class="built_in">UIColor</span> redColor]; <span class="comment">// 设置文字的颜色</span>
-&lt;!--more--&gt;
-oneTextField<span class="variable">.text</span> = <span class="string">@"默认的文字"</span>; <span class="comment">// 设置默认的文字</span>
-oneTextField<span class="variable">.placeholder</span> = <span class="string">@"这是提示文字"</span>; <span class="comment">// 显示提示文件，当输入文字时将自动消失</span>
-oneTextField<span class="variable">.font</span> = [<span class="built_in">UIFont</span> boldSystemFontOfSize:<span class="number">25.0</span>f]; <span class="comment">// 设置字体的大小</span>
-oneTextField<span class="variable">.textAlignment</span> = <span class="built_in">NSTextAlignmentCenter</span>; <span class="comment">// 设置文字的对其方式</span>
-<span class="comment">// 对其的样式如下</span>
-<span class="comment">//    typedef NS_ENUM(NSInteger, NSTextAlignment) {</span>
-<span class="comment">//        NSTextAlignmentLeft      = 0,    // Visually left aligned</span>
-<span class="comment">//#if TARGET_OS_IPHONE</span>
-<span class="comment">//        NSTextAlignmentCenter    = 1,    // Visually centered</span>
-<span class="comment">//        NSTextAlignmentRight     = 2,    // Visually right aligned</span>
-<span class="comment">//#else</span>
-<span class="comment">//        NSTextAlignmentRight     = 1,    // Visually right aligned</span>
-<span class="comment">//        NSTextAlignmentCenter    = 2,    // Visually centered</span>
-<span class="comment">//#endif</span>
-<span class="comment">//        NSTextAlignmentJustified = 3,    // Fully-justified. The last line in a paragraph is natural-aligned.</span>
-<span class="comment">//        NSTextAlignmentNatural   = 4,    // Indicates the default alignment for script</span>
-<span class="comment">//    } NS_ENUM_AVAILABLE_IOS(6_0);</span>
-
-<span class="comment">// 设置oneTextField的样式</span>
-oneTextField<span class="variable">.borderStyle</span> = <span class="built_in">UITextBorderStyleRoundedRect</span>; <span class="comment">// 设置oneTextField的样式</span>
-oneTextField<span class="variable">.clearsOnBeginEditing</span> = <span class="literal">YES</span>; <span class="comment">// 再次编辑就清空原有的内容</span>
-oneTextField<span class="variable">.minimumFontSize</span> = <span class="number">20.0</span>f; <span class="comment">// 设置自动缩小显示的最小字体大小    </span>
-oneTextField<span class="variable">.tag</span> = <span class="number">10001</span>; <span class="comment">// 设置oneTextField的标签，主要用在委托方法中</span>
-oneTextField<span class="variable">.secureTextEntry</span> = <span class="literal">NO</span>; <span class="comment">// 设置是否以密码的圆点形式显示</span>
-oneTextField<span class="variable">.autocorrectionType</span> = <span class="literal">YES</span>; <span class="comment">// 设置是否启动自动提醒更新功能</span>
-oneTextField<span class="variable">.returnKeyType</span> = <span class="built_in">UIReturnKeyDefault</span>; <span class="comment">// 设置弹出的键盘带形式与带的按键</span>
-<span class="comment">// 以下是弹出的键盘的带按钮的全部样式</span>
-<span class="comment">//    typedef NS_ENUM(NSInteger, UIReturnKeyType) {</span>
-<span class="comment">//        UIReturnKeyDefault, // 默认的样式</span>
-<span class="comment">//        UIReturnKeyGo, // 带一个go按钮</span>
-<span class="comment">//        UIReturnKeyGoogle, // 带一个Search按钮，使用google搜索    </span>
-<span class="comment">//        UIReturnKeyJoin, // 带一个Join按钮，登录时使用</span>
-<span class="comment">//        UIReturnKeyNext, // 带一个Next按钮，进入下一个输入框</span>
-<span class="comment">//        UIReturnKeyRoute, // 带一个Route按钮</span>
-<span class="comment">//        UIReturnKeySearch, // 带一个Search按钮</span>
-<span class="comment">//        UIReturnKeySend, // 带一个Send按钮</span>
-<span class="comment">//        UIReturnKeyYahoo, // 带一个Search，使用yahoo搜索</span>
-<span class="comment">//        UIReturnKeyDone, // 带一个Done按钮</span>
-<span class="comment">//        UIReturnKeyEmergencyCall, // 带一个emergency call按钮</span>
-<span class="comment">//    };</span>
-
-
-oneTextField<span class="variable">.keyboardType</span> = <span class="built_in">UIKeyboardTypeNamePhonePad</span>; <span class="comment">// 弹出的键盘的样式</span>
-<span class="comment">// 以下是所有弹出的键盘的样式</span>
-<span class="comment">//    typedef NS_ENUM(NSInteger, UIKeyboardType) {</span>
-<span class="comment">//        UIKeyboardTypeDefault,                // Default type for the current input method.</span>
-<span class="comment">//        UIKeyboardTypeASCIICapable,           // Displays a keyboard which can enter ASCII characters, non-ASCII keyboards remain active</span>
-<span class="comment">//        UIKeyboardTypeNumbersAndPunctuation,  // Numbers and assorted punctuation.</span>
-<span class="comment">//        UIKeyboardTypeURL,                    // A type optimized for URL entry (shows . / .com prominently).</span>
-<span class="comment">//        UIKeyboardTypeNumberPad,              // A number pad (0-9). Suitable for PIN entry.</span>
-<span class="comment">//        UIKeyboardTypePhonePad,               // A phone pad (1-9, *, 0, #, with letters under the numbers).</span>
-<span class="comment">//        UIKeyboardTypeNamePhonePad,           // A type optimized for entering a person's name or phone number.</span>
-<span class="comment">//        UIKeyboardTypeEmailAddress,           // A type optimized for multiple email address entry (shows space @ . prominently).</span>
-<span class="comment">//#if __IPHONE_4_1 &lt;= __IPHONE_OS_VERSION_MAX_ALLOWED</span>
-<span class="comment">//        UIKeyboardTypeDecimalPad,             // A number pad with a decimal point.</span>
-<span class="comment">//#endif</span>
-<span class="comment">//#if __IPHONE_5_0 &lt;= __IPHONE_OS_VERSION_MAX_ALLOWED</span>
-<span class="comment">//        UIKeyboardTypeTwitter,                // A type optimized for twitter text entry (easy access to @ #)</span>
-<span class="comment">//#endif</span>
-<span class="comment">//        </span>
-<span class="comment">//        UIKeyboardTypeAlphabet = UIKeyboardTypeASCIICapable, // Deprecated</span>
-<span class="comment">//        </span>
-<span class="comment">//    };</span>
-
-oneTextField<span class="variable">.contentVerticalAlignment</span> = <span class="built_in">UIControlContentVerticalAlignmentCenter</span>; <span class="comment">// 输入的对其方法</span>
-oneTextField<span class="variable">.autoresizingMask</span> = <span class="built_in">UIViewAutoresizingFlexibleHeight</span>; <span class="comment">// 自动适应高度</span>
-oneTextField<span class="variable">.clearButtonMode</span> = <span class="built_in">UITextFieldViewModeWhileEditing</span>; <span class="comment">// 编辑的时候会显示出删除全部的小X</span>
-<span class="comment">// 出现删除全部小X的时间</span>
-<span class="comment">//    typedef enum {</span>
-<span class="comment">//        UITextFieldViewModeNever　// 重不出现</span>
-<span class="comment">//        UITextFieldViewModeWhileEditing, // 编辑时出现</span>
-<span class="comment">//        UITextFieldViewModeUnlessEditing,　// 除了编辑外都出现</span>
-<span class="comment">//        UITextFieldViewModeAlways 　// 一直出现</span>
-<span class="comment">//    } UITextFieldViewMode;</span>
-
-<span class="comment">//首字母是否大写</span>
-oneTextField<span class="variable">.autocapitalizationType</span> = <span class="built_in">UITextAutocapitalizationTypeNone</span>;
-<span class="comment">// 以下是字母大写的几种情况</span>
-<span class="comment">//    typedef enum {</span>
-<span class="comment">//        UITextAutocapitalizationTypeNone, // 不自动大写</span>
-<span class="comment">//        UITextAutocapitalizationTypeWords,　// 单词首字母大写</span>
-<span class="comment">//        UITextAutocapitalizationTypeSentences,　// 句子的首字母大写</span>
-<span class="comment">//        UITextAutocapitalizationTypeAllCharacters, // 所有字母都大写</span>
-<span class="comment">//    } UITextAutocapitalizationType;</span>
-
-
-<span class="comment">//键盘外观</span>
-oneTextField<span class="variable">.keyboardAppearance</span>=<span class="built_in">UIKeyboardAppearanceAlert</span>;
-<span class="comment">//    typedef enum {</span>
-<span class="comment">//        UIKeyboardAppearanceDefault， // 默认外观，浅灰色</span>
-<span class="comment">//        UIKeyboardAppearanceAlert，　 　// 深灰 石墨色</span>
-<span class="comment">//    } UIReturnKeyType;</span>
-
-
-<span class="comment">//最右侧加图片是以下代码　 左侧类似</span>
-<span class="built_in">UIImageView</span> *image=[[<span class="built_in">UIImageView</span> alloc] initWithImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"ic_action_stat_share.png"</span>]];
-<span class="comment">// oneTextField.rightView = image;</span>
-<span class="comment">// oneTextField.rightViewMode = UITextFieldViewModeAlways;</span>
-oneTextField<span class="variable">.leftView</span> = image;
-oneTextField<span class="variable">.leftViewMode</span> = <span class="built_in">UITextFieldViewModeAlways</span>;
-<span class="comment">//    typedef enum {</span>
-<span class="comment">//        UITextFieldViewModeNever,</span>
-<span class="comment">//        UITextFieldViewModeWhileEditing,</span>
-<span class="comment">//        UITextFieldViewModeUnlessEditing,</span>
-<span class="comment">//        UITextFieldViewModeAlways</span>
-<span class="comment">//    } UITextFieldViewMode;</span>
-
-
-<span class="comment">// 要想设置委托，就需要实现协议，需要在.h文件中添加协议</span>
-oneTextField<span class="variable">.delegate</span> = <span class="keyword">self</span>; <span class="comment">// 设置委托</span>
-
-<span class="comment">// 添加到view上，并释放内存</span>
-[<span class="keyword">self</span><span class="variable">.view</span> addSubview:oneTextField];
-[oneTextField release], oneTextField = <span class="literal">nil</span>;
-
-
-<span class="comment">//当开始点击textField会调用的方法</span>
--(<span class="keyword">void</span>)textFieldDidBeginEditing:(<span class="built_in">UITextField</span> *)textField {
-<span class="built_in">NSLog</span>(<span class="string">@"开始编辑"</span>);
-}
-<span class="comment">//当textField编辑结束时调用的方法</span>
--(<span class="keyword">void</span>)textFieldDidEndEditing:(<span class="built_in">UITextField</span> *)textField {
-<span class="built_in">NSLog</span>(<span class="string">@"结束编辑"</span>);
-}
-<span class="comment">//按下Done按钮的调用方法，我们让键盘消失</span>
--(<span class="built_in">BOOL</span>)textFieldShouldReturn:(<span class="built_in">UITextField</span> *)textField{
-[textField resignFirstResponder];
-<span class="keyword">return</span> <span class="literal">YES</span>;
-}
+oneTextField.frame = CGRectMake(<span class="number">30</span>, <span class="number">30</span>, <span class="number">260</span>, <span class="number">35</span>); <span class="comment">// 设置位置</span>
+oneTextField.backgroundColor = [UIColor grayColor]; <span class="comment">// 设置背景颜色</span>
+oneTextField.alpha = <span class="number">1.0</span>; <span class="comment">// 设置透明度，范围从0.0-1.0之间</span>
+oneTextField.textColor = [UIColor redColor]; <span class="comment">// 设置文字的颜色</span>
 </code></pre>
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/09/19/iOS-UITextFiled的使用方法详细/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -627,55 +498,24 @@ oneTextField<span class="variable">.delegate</span> = <span class="keyword">self
 
       
         
-          <span itemprop="articleBody">
-            
-              <pre><code><span class="comment">// UIButton的常用方法</span>
-<span class="built_in">UIButton</span> *oneButton = [<span class="built_in">UIButton</span>     buttonWithType:<span class="built_in">UIButtonTypeCustom</span>]; 
-<span class="comment">// 初始化时设置Button样式</span>
-<span class="comment">// 风格有如下</span>
-<span class="comment">//    typedef enum {</span>
-<span class="comment">//        UIButtonTypeCustom = 0,           // 自定义，无风格</span>
-<span class="comment">//        UIButtonTypeRoundedRect,        // 白色圆角矩形，类似偏好设置表格单元或者地址簿卡片</span>
-<span class="comment">//        UIButtonTypeDetailDisclosure,//蓝色的披露按钮，可放在任何文字旁</span>
-<span class="comment">//        UIButtonTypeInfoLight,//微件(widget)使用的小圆圈信息按钮，可以放在任何文字旁</span>
-<span class="comment">//        UIButtonTypeInfoDark,//白色背景下使用的深色圆圈信息按钮</span>
-<span class="comment">//        UIButtonTypeContactAdd,//蓝色加号(+)按钮，可以放在任何文字旁</span>
-<span class="comment">//    } UIButtonType;</span>
-&lt;!--more--&gt;
-
-
-<span class="comment">// 最常用</span>
-oneButton<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">10</span>, <span class="number">10</span>, <span class="number">300</span>, <span class="number">30</span>); <span class="comment">// 设置oneButton的位置和大小</span>
-oneButton<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> blueColor]; <span class="comment">// 设置oneButton背景色</span>
-oneButton<span class="variable">.alpha</span> = <span class="number">0.8</span>; <span class="comment">// 设置oneButton的透明度范围在0.0-1.0之间</span>
-[oneButton setTitle:<span class="string">@"我是一个UIButton"</span> forState:<span class="built_in">UIControlStateNormal</span>]; <span class="comment">// 设置在什么状态下显示什么文字</span>
-[oneButton setTitleColor:[<span class="built_in">UIColor</span> redColor] forState:<span class="built_in">UIControlStateNormal</span>]; <span class="comment">// 设置什么状态下字体什么颜色</span>
-[oneButton setBackgroundImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"image.jpg"</span>] forState:<span class="built_in">UIControlStateNormal</span>]; <span class="comment">// 设置什么状态下显示的背景图像</span>
-<span class="comment">// 上面几个方法都提到 共同的参数 forState . 这个参数决定了标题、图像或其他属性将在何种状态下显现。你可以编程令按钮在那个状态变化</span>
-<span class="comment">//    enum {</span>
-<span class="comment">//        UIControlStateNormal       = 0,//常态</span>
-<span class="comment">//        UIControlStateHighlighted  = 1 &lt;&lt; 0,    //  高亮</span>
-<span class="comment">//        UIControlStateDisabled     = 1 &lt;&lt; 1,    //禁用</span>
-<span class="comment">//        UIControlStateSelected     = 1 &lt;&lt; 2,    // 选中</span>
-<span class="comment">//        UIControlStateApplication  = 0x00FF0000,// 当应用程序标志使用时</span>
-<span class="comment">//        UIControlStateReserved     = 0xFF000000 // 为内部框架预留的</span>
-<span class="comment">//    };</span>
-oneButton<span class="variable">.tag</span> = <span class="number">10001</span>; <span class="comment">// 设置标签，用于便于点击的是哪个按钮，常用在委托方法中</span>
-[oneButton<span class="variable">.titleLabel</span> setFont:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">25.0</span>f]]; <span class="comment">// 设置文字的大小</span>
-
-oneButton<span class="variable">.adjustsImageWhenDisabled</span> = <span class="literal">NO</span>; <span class="comment">// 对按钮进行微调。当按钮禁用时，图像会被画的颜色深一些 默认是YES，禁止设置为NO</span>
-oneButton<span class="variable">.adjustsImageWhenHighlighted</span> = <span class="literal">NO</span>; <span class="comment">// 对按钮进行微调。当按钮高亮是，图像会被画得颜色深一些 默认是YES，禁止设置为NO</span>
-
-oneButton<span class="variable">.showsTouchWhenHighlighted</span> = <span class="literal">YES</span>; <span class="comment">// 设置点击的时候是否有光照得效果</span>
-
-<span class="comment">// 给按钮添加响应事件</span>
-[oneButton addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(oneButtonTouchUpInside:) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];<span class="comment">//当按钮被按下时会执行oneButtonTouchUpinside:方法。这个方法是自定义的，需要自己写出。参数是(UIButton *)类型</span>
-
-<span class="comment">// 添加到view</span>
-[<span class="keyword">self</span><span class="variable">.view</span> addSubview:oneButton];
+          <pre><code>/<span class="regexp">/ UIButton的常用方法
+UIButton *oneButton = [UIButton     buttonWithType:UIButtonTypeCustom]; 
+/</span><span class="regexp">/ 初始化时设置Button样式
+/</span><span class="regexp">/ 风格有如下
+/</span><span class="regexp">/    typedef enum {
+/</span><span class="regexp">/        UIButtonTypeCustom = 0,           /</span><span class="regexp">/ 自定义，无风格
+/</span><span class="regexp">/        UIButtonTypeRoundedRect,        /</span><span class="regexp">/ 白色圆角矩形，类似偏好设置表格单元或者地址簿卡片
+/</span><span class="regexp">/        UIButtonTypeDetailDisclosure,/</span><span class="regexp">/蓝色的披露按钮，可放在任何文字旁
+/</span><span class="regexp">/        UIButtonTypeInfoLight,/</span><span class="regexp">/微件(widget)使用的小圆圈信息按钮，可以放在任何文字旁
+/</span><span class="regexp">/        UIButtonTypeInfoDark,/</span><span class="regexp">/白色背景下使用的深色圆圈信息按钮
+/</span><span class="regexp">/        UIButtonTypeContactAdd,/</span><span class="regexp">/蓝色加号(+)按钮，可以放在任何文字旁
+/</span><span class="regexp">/    } UIButtonType;</span>
 </code></pre>
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/09/18/iOS-UIButton的使用方法详细/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -766,9 +606,7 @@ oneButton<span class="variable">.showsTouchWhenHighlighted</span> = <span class=
 
       
         
-          <span itemprop="articleBody">
-            
-              <pre><code><span class="comment">//UILabel的使用</span>
+          <pre><code><span class="comment">//UILabel的使用</span>
  <span class="built_in">UILabel</span> *oneLabel = [[<span class="built_in">UILabel</span> alloc] init];
 <span class="comment">// 最经常使用的</span>
 oneLabel<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">320</span>, <span class="number">200</span>); <span class="comment">// 设置oneLabel的位置和大小</span>
@@ -777,57 +615,12 @@ oneLabel<span class="variable">.textColor</span> = [<span class="built_in">UICol
 oneLabel<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor]; <span class="comment">// 设置背景色</span>
 oneLabel<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> clearColor]; <span class="comment">// 可以设置透明背景色</span>
 oneLabel<span class="variable">.alpha</span> = <span class="number">1.0</span>; <span class="comment">// 设置透明度 （范围是0.0-1.0之间）</span>
-&lt;!--more--&gt;
-<span class="comment">// 字体和字体大小</span>
-oneLabel<span class="variable">.font</span> = [<span class="built_in">UIFont</span> fontWithName:<span class="string">@"Helvetica"</span> size:<span class="number">25.4</span>f]; 
-<span class="comment">// 设置显示的字的字体和大小，当字体不存在时，大小也是无效的</span>
-oneLabel<span class="variable">.font</span> = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">35.0</span>f]; <span class="comment">// 只设置字体大小</span>
-oneLabel<span class="variable">.font</span> = [<span class="built_in">UIFont</span> boldSystemFontOfSize:<span class="number">35.0</span>f]; <span class="comment">// 设置字体大小并为粗体</span>
-oneLabel<span class="variable">.textAlignment</span> = <span class="built_in">NSTextAlignmentCenter</span>; <span class="comment">// 设置字体的显示位置：左对齐、居中、右对齐</span>
-oneLabel<span class="variable">.adjustsFontSizeToFitWidth</span> = <span class="literal">YES</span>;<span class="comment">// 设置字体大小自动适应高度</span>
-oneLabel<span class="variable">.userInteractionEnabled</span> = <span class="literal">YES</span>; <span class="comment">// 设置是否可以与用户进行交互</span>
-oneLabel<span class="variable">.enabled</span> = <span class="literal">YES</span>; <span class="comment">// 设置oneLabel的text是否可以改变，默认是YES</span>
-<span class="comment">// 设置行数，前提是高度是足够的</span>
-<span class="comment">// 设置行数为0，可以根据文本计算对应文本的高度宽度后，全部显示完全，默认单行显示</span>
-oneLabel<span class="variable">.numberOfLines</span> = <span class="number">3</span>;
-<span class="comment">// 设置是否可以高亮</span>
-oneLabel<span class="variable">.highlighted</span> = <span class="literal">YES</span>;
-oneLabel<span class="variable">.highlightedTextColor</span> = [<span class="built_in">UIColor</span> redColor];
-<span class="comment">// 设置阴影</span>
-oneLabel<span class="variable">.shadowColor</span> = [<span class="built_in">UIColor</span> grayColor];
-oneLabel<span class="variable">.shadowOffset</span> = <span class="built_in">CGSizeMake</span>(<span class="number">2.0</span>, <span class="number">2.0</span>);
-
-<span class="comment">//设置文字过长时的显示格式</span>
-oneLabel<span class="variable">.lineBreakMode</span> = <span class="built_in">NSLineBreakByClipping</span>;
-<span class="comment">//    typedef NS_ENUM(NSInteger, NSLineBreakMode) {</span>
-<span class="comment">//        NSLineBreakByWordWrapping = 0,    </span>
-<span class="comment">//        NSLineBreakByCharWrapping,</span>
-<span class="comment">//        NSLineBreakByClipping,</span>
-<span class="comment">//        NSLineBreakByTruncatingHead,</span>
-<span class="comment">//        NSLineBreakByTruncatingTail,</span>
-<span class="comment">//        NSLineBreakByTruncatingMiddle</span>
-<span class="comment">//    }</span>
-
-<span class="comment">//如果adjustsFontSizeToFitWidth属性设置为YES，这个属性就来控制文本基线的行为</span>
- oneLabel<span class="variable">.baselineAdjustment</span> = <span class="built_in">UIBaselineAdjustmentAlignBaselines</span>;
-<span class="comment">//  typedef enum {</span>
-<span class="comment">//      UIBaselineAdjustmentAlignBaselines,</span>
-<span class="comment">//      UIBaselineAdjustmentAlignCenters,</span>
-<span class="comment">//      UIBaselineAdjustmentNone,</span>
-<span class="comment">//  } UIBaselineAdjustment;</span>
-
-
-<span class="comment">// 把oneLabel添加到view上面，并释放内存</span>
-[<span class="keyword">self</span><span class="variable">.view</span> addSubview:oneLabel];
-[oneLabel release], oneLabel = <span class="literal">nil</span>;
-
-
-
-<span class="comment">// 附：</span>
-<span class="comment">// NSLog(@"%@", [UIFont familyNames]); // 可以打印出全部存在的字体</span>
 </code></pre>
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/09/17/iOS-UILabel的使用方法详细/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
