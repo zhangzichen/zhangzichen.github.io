@@ -1,0 +1,915 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="UITableView,iOS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="// 在RootViewController.h文件中，需要遵守UITableViewDelegate和UITableViewDataSource协议，还声明了两个NSMutableArray数组用来存放各个分组中的单元格。一个UITableView用来显示一个UITableViewCell对象，代码如下：
+#import
+@interface RootViewController : UIVie">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UITableView的详细使用">
+<meta property="og:url" content="http://yoursite.com/2014/10/09/UITableView的详细使用/index.html">
+<meta property="og:site_name" content="张飞">
+<meta property="og:description" content="// 在RootViewController.h文件中，需要遵守UITableViewDelegate和UITableViewDataSource协议，还声明了两个NSMutableArray数组用来存放各个分组中的单元格。一个UITableView用来显示一个UITableViewCell对象，代码如下：
+#import
+@interface RootViewController : UIVie">
+<meta property="og:updated_time" content="2015-12-14T12:24:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UITableView的详细使用">
+<meta name="twitter:description" content="// 在RootViewController.h文件中，需要遵守UITableViewDelegate和UITableViewDataSource协议，还声明了两个NSMutableArray数组用来存放各个分组中的单元格。一个UITableView用来显示一个UITableViewCell对象，代码如下：
+#import
+@interface RootViewController : UIVie">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> UITableView的详细使用 | 张飞 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">张飞</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'YZFopNXEX1srXxTxv-Ms','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                UITableView的详细使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2014-10-09T18:30:35+08:00" content="2014-10-09">
+              2014-10-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术篇/" itemprop="url" rel="index">
+                    <span itemprop="name">技术篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><pre><code><span class="comment">// 在RootViewController.h文件中，需要遵守UITableViewDelegate和UITableViewDataSource协议，还声明了两个NSMutableArray数组用来存放各个分组中的单元格。一个UITableView用来显示一个UITableViewCell对象，代码如下：</span>
+<span class="preprocessor">#import</span>
+<span class="class"><span class="keyword">@interface</span> <span class="title">RootViewController</span> : <span class="title">UIViewController</span> &lt;<span class="title">UITableViewDelegate</span>, <span class="title">UITableViewDataSource</span>&gt;</span>
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, retain) <span class="built_in">UITableView</span> *myTableView;
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, retain) <span class="built_in">UITableViewCell</span> *tableViewCell;
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, retain) <span class="built_in">NSMutableArray</span> *tableViewDataSource; <span class="comment">// TableView中显示的数据</span>
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, retain) <span class="built_in">NSMutableArray</span> *tableViewDateSource2; <span class="comment">// 第二个分组使用的数据</span>
+<span class="keyword">@end</span>
+</code></pre><a id="more"></a>
+<pre><code><span class="comment">// 主要的方法有如下，</span>
+
+
+<span class="preprocessor">#pragma mark 设置TableView上面显示的内容 使用此方法时候需要注意，一定要使用重用机制，否则会出现文字或图像重叠的现象</span>
+- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;
+
+
+<span class="preprocessor">#pragma mark - 重写----设置有多少个分组</span>
+- (<span class="built_in">NSInteger</span>)numberOfSectionsInTableView:(<span class="built_in">UITableView</span> *)tableView;
+
+
+<span class="preprocessor">#pragma mark - 重写----设置每个分组上面有多少单元格</span>
+- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITableView</span> *)tableView numberOfRowsInSection:(<span class="built_in">NSInteger</span>)section;
+
+
+<span class="preprocessor">#pragma mark - 重写---修改行高</span>
+- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath {
+<span class="keyword">return</span> <span class="number">44</span>; <span class="comment">// 返回多少即设置行高为多少</span>
+</code></pre><p>}</p>
+<pre><code><span class="preprocessor">#pragma mark - 重写----设置单元格分组的标题和标注的高度</span>
+<span class="preprocessor">#pragma mark 设置分组上面的标题的高度</span>
+- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForHeaderInSection:(<span class="built_in">NSInteger</span>)section;
+<span class="preprocessor">#pragma mark 设置分组下面的标注的高度</span>
+- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForFooterInSection:(<span class="built_in">NSInteger</span>)section;
+
+
+
+<span class="preprocessor">#pragma mark - 重写----设置单元格分组的标题</span>
+<span class="comment">// 可以设置为UIView类型</span>
+- (<span class="built_in">UIView</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView viewForHeaderInSection:(<span class="built_in">NSInteger</span>)section;
+<span class="comment">// 也可以直接设置为字符串</span>
+
+- (<span class="built_in">NSString</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView titleForFooterInSection:(<span class="built_in">NSInteger</span>)section;
+
+
+<span class="preprocessor">#pragma mark - 重写----设置分组下面显示的视图</span>
+<span class="comment">// 设置为UIView类型</span>
+- (<span class="built_in">UIView</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView viewForFooterInSection:(<span class="built_in">NSInteger</span>)section;
+<span class="comment">// 也可以直接设置为字符串类型</span>
+
+- (<span class="built_in">NSString</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView titleForHeaderInSection:(<span class="built_in">NSInteger</span>)section;
+
+
+
+<span class="preprocessor">#pragma mark - 重写----设置当我们点击Edit按钮，让TableView进入编辑状态时候左面显示出得按钮是加号、减号、还是空白</span>
+- (<span class="built_in">UITableViewCellEditingStyle</span>)tableView:(<span class="built_in">UITableView</span> *)tableView editingStyleForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;
+<span class="comment">// 主要由如下三种情况</span>
+
+<span class="comment">// UITableViewCellEditingStyleNone // 显示为空白</span>
+<span class="comment">// UITableViewCellEditingStyleDelete // 显示为减号</span>
+<span class="comment">// UITableViewCellEditingStyleInsert // 显示为加号</span>
+<span class="preprocessor">#pragma mark - 重写----当TableView将要显示的时候进行设置 可以设置TableView隔行换背景色</span>
+- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView willDisplayCell:(<span class="built_in">UITableViewCell</span> *)cell forRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;
+
+
+
+<span class="preprocessor">#pragma mark - 重写----设置可以编辑 返回值为YES  </span>
+- (<span class="built_in">BOOL</span>)tableView:(<span class="built_in">UITableView</span> *)tableView canEditRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath
+{
+    <span class="keyword">return</span> <span class="literal">YES</span>;
+}
+<span class="preprocessor">#pragma mark - 重写----设置可以排序移动</span>
+- (<span class="built_in">BOOL</span>)tableView:(<span class="built_in">UITableView</span> *)tableView canMoveRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath {
+<span class="keyword">return</span> <span class="literal">YES</span>;
+}
+<span class="preprocessor">#pragma mark - 重写----排序移动时的方法</span>
+- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView moveRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)sourceIndexPath toIndexPath:(<span class="built_in">NSIndexPath</span> *)destinationIndexPath;
+
+
+
+<span class="preprocessor">#pragma mark - 重写----判断是那个编辑的状态，然后依据状态去编辑</span>
+- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView commitEditingStyle:(<span class="built_in">UITableViewCellEditingStyle</span>)editingStyle forRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;
+
+
+
+<span class="preprocessor">#pragma mark - 重写---点击了每个单元格（Cell）触发的事件，如果可以移动的话就必须使用标题来判断</span>
+- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView didSelectRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;
+
+
+
+
+
+
+<span class="comment">// 以上为经常使用的几个方法，下面贴上添加内容，移动，添加，删除的主要代码：</span>
+<span class="comment">// 添加内容的主要代码：</span>
+
+<span class="preprocessor">#pragma mark 设置TableView上面显示的内容</span>
+- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath {
+<span class="comment">// 首先先声明一个标识符</span>
+<span class="built_in">NSString</span> *cell_id = <span class="string">@"cell_id"</span>;
+<span class="comment">// 从TableView的重用队列中获取可重用的单元格</span>
+<span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:cell_id];
+<span class="comment">// 刚开始因为重用队列中没有可重用的单元格，所有cell不存在，需要主动实例化指定样式</span>
+<span class="keyword">if</span> (!cell) {
+    cell = [[[<span class="built_in">UITableViewCell</span> alloc] initWithStyle:<span class="built_in">UITableViewCellStyleDefault</span> reuseIdentifier:cell_id] autorelease];
+    <span class="comment">// 设置每一个单元格右面显示的符号</span>
+    cell<span class="variable">.accessoryType</span> = <span class="built_in">UITableViewCellAccessoryDisclosureIndicator</span>;
+}
+<span class="comment">// 实例化可变数据，作为数据源</span>
+<span class="built_in">NSUInteger</span> row = [indexPath row];
+<span class="comment">// 设置不同分组的，如果是普通列表形式，则无需if判断</span>
+<span class="keyword">if</span> (indexPath<span class="variable">.section</span> == <span class="number">0</span>) {
+    <span class="comment">// 设置单元格上面的内容</span>
+    cell<span class="variable">.textLabel</span><span class="variable">.text</span> = [<span class="keyword">self</span><span class="variable">.tableViewDataSource</span> objectAtIndex:row];
+} <span class="keyword">else</span> <span class="keyword">if</span> (indexPath<span class="variable">.section</span> == <span class="number">1</span>) {
+    <span class="comment">// 设置单元格上面的内容</span>
+    cell<span class="variable">.textLabel</span><span class="variable">.text</span> = [<span class="keyword">self</span><span class="variable">.tableViewDateSource2</span> objectAtIndex:row];
+}
+<span class="keyword">return</span> cell;
+}
+
+<span class="comment">// 移动排序的主要代码：</span>
+
+<span class="preprocessor">#pragma mark - 重写----设置可以编辑 返回值为YES  </span>
+- (<span class="built_in">BOOL</span>)tableView:(<span class="built_in">UITableView</span> *)tableView canEditRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath
+{
+    <span class="keyword">return</span> <span class="literal">YES</span>;
+}
+
+<span class="preprocessor">#pragma mark - 重写----设置可以排序移动</span>
+- (<span class="built_in">BOOL</span>)tableView:(<span class="built_in">UITableView</span> *)tableView canMoveRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath {
+<span class="keyword">return</span> <span class="literal">YES</span>;
+</code></pre><p>}</p>
+<pre><code><span class="preprocessor">#pragma mark - 重写----排序移动时的方法</span>
+- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView moveRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)sourceIndexPath toIndexPath:(<span class="built_in">NSIndexPath</span> *)destinationIndexPath {
+<span class="comment">// 获取需要移动的行</span>
+<span class="built_in">NSInteger</span> fromRow = sourceIndexPath<span class="variable">.row</span>;
+<span class="comment">// 获取移动某处的位置</span>
+<span class="built_in">NSInteger</span> toRow = destinationIndexPath<span class="variable">.row</span>;
+<span class="comment">// 从数组合中读取需要移动行的数据</span>
+<span class="keyword">id</span> object = [_tableViewDataSource objectAtIndex:fromRow];
+<span class="comment">// 把数组中移除需要移动的行的数据</span>
+[_tableViewDataSource removeObjectAtIndex:fromRow];
+<span class="comment">// 把需要移动的数据插入到目标位置</span>
+[_tableViewDataSource insertObject:object atIndex:toRow];   
+}
+
+
+<span class="comment">// 添加新的单元格（cell）的主要代码</span>
+<span class="comment">// 首先需要在头文件中声明一个cellCount和UITableViewCell以供使用</span>
+
+<span class="preprocessor">#import</span>
+<span class="class"><span class="keyword">@interface</span> <span class="title">InsertTableViewController</span> : <span class="title">UITableViewController</span></span>
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSUInteger</span> cellCount;
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, retain) <span class="built_in">UITableViewCell</span> *nullTableViewCell;
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, retain) <span class="built_in">NSMutableArray</span> *tableViewDataSource;
+<span class="keyword">@end</span>
+<span class="comment">// 实现文件中进行主要操作</span>
+
+<span class="preprocessor">#pragma mark - 重写----设置编辑状态下显示的按钮是加号、减号、空</span>
+- (<span class="built_in">UITableViewCellEditingStyle</span>)tableView:(<span class="built_in">UITableView</span> *)tableView editingStyleForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath {
+<span class="keyword">return</span> <span class="built_in">UITableViewCellEditingStyleInsert</span>;
+}
+
+
+<span class="preprocessor">#pragma mark - 重写----依据编辑状态进行相应的操作</span>
+- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView commitEditingStyle:(<span class="built_in">UITableViewCellEditingStyle</span>)editingStyle forRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath
+{
+<span class="keyword">if</span> (editingStyle == <span class="built_in">UITableViewCellEditingStyleInsert</span>) { <span class="comment">// 如果为添加按钮状态</span>
+    <span class="comment">// 每增加一次，数量就会加1</span>
+    _cellCount ++;
+    <span class="comment">// 获取增加的位置</span>
+    <span class="built_in">NSUInteger</span> row = indexPath<span class="variable">.row</span>;
+    <span class="comment">// 初始化一个数组，装载indexPath</span>
+    <span class="built_in">NSArray</span> *insertIndexPath = [<span class="built_in">NSArray</span> arrayWithObjects:indexPath  , <span class="literal">nil</span>];
+    <span class="comment">// 设置新添加的内容的标题</span>
+    <span class="built_in">NSString</span> *message = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"new TableViewCell %d"</span>, _cellCount];
+    <span class="comment">// 添加单元格，设置标题</span>
+    [<span class="keyword">self</span><span class="variable">.tableViewDataSource</span> insertObject:message atIndex:row];
+    [tableView insertRowsAtIndexPaths:insertIndexPath withRowAnimation:<span class="built_in">UITableViewRowAnimationLeft</span>];
+}   
+}
+
+
+<span class="comment">// 删除单元格的主要代码：</span>
+
+<span class="preprocessor">#pragma mark - 重写----设置编辑状态下显示的按钮的样式</span>
+- (<span class="built_in">UITableViewCellEditingStyle</span>)tableView:(<span class="built_in">UITableView</span> *)tableView editingStyleForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath
+{
+    <span class="keyword">return</span> <span class="built_in">UITableViewCellEditingStyleDelete</span>;
+}
+
+<span class="preprocessor">#pragma mark - 重写----判断是哪个编辑状态，进行相应的操作</span>
+- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView commitEditingStyle:(<span class="built_in">UITableViewCellEditingStyle</span>)editingStyle forRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath
+{
+<span class="keyword">if</span> (editingStyle == <span class="built_in">UITableViewCellEditingStyleDelete</span>) { <span class="comment">// 删除单元格</span>
+    <span class="comment">// 通过索引值，删除数组中的数据</span>
+    [_tableViewDataSource removeObjectAtIndex:indexPath<span class="variable">.row</span>];
+    <span class="comment">// 删除单元格中的某一行，使用动画效果实现</span>
+    [tableView deleteRowsAtIndexPaths:[<span class="built_in">NSArray</span> arrayWithObject:indexPath] withRowAnimation:<span class="built_in">UITableViewRowAnimationRight</span>];
+}   
+}
+
+
+<span class="comment">// 还有就是UINavigationController右上角的Edit按钮，如果你写的类继承自UITableViewController类，则直接在viewDidLoad方法中写上 self.navigationItem.rightBarButtonItem = self.editButtonItem; 就可以了。如果你写的类不是继承UITableViewController，则需要你手动写一个UIBarButtonItem了，下面为主要代码：</span>
+
+<span class="comment">// 在NavigationController上面显示出编辑按钮</span>
+<span class="built_in">UIBarButtonItem</span> *editButton = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithTitle:<span class="string">@"编辑"</span> style:<span class="built_in">UIBarButtonItemStyleBordered</span>  target:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(toggleEdit:)];
+<span class="keyword">self</span><span class="variable">.navigationItem</span><span class="variable">.rightBarButtonItem</span> = editButton;
+
+
+<span class="preprocessor">#pragma mark - 设置NavigationBar右上角的按钮的不同状态显示的不同的文字和是否处于编辑的状态</span>
+- (<span class="keyword">void</span>)toggleEdit:(<span class="built_in">UIBarButtonItem</span> *)sender
+{
+<span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.myTableView</span><span class="variable">.isEditing</span> == <span class="literal">YES</span>) {
+    [<span class="keyword">self</span><span class="variable">.myTableView</span> setEditing:<span class="literal">NO</span> animated:<span class="literal">YES</span>];
+    [sender setTitle:<span class="string">@"编辑"</span>];
+} <span class="keyword">else</span> {
+    [<span class="keyword">self</span><span class="variable">.myTableView</span> setEditing:<span class="literal">YES</span> animated:<span class="literal">YES</span>];
+    [sender setTitle:<span class="string">@"完成"</span>];
+}
+}
+
+
+
+<span class="comment">// 我们在初始化UITableView的时候，一定要把delegate和dataSource代理设置为本身，否则是不起作用的</span>
+
+_myTableView<span class="variable">.dataSource</span> = <span class="keyword">self</span>; <span class="comment">// 设置数据代理为本身</span>
+_myTableView<span class="variable">.delegate</span> = <span class="keyword">self</span>; <span class="comment">// 设置样式代理为本身</span>
+</code></pre></span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UITableView/" rel="tag">#UITableView</a>
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/10/08/UIPikcerView的联动选择/" rel="next" title="UIPikcerView的联动选择">
+                <i class="fa fa-chevron-left"></i> UIPikcerView的联动选择
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/10/10/UIViewController生命周期/" rel="prev" title="UIViewController生命周期">
+                UIViewController生命周期 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="张飞" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">张飞</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">有很多有故事的人，但他们都有一个共性：他们有生活</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://baidu.com/" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 百度
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张飞</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

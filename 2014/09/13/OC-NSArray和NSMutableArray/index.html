@@ -1,0 +1,813 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="NSArray,NSMutableArray,Object-C," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="NSArray：只能存放对象。不能存放C语言中基本的数据类型。如int/double/float等等数组下标越界不会有警告，运行时会直接报错// 不可变数组NSArray
+// 在数组从存入nil需要使用NSNull，不可以直接存入nil，因为在数组中nil代表数组结束
+NSNull *n = [NSNull null];
+&amp;lt;!--more--&amp;gt;
+ // 创建数组对象，并在其中添加几个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NSArray和NSMutableArray">
+<meta property="og:url" content="http://yoursite.com/2014/09/13/OC-NSArray和NSMutableArray/index.html">
+<meta property="og:site_name" content="张飞">
+<meta property="og:description" content="NSArray：只能存放对象。不能存放C语言中基本的数据类型。如int/double/float等等数组下标越界不会有警告，运行时会直接报错// 不可变数组NSArray
+// 在数组从存入nil需要使用NSNull，不可以直接存入nil，因为在数组中nil代表数组结束
+NSNull *n = [NSNull null];
+&amp;lt;!--more--&amp;gt;
+ // 创建数组对象，并在其中添加几个">
+<meta property="og:updated_time" content="2015-12-14T12:02:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NSArray和NSMutableArray">
+<meta name="twitter:description" content="NSArray：只能存放对象。不能存放C语言中基本的数据类型。如int/double/float等等数组下标越界不会有警告，运行时会直接报错// 不可变数组NSArray
+// 在数组从存入nil需要使用NSNull，不可以直接存入nil，因为在数组中nil代表数组结束
+NSNull *n = [NSNull null];
+&amp;lt;!--more--&amp;gt;
+ // 创建数组对象，并在其中添加几个">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> NSArray和NSMutableArray | 张飞 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">张飞</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'YZFopNXEX1srXxTxv-Ms','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                NSArray和NSMutableArray
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2014-09-13T16:58:33+08:00" content="2014-09-13">
+              2014-09-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术篇/" itemprop="url" rel="index">
+                    <span itemprop="name">技术篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h3 id="NSArray：">NSArray：</h3><h4 id="只能存放对象。不能存放C语言中基本的数据类型。如int/double/float等等">只能存放对象。不能存放C语言中基本的数据类型。如int/double/float等等</h4><h4 id="数组下标越界不会有警告，运行时会直接报错">数组下标越界不会有警告，运行时会直接报错</h4><pre><code><span class="comment">// 不可变数组NSArray</span>
+<span class="comment">// 在数组从存入nil需要使用NSNull，不可以直接存入nil，因为在数组中nil代表数组结束</span>
+<span class="built_in">NSNull</span> *n = [<span class="built_in">NSNull</span> null];
+&lt;!--more--&gt;
+ <span class="comment">// 创建数组对象，并在其中添加几个NSString对象，nil代表数组的结束，不可能更改</span>
+<span class="built_in">NSArray</span> *array1 = [<span class="built_in">NSArray</span> arrayWithObjects:<span class="string">@"one"</span>, <span class="string">@"tow"</span>, n, <span class="string">@"three"</span>, <span class="literal">nil</span>];
+<span class="built_in">NSArray</span> *array2 = [<span class="built_in">NSArray</span> arrayWithObject:<span class="string">@"呵呵，你真逗。。。。。"</span>];
+
+<span class="comment">// 计算数组的长度</span>
+<span class="built_in">NSLog</span>(<span class="string">@"array1 count : %ld"</span>, [array1 count]);
+<span class="built_in">NSLog</span>(<span class="string">@"array2 count : %ld"</span>, [array2 count]);
+
+<span class="comment">// 取出数组中得对象</span>
+<span class="comment">// 简单的使用for循环通过下边来获取对象</span>
+<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; [array1 count]; i++) {
+    <span class="built_in">NSLog</span>(<span class="string">@"array1[%d] = %@"</span>, i, [array1 objectAtIndex:i]);
+}
+
+<span class="comment">// 以消息嵌套的形式实例化一个NSArray对象</span>
+<span class="built_in">NSArray</span> *array3 = [[<span class="built_in">NSArray</span> alloc] initWithObjects:<span class="string">@"abc"</span>, <span class="string">@"def"</span>, <span class="string">@"haha"</span>, <span class="literal">nil</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"array3 = %ld"</span>, [array3  count]);
+<span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, array3); <span class="comment">// 数组使用小括号来包括</span>
+
+<span class="comment">// 释放内存</span>
+[array3 release];
+
+
+
+<span class="comment">// 可变数组NSMutableArray</span>
+<span class="comment">// 通过arrayWithCapacity:来创建一个可变数组，指定长度为10</span>
+<span class="built_in">NSMutableArray</span> *mutableArray1 = [<span class="built_in">NSMutableArray</span> arrayWithCapacity:<span class="number">10</span>];
+
+<span class="comment">// 使用类方法创建一个对象</span>
+mutableArray1 = [<span class="built_in">NSMutableArray</span> arrayWithObjects:<span class="string">@"111"</span>, <span class="literal">nil</span>];
+
+<span class="comment">// 通过addObject对象添加对象</span>
+[mutableArray1 addObject:<span class="string">@"one"</span>];
+[mutableArray1 addObject:<span class="string">@"two"</span>];
+[mutableArray1 addObject:<span class="string">@"three"</span>];
+
+<span class="comment">// 打印数组的长度</span>
+<span class="built_in">NSLog</span>(<span class="string">@"mutableArray count =  %ld"</span>, [mutableArray1 count]);
+
+<span class="comment">// 打印数组</span>
+<span class="built_in">NSLog</span>(<span class="string">@"mutableArray %@"</span>, mutableArray1<span class="variable">.description</span>);
+
+<span class="comment">// 使用for循环打印数组</span>
+<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; [mutableArray1 count]; i++) {
+    <span class="built_in">NSLog</span>(<span class="string">@"mutableArray[%d] = %@"</span>, i, [mutableArray1 objectAtIndex:i]);
+}
+
+<span class="comment">// 删除数组中得对象</span>
+<span class="comment">// [mutableArray1 removeLastObject]; // 删除最后一个对象</span>
+<span class="comment">// [mutableArray1 removeObject:@"111"]; // 删除指定名称的对象</span>
+[mutableArray1 removeObjectAtIndex:<span class="number">1</span>]; <span class="comment">// 删除指定位置的对象</span>
+<span class="comment">// [mutableArray1 removeAllObjects]; // 删除全部对象</span>
+
+<span class="built_in">NSLog</span>(<span class="string">@"mutableArray %@"</span>, mutableArray1<span class="variable">.description</span>);
+
+<span class="comment">// 向可变数组中插入对象, 插入的字符串中有空格的时候会被双引号包围</span>
+[mutableArray1 insertObject:<span class="string">@"new String"</span> atIndex:<span class="number">2</span> ];
+<span class="built_in">NSLog</span>(<span class="string">@"mutableArray %@"</span>, mutableArray1<span class="variable">.description</span>);    
+
+<span class="comment">// 替换数组中对象 // 存入中文时直接打印数组会出现"\U7231\U597d"这种形式，需要从数组中取出来才可以正常显示</span>
+[mutableArray1  replaceObjectAtIndex:<span class="number">3</span> withObject:<span class="string">@"爱好"</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"mutableArray %@"</span>, mutableArray1<span class="variable">.description</span>);
+<span class="built_in">NSString</span> *string = [mutableArray1 lastObject];
+<span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, string);
+
+<span class="comment">// 数组的替换</span>
+<span class="comment">// 数组的简写@[@"0", @"2"]</span>
+<span class="built_in">NSRange</span> range = <span class="built_in">NSMakeRange</span>(<span class="number">1</span>, <span class="number">2</span>);
+<span class="comment">// 对应的进行替换</span>
+[mutableArray1 replaceObjectsInRange:range withObjectsFromArray:@[<span class="string">@"1111111"</span>, <span class="string">@"2222222"</span>]];
+<span class="built_in">NSLog</span>(<span class="string">@"mutableArray %@"</span>, mutableArray1<span class="variable">.description</span>);
+
+
+<span class="comment">// 数组的排序</span>
+<span class="comment">// 可变数组直接在原数组上进行排序，不可变数组排序后产生新的数组</span>
+<span class="built_in">NSMutableArray</span> *array1 = [<span class="built_in">NSMutableArray</span> arrayWithObjects:<span class="string">@"3"</span>, <span class="string">@"6"</span>, <span class="string">@"2"</span>, <span class="string">@"1"</span>, <span class="literal">nil</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, array1);
+<span class="comment">// 使用选择器进行比较数组，返回一个升序的数组</span>
+[array1 sortUsingSelector:<span class="keyword">@selector</span>(compare:)];
+<span class="built_in">NSLog</span>(<span class="string">@"使用选择排序后： %@"</span>, array1);
+
+<span class="comment">// 使用sortUsingCompare:</span>
+[array1 sortUsingComparator:^<span class="built_in">NSComparisonResult</span>(<span class="keyword">id</span> obj1, <span class="keyword">id</span> obj2) {
+    obj1 = <span class="string">@"1"</span>;
+    obj2 = <span class="string">@"2"</span>;
+    <span class="keyword">return</span> <span class="built_in">NSOrderedDescending</span>;
+    }];
+<span class="built_in">NSLog</span>(<span class="string">@"使用选择排序后： %@"</span>, array1);    
+
+<span class="comment">// 用规定的描述对数组进行排序</span>
+<span class="comment">// NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO];</span>
+<span class="comment">// [array1 sortUsingSelector:[NSArray arrayWithObject:sd]];</span>
+<span class="comment">// NSLog(@"%@", array1);</span>
+
+
+<span class="comment">// 数组的遍历</span>
+ <span class="comment">// 创建数组</span>
+    <span class="built_in">NSMutableArray</span> *array1 = [<span class="built_in">NSMutableArray</span> arrayWithObjects:<span class="string">@"3"</span>, <span class="string">@"6"</span>, <span class="string">@"2"</span>, <span class="string">@"1"</span>, <span class="literal">nil</span>];
+<span class="comment">// 可以通过枚举器和nextObject可以返回当前对象</span>
+
+<span class="comment">// 使用NSEnumerator遍历对象,通过给数组发送objectEnumerator获取到整个数组的枚举器</span>
+<span class="built_in">NSEnumerator</span> *enumerator = [array1 objectEnumerator];
+<span class="comment">// 储存数组中每个元素对象</span>
+<span class="keyword">id</span> object = <span class="literal">nil</span>;
+<span class="keyword">while</span> (object = [enumerator nextObject]) { <span class="comment">// 通过nextObject消息读取下一个元素对象</span>
+    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, object);
+}
+
+<span class="comment">// 使用 快速枚举 遍历数组取值</span>
+<span class="keyword">id</span> object1 = <span class="literal">nil</span>;
+<span class="keyword">for</span> (object1 <span class="keyword">in</span> array1) {
+    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, object1);
+
+}
+</code></pre></span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NSArray/" rel="tag">#NSArray</a>
+          
+            <a href="/tags/NSMutableArray/" rel="tag">#NSMutableArray</a>
+          
+            <a href="/tags/Object-C/" rel="tag">#Object-C</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/09/11/Markdown--入门指南/" rel="next" title="Markdown——入门指南">
+                <i class="fa fa-chevron-left"></i> Markdown——入门指南
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/09/14/OC-Block的使用/" rel="prev" title="Block的使用">
+                Block的使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="张飞" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">张飞</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">有很多有故事的人，但他们都有一个共性：他们有生活</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://baidu.com/" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 百度
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NSArray："><span class="nav-number">1.</span> <span class="nav-text">NSArray：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#只能存放对象。不能存放C语言中基本的数据类型。如int/double/float等等"><span class="nav-number">1.1.</span> <span class="nav-text">只能存放对象。不能存放C语言中基本的数据类型。如int/double/float等等</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组下标越界不会有警告，运行时会直接报错"><span class="nav-number">1.2.</span> <span class="nav-text">数组下标越界不会有警告，运行时会直接报错</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张飞</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>
