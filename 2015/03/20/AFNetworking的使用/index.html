@@ -1,0 +1,812 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="需要加入SystemConfiguration.framework、MobileCoreServices.framework、Security.framework三个框架
+消除警告在pch文件中添加 #import #import
+引入AFNetworking框架  #import “AFNetworking.h”
+下面是详细代码，包括：简单网络请求、图片请求、JSON数据请求、XML数据请求、流">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AFNetworking的使用">
+<meta property="og:url" content="http://yoursite.com/2015/03/20/AFNetworking的使用/index.html">
+<meta property="og:site_name" content="张飞">
+<meta property="og:description" content="需要加入SystemConfiguration.framework、MobileCoreServices.framework、Security.framework三个框架
+消除警告在pch文件中添加 #import #import
+引入AFNetworking框架  #import “AFNetworking.h”
+下面是详细代码，包括：简单网络请求、图片请求、JSON数据请求、XML数据请求、流">
+<meta property="og:updated_time" content="2015-12-15T09:31:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AFNetworking的使用">
+<meta name="twitter:description" content="需要加入SystemConfiguration.framework、MobileCoreServices.framework、Security.framework三个框架
+消除警告在pch文件中添加 #import #import
+引入AFNetworking框架  #import “AFNetworking.h”
+下面是详细代码，包括：简单网络请求、图片请求、JSON数据请求、XML数据请求、流">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> AFNetworking的使用 | 张飞 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">张飞</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'YZFopNXEX1srXxTxv-Ms','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                AFNetworking的使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-03-20T15:48:13+08:00" content="2015-03-20">
+              2015-03-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术篇/" itemprop="url" rel="index">
+                    <span itemprop="name">技术篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><ol>
+<li>需要加入SystemConfiguration.framework、MobileCoreServices.framework、Security.framework三个框架</li>
+<li>消除警告在pch文件中添加 #import #import</li>
+<li>引入AFNetworking框架  #import “AFNetworking.h”</li>
+<li>下面是详细代码，包括：简单网络请求、图片请求、JSON数据请求、XML数据请求、流媒体播放功能</li>
+</ol>
+<a id="more"></a>
+<pre><code><span class="comment">// 普通网络请求</span>
+<span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://192.168.198.125/admin/index.php?m=interface&amp;a=companies"</span>];
+<span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];
+<span class="comment">// 准备AFHTTPRequestOperation</span>
+AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+[operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) {
+<span class="built_in">NSArray</span> *array = operation<span class="variable">.responseString</span>;
+<span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, array);
+
+} failure:^(AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error) {
+<span class="built_in">NSLog</span>(<span class="string">@"Failure: %@"</span>, [error localizedDescription]);
+}];
+<span class="comment">// 开始获取数据</span>
+[operation start];
+
+
+<span class="comment">// 图片网络请求</span>
+<span class="built_in">UIImageView</span> *image = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.height</span>)];
+[<span class="keyword">self</span><span class="variable">.view</span> addSubview:image];
+<span class="comment">// 使用方法获取图片和密码</span>
+[image setImageWithURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://i.imgur.com/r4uwx.jpg"</span>] placeholderImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"Default.png"</span>]];
+
+
+<span class="comment">// JSON数据网络请求</span>
+<span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://192.168.198.125/admin/index.php?m=interface&amp;a=companies"</span>]];
+<span class="comment">// 准备AFJSONRequestOperation对象</span>
+AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(<span class="built_in">NSURLRequest</span> *request, <span class="built_in">NSHTTPURLResponse</span> *response, <span class="keyword">id</span> JSON) {
+<span class="comment">// 请求成功</span>
+<span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, operation<span class="variable">.responseString</span>);
+} failure:^(<span class="built_in">NSURLRequest</span> *request, <span class="built_in">NSHTTPURLResponse</span> *response, <span class="built_in">NSError</span> *error, <span class="keyword">id</span> JSON) {
+<span class="comment">// 请求失败</span>
+}];
+<span class="comment">// 发送网络请求</span>
+[operation start];
+
+
+<span class="comment">// XML数据网络请求</span>
+<span class="built_in">NSURLRequest</span> *request2 = [<span class="built_in">NSURLRequest</span> requestWithURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://api.flickr.com/services/rest/?method=flickr.groups.browse&amp;api_key=b6300e17ad3c506e706cb0072175d047&amp;cat_id=34427469792@N01&amp;format=rest"</span>]];
+<span class="comment">// 准备AFXMLRequestOperation</span>
+AFXMLRequestOperation *operation2 = [AFXMLRequestOperation XMLParserRequestOperationWithRequest:request2 success:^(<span class="built_in">NSURLRequest</span> *request, <span class="built_in">NSHTTPURLResponse</span> *response, <span class="built_in">NSXMLParser</span> *XMLParser) {
+<span class="comment">// 获取成功</span>
+XMLParser<span class="variable">.delegate</span> = <span class="keyword">self</span>;
+[XMLParser parse];
+} failure:^(<span class="built_in">NSURLRequest</span> *request, <span class="built_in">NSHTTPURLResponse</span> *response, <span class="built_in">NSError</span> *error, <span class="built_in">NSXMLParser</span> *XMLParser) {
+<span class="comment">// 获取失败</span>
+}];
+<span class="comment">// 开始获取数据</span>
+[operation2 start];
+
+
+<span class="comment">// 流媒体数组获取</span>
+<span class="comment">// 准备NSURLRequest</span>
+<span class="built_in">NSURLRequest</span> *request4 = [<span class="built_in">NSURLRequest</span> requestWithURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://localhost:8080/encode"</span>]];
+<span class="comment">// 准备AFHTTPRequestOperation</span>
+AFHTTPRequestOperation *operation4 = [[AFHTTPRequestOperation alloc] initWithRequest:request4];
+<span class="comment">// 设置inputStrem</span>
+operation4<span class="variable">.inputStream</span> = [<span class="built_in">NSInputStream</span> inputStreamWithFileAtPath:[[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"large-image"</span> ofType:<span class="string">@"tiff"</span>]];
+<span class="comment">// 设置outputStrem</span>
+operation4<span class="variable">.outputStream</span> = [<span class="built_in">NSOutputStream</span> outputStreamToMemory];
+[operation4 start];
+
+
+
+
+
+
+
+
+<span class="comment">// 添加上传图片代码</span>
+
+
+<span class="comment">// 将图片转为NSData形式</span>
+<span class="built_in">NSData</span> *imageData = <span class="built_in">UIImagePNGRepresentation</span>(_thumbnailView<span class="variable">.image</span>);
+
+<span class="comment">// 要上传的地址</span>
+<span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"http://192.168.198.125/index.php?m=Interface&amp;a=aptitude"</span>]];
+
+<span class="comment">// 初始化AFHttpClient对象</span>
+AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:url];
+
+<span class="comment">// 初始化NSURLRequest对象</span>
+<span class="built_in">NSURLRequest</span> *request = [client multipartFormRequestWithMethod:<span class="string">@"POST"</span>  <span class="comment">// 发送请求的方式，需设置为POST方式</span>
+                                                      path:Nil      <span class="comment">// 路径，可为空</span>
+                                                parameters:@{
+                                                             <span class="string">@"tel"</span>         : <span class="string">@"13900000000"</span>,
+                                                             <span class="string">@"tenantid"</span>    : kServerPort,
+                                                             <span class="string">@"aptitude"</span>    : _aptitudeNameText<span class="variable">.text</span>
+                                                             }      <span class="comment">// 参数设置</span>
+                                 constructingBodyWithBlock:^(<span class="keyword">id</span>&lt;&lt;span style=<span class="string">"color: #5a8487"</span>&gt;AFMultipartFormData&gt; formData) {
+
+                                     <span class="comment">// 设置上图片的数据</span>
+                                     [formData appendPartWithFileData:imageData
+                                                                 name:<span class="string">@"aptitude_logo"</span>      <span class="comment">// 图片参数的名称</span>
+                                                             fileName:<span class="string">@"aptitude_logo.png"</span>  <span class="comment">// 上传的图片名称，可与参数名称不一致</span>
+                                                             mimeType:<span class="string">@"image/png"</span>];        <span class="comment">// 图片类型</span>
+
+                                 }];
+
+<span class="comment">// 初始化AFHTTPRequestOperation对象</span>
+AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+
+<span class="comment">// 处理上传数据的结果的代码块</span>
+[operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) {
+
+<span class="comment">// 上传成功，接收返回来的结果</span>
+<span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [[<span class="built_in">NSString</span> alloc] initWithData:responseObject encoding:<span class="built_in">NSUTF8StringEncoding</span>]);
+
+} failure:^(AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error) {
+
+<span class="comment">// 上传失败，打印错误信息</span>
+<span class="built_in">NSLog</span>(<span class="string">@"错误信息： %@"</span>, [error localizedDescription]);
+
+}];
+
+<span class="comment">// 开始上传</span>
+
+[client<span class="variable">.operationQueue</span> addOperation:operation];
+</code></pre></span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/19/简单玩转Hexo/" rel="next" title="简单玩转Hexo">
+                <i class="fa fa-chevron-left"></i> 简单玩转Hexo
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/24/第三方分享-友盟分享/" rel="prev" title="第三方分享-友盟分享">
+                第三方分享-友盟分享 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="张飞" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">张飞</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">有很多有故事的人，但他们都有一个共性：他们有生活</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">63</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">45</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://baidu.com/" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 百度
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张飞</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

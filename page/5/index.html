@@ -236,8 +236,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/10/04/手势控制的使用/" itemprop="url">
-                  手势控制的使用
+                <a class="post-title-link" href="/2015/04/03/linux基础之错误信息/" itemprop="url">
+                  linux基础之错误信息
                 </a>
               
             
@@ -247,8 +247,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-10-04T18:20:05+08:00" content="2014-10-04">
-              2014-10-04
+            <time itemprop="dateCreated" datetime="2015-04-03T18:57:30+08:00" content="2015-04-03">
+              2015-04-03
             </time>
           </span>
 
@@ -257,8 +257,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术篇/" itemprop="url" rel="index">
-                    <span itemprop="name">技术篇</span>
+                  <a href="/categories/兴趣篇/" itemprop="url" rel="index">
+                    <span itemprop="name">兴趣篇</span>
                   </a>
                 </span>
 
@@ -287,16 +287,10 @@
 
       
         
-          <p>手势识别是具有互斥的原则的，比如单击和双击，如果它识别出一种手势，其后的手势将不被识别</p>
-<pre><code><span class="comment">// 添加单击的手势</span>
-<span class="built_in">UITapGestureRecognizer</span> *tapGestureRecognizer = [[<span class="built_in">UITapGestureRecognizer</span> alloc] init];
-tapGestureRecognizer<span class="variable">.numberOfTapsRequired</span> = <span class="number">1</span>; <span class="comment">// 设置单击几次才触发方法</span>
-[tapGestureRecognizer addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(tapGestureAction:)]; <span class="comment">// 添加点击手势的方法</span>
-[<span class="keyword">self</span><span class="variable">.view</span> addGestureRecognizer:tapGestureRecognizer]; <span class="comment">// 添加到当前的View上</span>
-[tapGestureRecognizer release], tapGestureRecognizer = <span class="literal">nil</span>; <span class="comment">// 释放内存</span>
-</code></pre>
+          <h1 id="简介">简介</h1><hr>
+<p>在处理Linux系统出现的各种故障时，故障的症状是最先发现的，而导致这以故障的原因才是最终排除故障的关键。熟悉Linux系统的日志管理，了解常见故障的分析与解决办法，将有助于管理员快速定位故障点。“对症下药”及时解决各种系统问题。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/10/04/手势控制的使用/#more" rel="contents">
+            <a class="btn" href="/2015/04/03/linux基础之错误信息/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -339,8 +333,8 @@ tapGestureRecognizer<span class="variable">.numberOfTapsRequired</span> = <span 
             
               
                 
-                <a class="post-title-link" href="/2014/09/30/UISearchBar的使用方法详细/" itemprop="url">
-                  UISearchBar的使用方法详细
+                <a class="post-title-link" href="/2015/03/31/实现UIView的抖动效果/" itemprop="url">
+                  实现UIView的抖动效果
                 </a>
               
             
@@ -350,8 +344,8 @@ tapGestureRecognizer<span class="variable">.numberOfTapsRequired</span> = <span 
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-09-30T18:18:20+08:00" content="2014-09-30">
-              2014-09-30
+            <time itemprop="dateCreated" datetime="2015-03-31T16:00:21+08:00" content="2015-03-31">
+              2015-03-31
             </time>
           </span>
 
@@ -390,16 +384,9 @@ tapGestureRecognizer<span class="variable">.numberOfTapsRequired</span> = <span 
 
       
         
-          <pre><code> <span class="comment">// UISearchBar的常用方法 搜索框</span>
-<span class="built_in">UISearchBar</span> *oneSearchBar = [[<span class="built_in">UISearchBar</span> alloc] init];
-oneSearchBar<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">320</span>, <span class="number">70</span>); <span class="comment">// 设置位置和大小</span>
-oneSearchBar<span class="variable">.keyboardType</span> = <span class="built_in">UIKeyboardTypeEmailAddress</span>; <span class="comment">// 设置弹出键盘的类型</span>
-oneSearchBar<span class="variable">.barStyle</span> = <span class="built_in">UIBarStyleBlackTranslucent</span>; <span class="comment">// 设置UISearchBar的样式</span>
-oneSearchBar<span class="variable">.tintColor</span> = [<span class="built_in">UIColor</span> redColor]; <span class="comment">// 设置UISearchBar的颜色 使用clearColor就是去掉背景</span>
-oneSearchBar<span class="variable">.placeholder</span> = <span class="string">@"请输入："</span>; <span class="comment">// 设置提示文字</span>
-</code></pre>
+          <p>// 直接传值调用下面的方法就OK，需要的拿走吧<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/30/UISearchBar的使用方法详细/#more" rel="contents">
+            <a class="btn" href="/2015/03/31/实现UIView的抖动效果/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -442,8 +429,8 @@ oneSearchBar<span class="variable">.placeholder</span> = <span class="string">@"
             
               
                 
-                <a class="post-title-link" href="/2014/09/29/UITextView的使用方法详细/" itemprop="url">
-                  UITextView的使用方法详细
+                <a class="post-title-link" href="/2015/03/30/使用照相机或图库中的图片来获取图片/" itemprop="url">
+                  使用照相机或图库中的图片来获取图片
                 </a>
               
             
@@ -453,8 +440,8 @@ oneSearchBar<span class="variable">.placeholder</span> = <span class="string">@"
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-09-29T18:16:58+08:00" content="2014-09-29">
-              2014-09-29
+            <time itemprop="dateCreated" datetime="2015-03-30T11:11:44+08:00" content="2015-03-30">
+              2015-03-30
             </time>
           </span>
 
@@ -493,15 +480,12 @@ oneSearchBar<span class="variable">.placeholder</span> = <span class="string">@"
 
       
         
-          <pre><code><span class="comment">// UITextView的常用方法 主要用来输入和显示多行文本信息</span>
-UITextView *oneTextView = [[UITextView alloc] init];
-oneTextView.frame = CGRectMake(<span class="number">0</span>, <span class="number">20</span>, <span class="number">320</span>, <span class="number">200</span>); <span class="comment">// 设置位置</span>
-oneTextView.backgroundColor = [UIColor whiteColor]; <span class="comment">// 设置背景色</span>
-oneTextView.alpha = <span class="number">1.0</span>; <span class="comment">// 设置透明度</span>
-oneTextView.text = @<span class="string">"18331000747  1096455447@qq.com lizi1020@sina.cn  www.baidu.com"</span>; <span class="comment">// 设置文字</span>
-</code></pre>
+          <ol>
+<li>利用系统相机或者图库中的图片进行裁剪缩放来获取图片</li>
+<li>当我们需要使用系统图库中的照片或者需要新照一张照片时，我们可以使用UIImagePickerController来实现</li>
+<li><p>我们使用UIImagePickerController必须遵守这两个协议<UIImagePickerControllerDelegate,UINavigationControllerDelegate></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/29/UITextView的使用方法详细/#more" rel="contents">
+            <a class="btn" href="/2015/03/30/使用照相机或图库中的图片来获取图片/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -544,8 +528,8 @@ oneTextView.text = @<span class="string">"18331000747  1096455447@qq.com lizi102
             
               
                 
-                <a class="post-title-link" href="/2014/09/28/UIDatePicker的使用方法详细/" itemprop="url">
-                  UIDatePiker的使用方法详细
+                <a class="post-title-link" href="/2015/03/28/常用框架介绍/" itemprop="url">
+                  常用框架介绍
                 </a>
               
             
@@ -555,8 +539,8 @@ oneTextView.text = @<span class="string">"18331000747  1096455447@qq.com lizi102
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-09-28T18:14:29+08:00" content="2014-09-28">
-              2014-09-28
+            <time itemprop="dateCreated" datetime="2015-03-28T15:57:24+08:00" content="2015-03-28">
+              2015-03-28
             </time>
           </span>
 
@@ -595,12 +579,9 @@ oneTextView.text = @<span class="string">"18331000747  1096455447@qq.com lizi102
 
       
         
-          <pre><code><span class="comment">// UIDatePicker控件的常用方法  时间选择控件</span>
-UIDatePicker *oneDatePicker = [[UIDatePicker alloc] init];
-oneDatePicker.frame = CGRectMake(<span class="number">0</span>, <span class="number">10</span>, <span class="number">320</span>, <span class="number">300</span>); <span class="comment">// 设置显示的位置和大小</span>
-</code></pre>
+          <h3 id="Foundation">Foundation</h3><p>Foundation框架（Foundation.framework）为Core Foundation框架的许多功能提供Objective-C封装。Foundation框架为下述功能提供支持：群体数据类型（数组、集合等）、 程序包、 字符串管理、日期和时间管理、原始数据块管理、偏好管理、URL及数据流操作、 线程和RunLoop、 Bonjour、 通讯端口管理、 国际化、 正则表达式匹配、 缓存支持<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/28/UIDatePicker的使用方法详细/#more" rel="contents">
+            <a class="btn" href="/2015/03/28/常用框架介绍/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -643,8 +624,8 @@ oneDatePicker.frame = CGRectMake(<span class="number">0</span>, <span class="num
             
               
                 
-                <a class="post-title-link" href="/2014/09/27/UIPageControl的使用方法详细/" itemprop="url">
-                  UIPageControl的使用方法详细
+                <a class="post-title-link" href="/2015/03/26/发送邮件/" itemprop="url">
+                  发送邮件
                 </a>
               
             
@@ -654,8 +635,8 @@ oneDatePicker.frame = CGRectMake(<span class="number">0</span>, <span class="num
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-09-27T18:13:15+08:00" content="2014-09-27">
-              2014-09-27
+            <time itemprop="dateCreated" datetime="2015-03-26T11:08:12+08:00" content="2015-03-26">
+              2015-03-26
             </time>
           </span>
 
@@ -694,13 +675,13 @@ oneDatePicker.frame = CGRectMake(<span class="number">0</span>, <span class="num
 
       
         
-          <pre><code><span class="comment">// UIPageControl的常用方法</span>
-UIPageControl *onePageControl = [[UIPageControl alloc] init];
-onePageControl.frame = CGRectMake(<span class="number">10</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">30</span>); <span class="comment">// 设置位置</span>
-onePageControl.backgroundColor = [UIColor redColor]; <span class="comment">// 设置背景色</span>
-</code></pre>
+          <ol>
+<li>发送邮件需要引入的框架和短信的是一个：MessageUI.framework</li>
+<li>引入头文件：#import </li>
+<li>并且遵守协议：MFMailComposeViewControllerDelegate&gt;来判断邮件发送状态</li>
+<li><p>直接跳转到系统邮件界面发送邮件：</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/27/UIPageControl的使用方法详细/#more" rel="contents">
+            <a class="btn" href="/2015/03/26/发送邮件/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -727,7 +708,7 @@ onePageControl.backgroundColor = [UIColor redColor]; <span class="comment">// �
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -768,7 +749,7 @@ onePageControl.backgroundColor = [UIColor redColor]; <span class="comment">// �
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">63</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -782,7 +763,7 @@ onePageControl.backgroundColor = [UIColor redColor]; <span class="comment">// �
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

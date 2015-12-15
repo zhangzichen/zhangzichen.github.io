@@ -236,8 +236,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/09/22/UISwitch的使用方法详细/" itemprop="url">
-                  UISwitch的使用方法详细 - 技术篇
+                <a class="post-title-link" href="/2015/03/06/UINavigationBar/" itemprop="url">
+                  UINavigationBar
                 </a>
               
             
@@ -247,11 +247,26 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-09-22T17:58:57+08:00" content="2014-09-22">
-              2014-09-22
+            <time itemprop="dateCreated" datetime="2015-03-06T15:44:00+08:00" content="2015-03-06">
+              2015-03-06
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术篇/" itemprop="url" rel="index">
+                    <span itemprop="name">技术篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -272,17 +287,12 @@
 
       
         
-          <pre><code><span class="comment">// UISwitch的使用</span>
-<span class="built_in">UISwitch</span> *oneSwitch = [[<span class="built_in">UISwitch</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">20</span>, <span class="number">0</span>, <span class="number">0</span>)]; <span class="comment">// 默认尺寸为79 * 27。</span>
-oneSwitch<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> greenColor]; <span class="comment">// 设置背景色</span>
-oneSwitch<span class="variable">.alpha</span> = <span class="number">1.0</span>; <span class="comment">// 设置透明度 范围在0.0-1.0之间 0.0是完全透明</span>
-
-oneSwitch<span class="variable">.onTintColor</span> = [<span class="built_in">UIColor</span> redColor]; <span class="comment">// 在oneSwitch开启的状态显示的颜色 默认是blueColor</span>
-oneSwitch<span class="variable">.tintColor</span> = [<span class="built_in">UIColor</span> purpleColor]; <span class="comment">// 设置关闭状态的颜色</span>
-oneSwitch<span class="variable">.thumbTintColor</span> = [<span class="built_in">UIColor</span> blueColor]; <span class="comment">// 设置开关上左右滑动的小圆点的颜色</span>
+          <pre><code><span class="comment">// 创建一个UINavigationBar</span>
+UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(<span class="number">0</span>, <span class="number">0</span>, self.view.frame.size.width, <span class="number">100</span>)];
+navigationBar.barTintColor = [UIColor colorWithWhite:<span class="number">.5</span> alpha:<span class="number">.5</span>];
 </code></pre>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/22/UISwitch的使用方法详细/#more" rel="contents">
+            <a class="btn" href="/2015/03/06/UINavigationBar/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -325,8 +335,8 @@ oneSwitch<span class="variable">.thumbTintColor</span> = [<span class="built_in"
             
               
                 
-                <a class="post-title-link" href="/2014/09/21/UISlider的使用方法详细/" itemprop="url">
-                  UISlider的使用方法详细
+                <a class="post-title-link" href="/2015/03/02/应用后台处理/" itemprop="url">
+                  应用后台处理
                 </a>
               
             
@@ -336,8 +346,8 @@ oneSwitch<span class="variable">.thumbTintColor</span> = [<span class="built_in"
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-09-21T17:57:05+08:00" content="2014-09-21">
-              2014-09-21
+            <time itemprop="dateCreated" datetime="2015-03-02T15:41:25+08:00" content="2015-03-02">
+              2015-03-02
             </time>
           </span>
 
@@ -376,20 +386,14 @@ oneSwitch<span class="variable">.thumbTintColor</span> = [<span class="built_in"
 
       
         
-          <pre><code><span class="comment">// UISlider的常用方法</span>
-UISlider *oneSlider = [[UISlider alloc] init];
-
-<span class="comment">// 最常用</span>
-oneSlider.frame = CGRectMake(<span class="number">10</span>, <span class="number">20</span>, <span class="number">300</span>, <span class="number">30</span>); <span class="comment">// 设置位置和大小 注意：UISlider的高度可以随便设置，因为是不会变的</span>
-oneSlider.value = <span class="number">30</span>; <span class="comment">// 初始值</span>
-oneSlider.minimumValue = <span class="number">0</span>; <span class="comment">// 最小值</span>
-oneSlider.maximumValue = <span class="number">100</span>; <span class="comment">// 最大值</span>
-oneSlider.backgroundColor = [UIColor blueColor]; <span class="comment">// 设置背景颜色</span>
-oneSlider.alpha = <span class="number">0.9</span>; <span class="comment">// 设置透明度</span>
-oneSlider.tag = <span class="number">1001</span>; <span class="comment">// 设置标签，常用在委托中</span>
-</code></pre>
+          <p>一个应用程序有其生命周期，周期中有着不同的状态，共分为以下几种：</p>
+<p>未运行<br>–应用程序位于刚刚重启的设备商，或者在后台被系统清理掉，或者是运行时崩溃的都是未运行状态</p>
+<p>活动<br>– 当前正在运行的程序状态为活动状态</p>
+<p>后台<br>– 刚按下Home键的前期为后台，可以有5S的时间处理数据（可以申请延长）</p>
+<p>暂停<br>– 处于后台的程序一会就会转为暂停</p>
+<p>不活动<br>– 应用程序在两个状态之间临时过渡处于不活动状态<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/21/UISlider的使用方法详细/#more" rel="contents">
+            <a class="btn" href="/2015/03/02/应用后台处理/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -432,8 +436,8 @@ oneSlider.tag = <span class="number">1001</span>; <span class="comment">// 设�
             
               
                 
-                <a class="post-title-link" href="/2014/09/19/iOS-UITextFiled的使用方法详细/" itemprop="url">
-                  UITextFiled的使用方法详细
+                <a class="post-title-link" href="/2015/02/28/UIApplication/" itemprop="url">
+                  UIApplication
                 </a>
               
             
@@ -443,8 +447,8 @@ oneSlider.tag = <span class="number">1001</span>; <span class="comment">// 设�
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-09-19T17:40:20+08:00" content="2014-09-19">
-              2014-09-19
+            <time itemprop="dateCreated" datetime="2015-02-28T11:20:09+08:00" content="2015-02-28">
+              2015-02-28
             </time>
           </span>
 
@@ -483,20 +487,25 @@ oneSlider.tag = <span class="number">1001</span>; <span class="comment">// 设�
 
       
         
-          <pre><code><span class="comment">// UITextField的常用方法</span>
-UITextField *oneTextField = [[UITextField alloc] init];
+          <span itemprop="articleBody">
+            
+              <pre><code> <span class="comment">// 禁止锁屏</span>
+<span class="built_in">UIApplication</span> *app = [<span class="built_in">UIApplication</span> sharedApplication];
+app<span class="variable">.idleTimerDisabled</span> = <span class="literal">YES</span>;
 
-<span class="comment">// 最常用</span>
-oneTextField.frame = CGRectMake(<span class="number">30</span>, <span class="number">30</span>, <span class="number">260</span>, <span class="number">35</span>); <span class="comment">// 设置位置</span>
-oneTextField.backgroundColor = [UIColor grayColor]; <span class="comment">// 设置背景颜色</span>
-oneTextField.alpha = <span class="number">1.0</span>; <span class="comment">// 设置透明度，范围从0.0-1.0之间</span>
-oneTextField.textColor = [UIColor redColor]; <span class="comment">// 设置文字的颜色</span>
+<span class="comment">// 设置应用程序图标上的信息提示数</span>
+[[<span class="built_in">UIApplication</span> sharedApplication] setApplicationIconBadgeNumber:<span class="number">20</span>];
+
+<span class="comment">// 设置状态栏的网络指示符显示</span>
+[[<span class="built_in">UIApplication</span> sharedApplication] setNetworkActivityIndicatorVisible:<span class="literal">YES</span>];
+
+<span class="comment">// 设置状态栏样式</span>
+[[<span class="built_in">UIApplication</span> sharedApplication] setStatusBarStyle:<span class="built_in">UIStatusBarStyleBlackTranslucent</span> animated:<span class="literal">YES</span>];
+<span class="comment">// 显示和隐藏状态栏</span>
+[[<span class="built_in">UIApplication</span> sharedApplication] setStatusBarHidden:<span class="literal">YES</span> withAnimation:<span class="built_in">UIStatusBarAnimationSlide</span>];
 </code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/19/iOS-UITextFiled的使用方法详细/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+            
+          </span>
         
       
     </div>
@@ -536,8 +545,8 @@ oneTextField.textColor = [UIColor redColor]; <span class="comment">// 设置文�
             
               
                 
-                <a class="post-title-link" href="/2014/09/18/iOS-UIButton的使用方法详细/" itemprop="url">
-                  UIButton的使用方法详细
+                <a class="post-title-link" href="/2015/02/14/使用Safari或者电话服务/" itemprop="url">
+                  使用Safari或者电话服务
                 </a>
               
             
@@ -547,8 +556,8 @@ oneTextField.textColor = [UIColor redColor]; <span class="comment">// 设置文�
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-09-18T17:28:19+08:00" content="2014-09-18">
-              2014-09-18
+            <time itemprop="dateCreated" datetime="2015-02-14T11:16:54+08:00" content="2015-02-14">
+              2015-02-14
             </time>
           </span>
 
@@ -587,24 +596,33 @@ oneTextField.textColor = [UIColor redColor]; <span class="comment">// 设置文�
 
       
         
-          <pre><code>/<span class="regexp">/ UIButton的常用方法
-UIButton *oneButton = [UIButton     buttonWithType:UIButtonTypeCustom]; 
-/</span><span class="regexp">/ 初始化时设置Button样式
-/</span><span class="regexp">/ 风格有如下
-/</span><span class="regexp">/    typedef enum {
-/</span><span class="regexp">/        UIButtonTypeCustom = 0,           /</span><span class="regexp">/ 自定义，无风格
-/</span><span class="regexp">/        UIButtonTypeRoundedRect,        /</span><span class="regexp">/ 白色圆角矩形，类似偏好设置表格单元或者地址簿卡片
-/</span><span class="regexp">/        UIButtonTypeDetailDisclosure,/</span><span class="regexp">/蓝色的披露按钮，可放在任何文字旁
-/</span><span class="regexp">/        UIButtonTypeInfoLight,/</span><span class="regexp">/微件(widget)使用的小圆圈信息按钮，可以放在任何文字旁
-/</span><span class="regexp">/        UIButtonTypeInfoDark,/</span><span class="regexp">/白色背景下使用的深色圆圈信息按钮
-/</span><span class="regexp">/        UIButtonTypeContactAdd,/</span><span class="regexp">/蓝色加号(+)按钮，可以放在任何文字旁
-/</span><span class="regexp">/    } UIButtonType;</span>
+          <span itemprop="articleBody">
+            
+              <pre><code><span class="comment">// safari的使用</span>
+<span class="comment">// 准备safari的URL</span>
+<span class="built_in">NSURL</span> *safariUrl = [<span class="built_in">NSURL</span> URLWithString:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"http://www.baidu.com"</span>]];
+<span class="comment">// 判断safariUrl是否可以打开</span>
+<span class="keyword">if</span> ([[<span class="built_in">UIApplication</span> sharedApplication] canOpenURL:safariUrl]) {
+<span class="comment">// 打开系统自带的safariUrl</span>
+[[<span class="built_in">UIApplication</span> sharedApplication] openURL:safariUrl];
+} <span class="keyword">else</span> {
+<span class="built_in">NSLog</span>(<span class="string">@"无法打开safari"</span>);
+}
+
+
+<span class="comment">// 电话的使用</span>
+<span class="comment">// 准备打开拨号程序的url</span>
+<span class="built_in">NSURL</span> *telUrl = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"tel://555-1234"</span>];
+<span class="comment">// 判断可否打开电话程序</span>
+<span class="keyword">if</span> ([[<span class="built_in">UIApplication</span> sharedApplication] canOpenURL:telUrl]) {
+<span class="comment">// 打开url</span>
+[[<span class="built_in">UIApplication</span> sharedApplication] openURL:telUrl];
+} <span class="keyword">else</span> {
+<span class="built_in">NSLog</span>(<span class="string">@"无法打开拨号"</span>);
+}
 </code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/18/iOS-UIButton的使用方法详细/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+            
+          </span>
         
       
     </div>
@@ -644,8 +662,8 @@ UIButton *oneButton = [UIButton     buttonWithType:UIButtonTypeCustom];
             
               
                 
-                <a class="post-title-link" href="/2014/09/17/iOS-UILabel的使用方法详细/" itemprop="url">
-                  UILabel的使用方法详细
+                <a class="post-title-link" href="/2015/02/03/初识传感器/" itemprop="url">
+                  初识传感器
                 </a>
               
             
@@ -655,8 +673,8 @@ UIButton *oneButton = [UIButton     buttonWithType:UIButtonTypeCustom];
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-09-17T17:11:59+08:00" content="2014-09-17">
-              2014-09-17
+            <time itemprop="dateCreated" datetime="2015-02-03T11:14:47+08:00" content="2015-02-03">
+              2015-02-03
             </time>
           </span>
 
@@ -695,18 +713,12 @@ UIButton *oneButton = [UIButton     buttonWithType:UIButtonTypeCustom];
 
       
         
-          <pre><code><span class="comment">//UILabel的使用</span>
- <span class="built_in">UILabel</span> *oneLabel = [[<span class="built_in">UILabel</span> alloc] init];
-<span class="comment">// 最经常使用的</span>
-oneLabel<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">320</span>, <span class="number">200</span>); <span class="comment">// 设置oneLabel的位置和大小</span>
-oneLabel<span class="variable">.text</span> = <span class="string">@"我是一个UILabel哦，"</span>; <span class="comment">// 设置oneLabel显示的字</span>
-oneLabel<span class="variable">.textColor</span> = [<span class="built_in">UIColor</span> blackColor]; <span class="comment">// 设置字体颜色</span>
-oneLabel<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor]; <span class="comment">// 设置背景色</span>
-oneLabel<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> clearColor]; <span class="comment">// 可以设置透明背景色</span>
-oneLabel<span class="variable">.alpha</span> = <span class="number">1.0</span>; <span class="comment">// 设置透明度 （范围是0.0-1.0之间）</span>
-</code></pre>
+          <ol>
+<li>加速计、晃动手势、陀螺仪的使用</li>
+<li>加速计是用来检测手机收到加速度的大小和方向的，而手机静置的时候只受到重力加速度，所有又叫做重力感应器</li>
+</ol>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/17/iOS-UILabel的使用方法详细/#more" rel="contents">
+            <a class="btn" href="/2015/02/03/初识传感器/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -733,7 +745,7 @@ oneLabel<span class="variable">.alpha</span> = <span class="number">1.0</span>; 
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -774,7 +786,7 @@ oneLabel<span class="variable">.alpha</span> = <span class="number">1.0</span>; 
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">63</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -788,7 +800,7 @@ oneLabel<span class="variable">.alpha</span> = <span class="number">1.0</span>; 
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

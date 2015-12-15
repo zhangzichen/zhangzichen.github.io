@@ -1,0 +1,816 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="向微信注册你的应用程序id请到开发者应用登记页面进行登记，登记并选择移动应用进行设置后，将获取AppId，可立即用于开发。但应用登记完成后还需要提交审核，只有审核通过的应用才能正式发布使用。
+下载微信终端SDK文件SDK文件包括libWeChatSDK.a 、 WXApi.h 、 WXApiObject.h三个。 下载地址：iOS平台开发工具包
+搭建开发环境
+
+3.1. 在Xcode中建立你的工程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用微信分享">
+<meta property="og:url" content="http://yoursite.com/2015/04/11/使用微信分享/index.html">
+<meta property="og:site_name" content="张飞">
+<meta property="og:description" content="向微信注册你的应用程序id请到开发者应用登记页面进行登记，登记并选择移动应用进行设置后，将获取AppId，可立即用于开发。但应用登记完成后还需要提交审核，只有审核通过的应用才能正式发布使用。
+下载微信终端SDK文件SDK文件包括libWeChatSDK.a 、 WXApi.h 、 WXApiObject.h三个。 下载地址：iOS平台开发工具包
+搭建开发环境
+
+3.1. 在Xcode中建立你的工程">
+<meta property="og:image" content="http://cekav.img47.wal8.com/img47/534061_20151212184528/145016705828.png">
+<meta property="og:image" content="http://cekav.img47.wal8.com/img47/534061_20151212184528/145016705965.jpeg">
+<meta property="og:image" content="http://cekav.img47.wal8.com/img47/534061_20151212184528/145016706147.jpeg">
+<meta property="og:updated_time" content="2015-12-15T09:28:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用微信分享">
+<meta name="twitter:description" content="向微信注册你的应用程序id请到开发者应用登记页面进行登记，登记并选择移动应用进行设置后，将获取AppId，可立即用于开发。但应用登记完成后还需要提交审核，只有审核通过的应用才能正式发布使用。
+下载微信终端SDK文件SDK文件包括libWeChatSDK.a 、 WXApi.h 、 WXApiObject.h三个。 下载地址：iOS平台开发工具包
+搭建开发环境
+
+3.1. 在Xcode中建立你的工程">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> 使用微信分享 | 张飞 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">张飞</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'YZFopNXEX1srXxTxv-Ms','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                使用微信分享
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-04-11T16:05:04+08:00" content="2015-04-11">
+              2015-04-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术篇/" itemprop="url" rel="index">
+                    <span itemprop="name">技术篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><ol>
+<li>向微信注册你的应用程序id<br>请到开发者应用登记页面进行登记，登记并选择移动应用进行设置后，将获取AppId，可立即用于开发。但应用登记完成后还需要提交审核，只有审核通过的应用才能正式发布使用。</li>
+<li>下载微信终端SDK文件<br>SDK文件包括libWeChatSDK.a 、 WXApi.h 、 WXApiObject.h三个。 下载地址：iOS平台开发工具包</li>
+<li>搭建开发环境</li>
+</ol>
+<p>3.1. 在Xcode中建立你的工程<br>3.2. 将SDK文件中包含的libWeChatSDK.a, WXApi.h, WXApiObject.h 三个文件添加到你所建的工程中</p>
+<p><img src="http://cekav.img47.wal8.com/img47/534061_20151212184528/145016705828.png" alt=""></p>
+<p>3.3. 在你的工程中选择Build Setting, 在Search Paths中添加libWeChatSDK.a, WXApi.h, WXApiObject.h三个文件所在的位置</p>
+<p><img src="http://cekav.img47.wal8.com/img47/534061_20151212184528/145016705965.jpeg" alt=""></p>
+<p>3.4. 在Xcode中，选择你的工程设置项，选中“TARGETS”一栏，在“info”标签栏的“URL type”添加“URL scheme”为你所注册的应用程序id</p>
+<p><img src="http://cekav.img47.wal8.com/img47/534061_20151212184528/145016706147.jpeg" alt=""></p>
+<p>4 微信功能的使用：</p>
+<p>4.1. 在AppDelegate.h文件中引入“WXApi.h”头文件，并增加WXApiDelegate协议的实现</p>
+<p>4.2. 在application:didFinishLaunchingWithOptions:方法中向微信注册</p>
+<pre><code>- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions
+
+{
+
+<span class="comment">// 向微信注册</span>
+
+[WXApi registerApp:<span class="string">@"wxb15e64fcdf9c348e"</span>];
+
+<span class="keyword">return</span> <span class="literal">YES</span>;
+
+}
+</code></pre><p>4.3. 重写AppDelegate的handleOpenUrl和openURL方法：</p>
+<pre><code>- (BOOL)<span class="string">application:</span>(UIApplication *)application <span class="string">handleOpenURL:</span>(NSURL *)url
+
+{
+<span class="keyword">return</span> [WXApi <span class="string">handleOpenURL:</span>url <span class="string">delegate:</span>self];
+}
+- (BOOL)<span class="string">application:</span>(UIApplication *)application <span class="string">openURL:</span>(NSURL *)url <span class="string">sourceApplication:</span>(NSString *)sourceApplication <span class="string">annotation:</span>(id)annotation
+{
+<span class="keyword">return</span> [WXApi <span class="string">handleOpenURL:</span>url <span class="string">delegate:</span>self];
+}
+</code></pre><p>4.4. 实现回调方法：</p>
+<pre><code>  <span class="preprocessor">#pragma mark 发送一个消息后，收到微信的回应</span>
+
+- (<span class="keyword">void</span>)onResp:(BaseResp *)resp
+{
+<span class="keyword">if</span> ([resp isKindOfClass:[SendMessageToWXResp class]]) {
+    <span class="keyword">switch</span> (resp<span class="variable">.errCode</span>) {
+        <span class="keyword">case</span> WXSuccess: { <span class="comment">// 成功</span>
+            <span class="built_in">NSLog</span>(<span class="string">@"发送成功"</span>);
+            <span class="keyword">break</span>;
+        }
+        <span class="keyword">case</span> WXErrCodeCommon: { <span class="comment">// 普通错误类型</span>
+            [MBProgressHUD showErrorWithText:<span class="string">@"网络繁忙，请稍后再试"</span>];
+            <span class="keyword">break</span>;
+        }
+        <span class="keyword">case</span> WXErrCodeUserCancel: { <span class="comment">// 用户取消发送</span>
+            <span class="built_in">NSLog</span>(<span class="string">@"取消发送"</span>);
+            <span class="keyword">break</span>;
+        }
+        <span class="keyword">case</span> WXErrCodeSentFail: { <span class="comment">// 发送失败</span>
+            <span class="built_in">NSLog</span>(<span class="string">@"发送失败"</span>);
+            <span class="keyword">break</span>;
+        }
+        <span class="keyword">case</span> WXErrCodeAuthDeny: { <span class="comment">// 授权失败</span>
+            <span class="built_in">NSLog</span>(<span class="string">@"授权失败"</span>);
+            <span class="keyword">break</span>;
+        }
+        <span class="keyword">case</span> WXErrCodeUnsupport: { <span class="comment">// 微信版本不支持</span>
+            <span class="built_in">NSLog</span>(<span class="string">@"版本不支持"</span>);
+            <span class="keyword">break</span>;
+        }
+        <span class="keyword">default</span>:
+        <span class="keyword">break</span>;
+    }
+}
+}
+</code></pre><p>5.分享一条消息：<br>5.1. 纯文字分享：</p>
+<pre><code><span class="comment">// 分享纯文字信息</span>
+SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+<span class="comment">// 发送的是文本消息还是多媒体消息</span>
+req.bText = YES;
+<span class="comment">// 发送的内容</span>
+req.text = @<span class="string">"分享的内容，哈哈哈哈哈"</span>;
+<span class="comment">// 分享到的哪里（聊天、朋友圈、收藏）</span>
+req.scene = WXSceneSession;
+<span class="comment">// 分享消息</span>
+[WXApi <span class="string">sendReq:</span>req];
+</code></pre><p>5.2. 图片分享：</p>
+<pre><code><span class="comment">// 图片信息</span>
+WXImageObject *ext = [WXImageObject object];
+<span class="built_in">NSString</span> *filePath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"res5thumb"</span> ofType:<span class="string">@"png"</span>];
+ext<span class="variable">.imageData</span> = [<span class="built_in">NSData</span> dataWithContentsOfFile:filePath];
+<span class="built_in">UIImage</span>* image = [<span class="built_in">UIImage</span> imageWithData:ext<span class="variable">.imageData</span>];
+ext<span class="variable">.imageData</span> = <span class="built_in">UIImagePNGRepresentation</span>(image);
+
+<span class="comment">// 图片信息</span>
+WXMediaMessage *message = [WXMediaMessage message];
+[message setThumbImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"res5thumb.png"</span>]];
+message<span class="variable">.mediaObject</span> = ext;
+
+<span class="comment">// 发送的对象</span>
+SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
+<span class="comment">// 发送多媒体类型信息</span>
+req<span class="variable">.bText</span> = <span class="literal">NO</span>;
+<span class="comment">// 设置分享的内容</span>
+req<span class="variable">.message</span> = message;
+<span class="comment">// 设置分享到哪里（）</span>
+req<span class="variable">.scene</span> = _scene;
+<span class="comment">// 分享</span>
+[WXApi sendReq:req];
+</code></pre><p>5.3. 网址分享：</p>
+<pre><code>WXMediaMessage *<span class="keyword">message</span> = [WXMediaMessage <span class="keyword">message</span>];
+<span class="keyword">message</span>.title = @<span class="string">"分享标题"</span>;
+<span class="keyword">message</span>.description = @<span class="string">"分享的内容"</span>;
+[<span class="keyword">message</span> setThumbImage:[UIImage imageNamed:@<span class="string">"res2.png"</span>]];
+
+WXWebpageObject *ext = [WXWebpageObject object];
+ext.webpageUrl = @<span class="string">"http://tech.qq.com/zt2012/tmtdecode/252.htm"</span>;
+
+<span class="keyword">message</span>.mediaObject = ext;
+
+SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
+req.bText = NO;
+req.<span class="keyword">message</span> = <span class="keyword">message</span>;
+req.scene = _scene;
+
+[WXApi sendReq:req];
+</code></pre></span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/11/如何上传本地文件到github/" rel="next" title="如何上传本地文件到github">
+                <i class="fa fa-chevron-left"></i> 如何上传本地文件到github
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/19/Vim-编辑器/" rel="prev" title="Vim 编辑器">
+                Vim 编辑器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="张飞" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">张飞</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">有很多有故事的人，但他们都有一个共性：他们有生活</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">63</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">45</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://baidu.com/" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 百度
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张飞</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

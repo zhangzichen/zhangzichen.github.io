@@ -236,8 +236,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/09/16/一些常用的小知识总结/" itemprop="url">
-                  iOS基础 -- 一些常用的小知识总结
+                <a class="post-title-link" href="/2014/12/21/发送短信/" itemprop="url">
+                  发送短信
                 </a>
               
             
@@ -247,8 +247,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-09-16T11:26:35+08:00" content="2014-09-16">
-              2014-09-16
+            <time itemprop="dateCreated" datetime="2014-12-21T10:58:34+08:00" content="2014-12-21">
+              2014-12-21
             </time>
           </span>
 
@@ -287,12 +287,331 @@
 
       
         
-          <h3 id="把图片做成圆形图标">把图片做成圆形图标</h3><pre><code><span class="keyword">self</span><span class="variable">.headIconImageView</span> = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">10</span>, <span class="number">10</span>, <span class="number">40</span>, <span class="number">40</span>)] ;
-<span class="keyword">self</span><span class="variable">.headIconImageView</span><span class="variable">.layer</span><span class="variable">.cornerRadius</span> = <span class="number">20</span> ; <span class="comment">// 设置半径</span>
-<span class="keyword">self</span><span class="variable">.headIconImageView</span><span class="variable">.layer</span><span class="variable">.masksToBounds</span> = <span class="literal">YES</span> ; <span class="comment">// 边界是否允许截取</span>
+          <ol>
+<li>需要引入框架：MessageUI.framework</li>
+<li>引入头文件： #import </li>
+<li><p>并且遵守协议：<MFMessageComposeViewControllerDelegate>,协议中只有一个方法，用于判断短息的发送状态</p>
+</li>
+<li><p>直接跳转到系统的短信页面发送短信</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/12/21/发送短信/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/12/15/CoreLocation自动定位/" itemprop="url">
+                  CoreLocation自动定位
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2014-12-15T10:52:25+08:00" content="2014-12-15">
+              2014-12-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术篇/" itemprop="url" rel="index">
+                    <span itemprop="name">技术篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <ol>
+<li>定位框架</li>
+<li>需要引入的框架和头文件：#import </li>
+<li>使用CLLocationManager来实现自动定位，同时需要遵守CLLocationManagerDelegate协议</li>
+</ol>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/12/15/CoreLocation自动定位/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/12/12/MediaPlayer视频播放/" itemprop="url">
+                  MediaPlayer视频播放
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2014-12-12T10:46:37+08:00" content="2014-12-12">
+              2014-12-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术篇/" itemprop="url" rel="index">
+                    <span itemprop="name">技术篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <ol>
+<li>视频播放</li>
+<li>需要引入的框架和头文件：#import </li>
+<li>播放视频的时候，我们需要使用MPMoviePlayerViewController来控制</li>
+<li>虽然我们需要使用MPMoviePlayerViewController来播放，但是播放视频的一些属性需要在moviePlayer属性中设置</li>
+<li>MPMoviePlayerViewController的初始化方法:</li>
+</ol>
+<p><code>- (id)initWithContentURL:(NSURL *)contentURL; // 和播放音乐一样，都是使用url，但是不同的是音乐可以使用网络数据初始化，而视频不可以</code></p>
+<pre><code><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">MPMoviePlayerController</span> *moviePlayer; <span class="comment">// 只有这一个属性，并且还是只读的，所以我们需要通过设置这个属性的一些属性来设置视频播放器</span>
+</code></pre><p>MPMoviePlayerController的一些设置：<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/12/12/MediaPlayer视频播放/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/10/12/UIScrollView和UIPageControl配合使用完成引用介绍页面/" itemprop="url">
+                  UIScrollView和UIPageControl配合使用完成引用介绍页面
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2014-10-12T18:39:32+08:00" content="2014-10-12">
+              2014-10-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术篇/" itemprop="url" rel="index">
+                    <span itemprop="name">技术篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <pre><code><span class="comment">// 直接代码</span>
+<span class="comment">// 头文件</span>
+<span class="comment">//</span>
+<span class="comment">//  RootViewController.h</span>
+<span class="comment">//  UIScrollView</span>
+<span class="comment">//</span>
+<span class="comment">// 需要遵守UIScrollViewDelegate协议</span>
+
+<span class="preprocessor">#import</span>
+
+<span class="class"><span class="keyword">@interface</span> <span class="title">RootViewController</span> : <span class="title">UIViewController</span> &lt;<span class="title">UIScrollViewDelegate</span>&gt;</span>
+
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, retain) <span class="built_in">UIScrollView</span> *userGuideScrollView;
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, retain) <span class="built_in">UIPageControl</span> *scrollPageControl;
+
+<span class="keyword">@end</span>
 </code></pre>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/16/一些常用的小知识总结/#more" rel="contents">
+            <a class="btn" href="/2014/10/12/UIScrollView和UIPageControl配合使用完成引用介绍页面/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -335,8 +654,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/09/15/OC-各种占位符/" itemprop="url">
-                  各种占位符
+                <a class="post-title-link" href="/2014/10/10/UIViewController生命周期/" itemprop="url">
+                  UIViewController生命周期
                 </a>
               
             
@@ -346,8 +665,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-09-15T17:09:50+08:00" content="2014-09-15">
-              2014-09-15
+            <time itemprop="dateCreated" datetime="2014-10-10T18:36:29+08:00" content="2014-10-10">
+              2014-10-10
             </time>
           </span>
 
@@ -386,306 +705,27 @@
 
       
         
-          <h2 id="在使用NSLog打印信息时，会用到很多占位符，如下：">在使用NSLog打印信息时，会用到很多占位符，如下：</h2><h4 id="%@_对象">%@ 对象</h4><h4 id="%d，_%i_整数">%d， %i 整数</h4><h4 id="%u_无符号整形">%u 无符号整形</h4><h4 id="%f_浮点/双字">%f 浮点/双字</h4><h4 id="%x,_%X_二进制整数">%x, %X 二进制整数</h4><h4 id="%o_八进制整数">%o 八进制整数</h4>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/15/OC-各种占位符/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
+          <pre><code><span class="preprocessor">#import <span class="title">"DetailViewController.h"</span></span>
 
-    <footer class="post-footer">
-      
+<span class="class"><span class="keyword">@interface</span> <span class="title">DetailViewController</span> ()</span>
 
-      
+<span class="keyword">@end</span>
 
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
+<span class="class"><span class="keyword">@implementation</span> <span class="title">DetailViewController</span></span>
 
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/09/14/OC-Block的使用/" itemprop="url">
-                  Block的使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2014-09-14T17:03:26+08:00" content="2014-09-14">
-              2014-09-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术篇/" itemprop="url" rel="index">
-                    <span itemprop="name">技术篇</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="Block：">Block：</h3><h4 id="1-">1.</h4><pre><code><span class="comment">//代码块的声明</span>
-<span class="keyword">void</span> (^aBlock) (NSString *<span class="keyword">str</span>);    
-<span class="comment">// 代码块变量的赋值</span>
-aBlock = ^(NSString *<span class="keyword">str</span>){
-NSLog(@<span class="string">"%@"</span>, <span class="keyword">str</span>);
-};
+<span class="preprocessor">#pragma mark - 视图控制器对象的初始化方法</span>
+- (<span class="keyword">id</span>)initWithNibName:(<span class="built_in">NSString</span> *)nibNameOrNil bundle:(<span class="built_in">NSBundle</span> *)nibBundleOrNil
+{
+<span class="keyword">self</span> = [<span class="keyword">super</span> initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+<span class="keyword">if</span> (<span class="keyword">self</span>) {
+    <span class="comment">// Custom initialization</span>
+    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);
+}
+<span class="keyword">return</span> <span class="keyword">self</span>;
+}
 </code></pre>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/14/OC-Block的使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/09/13/OC-NSArray和NSMutableArray/" itemprop="url">
-                  NSArray和NSMutableArray
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2014-09-13T16:58:33+08:00" content="2014-09-13">
-              2014-09-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术篇/" itemprop="url" rel="index">
-                    <span itemprop="name">技术篇</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="NSArray：">NSArray：</h3><h4 id="只能存放对象。不能存放C语言中基本的数据类型。如int/double/float等等">只能存放对象。不能存放C语言中基本的数据类型。如int/double/float等等</h4><h4 id="数组下标越界不会有警告，运行时会直接报错">数组下标越界不会有警告，运行时会直接报错</h4><pre><code><span class="comment">// 不可变数组NSArray</span>
-<span class="comment">// 在数组从存入nil需要使用NSNull，不可以直接存入nil，因为在数组中nil代表数组结束</span>
-<span class="built_in">NSNull</span> *n = [<span class="built_in">NSNull</span> null];
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/13/OC-NSArray和NSMutableArray/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/09/11/Markdown--入门指南/" itemprop="url">
-                  Markdown——入门指南
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2014-09-11T14:45:02+08:00" content="2014-09-11">
-              2014-09-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/兴趣篇/" itemprop="url" rel="index">
-                    <span itemprop="name">兴趣篇</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="导语：">导语：</h2><p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的 HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/11/Markdown--入门指南/#more" rel="contents">
+            <a class="btn" href="/2014/10/10/UIViewController生命周期/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -712,7 +752,7 @@ NSLog(@<span class="string">"%@"</span>, <span class="keyword">str</span>);
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -753,7 +793,7 @@ NSLog(@<span class="string">"%@"</span>, <span class="keyword">str</span>);
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">63</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -767,7 +807,7 @@ NSLog(@<span class="string">"%@"</span>, <span class="keyword">str</span>);
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

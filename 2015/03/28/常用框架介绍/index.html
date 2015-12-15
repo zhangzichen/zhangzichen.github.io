@@ -1,0 +1,696 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="FoundationFoundation框架（Foundation.framework）为Core Foundation框架的许多功能提供Objective-C封装。Foundation框架为下述功能提供支持：群体数据类型（数组、集合等）、 程序包、 字符串管理、日期和时间管理、原始数据块管理、偏好管理、URL及数据流操作、 线程和RunLoop、 Bonjour、 通讯端口管理、 国际化、 正则">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用框架介绍">
+<meta property="og:url" content="http://yoursite.com/2015/03/28/常用框架介绍/index.html">
+<meta property="og:site_name" content="张飞">
+<meta property="og:description" content="FoundationFoundation框架（Foundation.framework）为Core Foundation框架的许多功能提供Objective-C封装。Foundation框架为下述功能提供支持：群体数据类型（数组、集合等）、 程序包、 字符串管理、日期和时间管理、原始数据块管理、偏好管理、URL及数据流操作、 线程和RunLoop、 Bonjour、 通讯端口管理、 国际化、 正则">
+<meta property="og:updated_time" content="2015-12-15T09:23:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用框架介绍">
+<meta name="twitter:description" content="FoundationFoundation框架（Foundation.framework）为Core Foundation框架的许多功能提供Objective-C封装。Foundation框架为下述功能提供支持：群体数据类型（数组、集合等）、 程序包、 字符串管理、日期和时间管理、原始数据块管理、偏好管理、URL及数据流操作、 线程和RunLoop、 Bonjour、 通讯端口管理、 国际化、 正则">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> 常用框架介绍 | 张飞 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">张飞</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'YZFopNXEX1srXxTxv-Ms','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                常用框架介绍
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-03-28T15:57:24+08:00" content="2015-03-28">
+              2015-03-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术篇/" itemprop="url" rel="index">
+                    <span itemprop="name">技术篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h3 id="Foundation">Foundation</h3><p>Foundation框架（Foundation.framework）为Core Foundation框架的许多功能提供Objective-C封装。Foundation框架为下述功能提供支持：群体数据类型（数组、集合等）、 程序包、 字符串管理、日期和时间管理、原始数据块管理、偏好管理、URL及数据流操作、 线程和RunLoop、 Bonjour、 通讯端口管理、 国际化、 正则表达式匹配、 缓存支持<br><a id="more"></a></p>
+<h3 id="Event_Kit框架：">Event Kit框架：</h3><p>iOS4.0引入了Event Kit框架（EventKit.framework）。此框架为访问用户设备的日历时间提供接口。您可以通过该框架访问日历中现有事件，可以增加事件。日历事件中包含闹钟，而且可以配置闹铃激活规则。</p>
+<h3 id="System_Configuration框架：">System Configuration框架：</h3><p>System Configuration框架（SystemConfiguration.framework）可用于确定设备的网络配置。您可以使用该框架判断Wi-Fi或者蜂窝是否正在使用中，也可以用于判断某个主机服务是否可以使用。</p>
+<h3 id="Mobile_Core_Services_框架：">Mobile Core Services 框架：</h3><p>iOS3.0引入了Mobile Core Services框架（MobileCoreServices.framework）。此框架定义同意类型标识符（UTIs）使用的底层类型。</p>
+<h3 id="Core_Telephony_框架">Core Telephony 框架</h3><p>iOS4.0引入Core Telephony框架（CoreTelephony.framework）。此框架为访问具有蜂窝无线的设备商的电话信息提供接口，应用程序可以通过它获取用户蜂窝无线服务的提供商信息。如果应用程序对于电话呼叫感兴趣，也可以在相应时间发生时得到通知。</p>
+<h3 id="Core_Media框架：">Core Media框架：</h3><p>iOS4.0引入Core Media框架（CoreMedia.framework）。此框架提供AV Foundation框架使用的底层媒体类型。只有少数需要对音频或视频创建及展示进行精确控制的应用程序才会涉及该框架，其它大部分应用程序都用不上。</p>
+<h3 id="Core_Location框架：">Core Location框架：</h3><p>Core Location框架（CoreLocation.framework）可用于定位某个设备当前的经纬度。它可以利用设备具有的硬件，通过附近的GPS、蜂窝基站、或者WiFi信号等计算用户方位。Maps应用程序就是利用此功能在地图上显示用户当前位置。您可以将此技术结合到应用程序，以此向用户提供方位信息。<br>在iOS3.0系统中，该框架开始支持iOS设备（具有相应硬件的设备）的方向信息</p>
+<p>在iOS4.0系统中，该框架开始支持低能耗的方位监视服务，该服务利用蜂窝基站跟踪用户方位</p>
+<h3 id="Core_Data_框架：">Core Data 框架：</h3><p>iOS3.0中引入Core Data框架（CoreData.framework）。Core Data框架是一种管理模型-视图-控制器应用程序数据模型的技术，它适用于数据模型已经高度结构化的应用程序。通过此框架，您再也不需要通过编程定义数据结构，而是通过Xcode提供的图形工具构造一份代表数据模型的图标。在程序运行的时候，Core Data框架就会创建并管理数据模型的实例，同时还对外提供数据模型访问接口。</p>
+<p>通过Core Data管理应用程序的数据模型，可以极大程度减少代码数量。除此之外，Core Data还具有下述特征：1.将对象数据存储在SQLite数据库已获得性能优化。 2.提供NSFetchedResultsController类似于管理表示图的数据。 3.管理undo/redo操作 4.属性校验支持 5.支持对数据变化进行传播，并且不会改变对象间的关联 6.支持对数据进行归类，过滤，并支持对内存数据进行管理。</p>
+<p>如果您正在开始新应用程序或打算对某个现有的程序进行大幅度更新，请考虑使用Core Data。</p>
+<h3 id="CFNetwork框架：">CFNetwork框架：</h3><p>CFNetwork框架（CFNetwork.framework）提供一组高性能基于C语言的接口，他们为使用网络协议提供面向对象抽象。通过这些抽象，您可以对协议栈进行更精细的控制，而且可以使用诸如BSD socket这类底层结构。您也可以通过该框架简化诸如与FTP或HTTP服务器通讯以及DNS主机解析这类任务。</p>
+<p>下面列举一些可以使用CFNetwork框架执行的任务：1.使用BSD sockets  2.使用SSL或TLS创建加密连接  3.解析DNS主机  4.使用HTTP，校验HTTP以及HTTPS服务器  5.使用FTP服务器  6.发布、解析并浏览Bonjour服务<br>CFNetwork理论以及实现都以BSD sockets为基础。</p>
+<h3 id="Address_Book_框架">Address Book 框架</h3><p>Address Book框架（AddressBook.framework）支持编程访问存储于用户设备中的联系人信息。如果应用程序使用到联系人信息，则可以通过该框架访问并修改用户联系人数据库的记录。举个例子，通过使用该框架，聊天程序可以获取一个联系人列表，利用此列表初始化聊天回话，并在联系人视图显示列表的联系人。</p>
+<h3 id="Quick_Look框架">Quick Look框架</h3><p>iOS4.0引入Quick Look框架（QuickLook.framework），应用程序可以通过该框架预览无法直接支持查看的文件内容。如果应用程序从网络下载文件或者需处理来源未知的文件，则非常适合使用此框架。因为应用程序只要在获得文件后，调用框架提供的视图控制器就可以直接在界面中显示文件的内容。</p>
+<h3 id="Store_Kit框架">Store Kit框架</h3><p>iOS3.0引入Store Kit框架（StoreKit.framework），此框架为iOS应用程序内购买内容或服务提供支持。例如，开发者可以利用此框架允许用户解锁应用程序的额外功能。或者假设您是一名开发人员，则可使用此特性向玩家出售附加游戏级别。在上午两种请款各种，Store Kit框架会处于交易过程中和财务相关的事件，包括处理用户通过iTunes Store账号发出的支付请求并且向应用程序提供交易信息。</p>
+<p>Store Kit框架主要关注交易过程中和财务相关的食物，目的是为了确保交易安全准确。应用程序需要处理交易事物的其他因素，包括购买页面和下载（或者解锁）恰当的内容。通过这种任务划分方式，您就拥有购买内容的控制权，可以决定希望展示给用户的购买页面以及何时向用户展示这些页面，同时，也可以决定和应用程序最匹配的交付机制。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/26/发送邮件/" rel="next" title="发送邮件">
+                <i class="fa fa-chevron-left"></i> 发送邮件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/30/使用照相机或图库中的图片来获取图片/" rel="prev" title="使用照相机或图库中的图片来获取图片">
+                使用照相机或图库中的图片来获取图片 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="张飞" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">张飞</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">有很多有故事的人，但他们都有一个共性：他们有生活</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">63</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">45</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://baidu.com/" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 百度
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Foundation"><span class="nav-number">1.</span> <span class="nav-text">Foundation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event_Kit框架："><span class="nav-number">2.</span> <span class="nav-text">Event Kit框架：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#System_Configuration框架："><span class="nav-number">3.</span> <span class="nav-text">System Configuration框架：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mobile_Core_Services_框架："><span class="nav-number">4.</span> <span class="nav-text">Mobile Core Services 框架：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Core_Telephony_框架"><span class="nav-number">5.</span> <span class="nav-text">Core Telephony 框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Core_Media框架："><span class="nav-number">6.</span> <span class="nav-text">Core Media框架：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Core_Location框架："><span class="nav-number">7.</span> <span class="nav-text">Core Location框架：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Core_Data_框架："><span class="nav-number">8.</span> <span class="nav-text">Core Data 框架：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CFNetwork框架："><span class="nav-number">9.</span> <span class="nav-text">CFNetwork框架：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Address_Book_框架"><span class="nav-number">10.</span> <span class="nav-text">Address Book 框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quick_Look框架"><span class="nav-number">11.</span> <span class="nav-text">Quick Look框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Store_Kit框架"><span class="nav-number">12.</span> <span class="nav-text">Store Kit框架</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张飞</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

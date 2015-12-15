@@ -236,8 +236,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/09/26/UIActivityIndicatorView的使用方法详细/" itemprop="url">
-                  UIActivityIndicatorView的使用方法详细
+                <a class="post-title-link" href="/2015/03/25/如何写一篇hexo博客/" itemprop="url">
+                  如何写一篇hexo博客
                 </a>
               
             
@@ -247,8 +247,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-09-26T18:12:03+08:00" content="2014-09-26">
-              2014-09-26
+            <time itemprop="dateCreated" datetime="2015-03-25T13:12:55+08:00" content="2015-03-25">
+              2015-03-25
             </time>
           </span>
 
@@ -257,8 +257,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术篇/" itemprop="url" rel="index">
-                    <span itemprop="name">技术篇</span>
+                  <a href="/categories/兴趣篇/" itemprop="url" rel="index">
+                    <span itemprop="name">兴趣篇</span>
                   </a>
                 </span>
 
@@ -287,12 +287,14 @@
 
       
         
-          <pre><code><span class="comment">// UIActivityIndicatorView的常用方法 活动指示器，就是旋转进度轮</span>
-<span class="built_in">UIActivityIndicatorView</span> *oneIndicatorView = [[<span class="built_in">UIActivityIndicatorView</span> alloc] init];
-oneIndicatorView<span class="variable">.activityIndicatorViewStyle</span> = <span class="built_in">UIActivityIndicatorViewStyleWhiteLarge</span>; <span class="comment">// 设置显示的样式</span>
+          <h3 id="新建博客文件">新建博客文件</h3><p>Hexo使用markdown语法的纯文本编辑，文件后缀名.m ,文件存放在：我们的站点目录下/source/_post 文件夹下</p>
+<p>文件生成方式：</p>
+<pre><code>hexo <span class="built_in">new</span> layout 文件名    
+
+例：hexo <span class="built_in">new</span> <span class="built_in">post</span> HelloWorld  如果文件名中有空格必须给文件名加引号 hexo <span class="built_in">new</span> <span class="built_in">post</span> <span class="string">"Hello World"</span>
 </code></pre>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/26/UIActivityIndicatorView的使用方法详细/#more" rel="contents">
+            <a class="btn" href="/2015/03/25/如何写一篇hexo博客/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -335,8 +337,8 @@ oneIndicatorView<span class="variable">.activityIndicatorViewStyle</span> = <spa
             
               
                 
-                <a class="post-title-link" href="/2014/09/25/UIAlertView的使用方法/" itemprop="url">
-                  UIAlertView的使用方法
+                <a class="post-title-link" href="/2015/03/24/第三方分享-友盟分享/" itemprop="url">
+                  第三方分享-友盟分享
                 </a>
               
             
@@ -346,8 +348,8 @@ oneIndicatorView<span class="variable">.activityIndicatorViewStyle</span> = <spa
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-09-25T18:05:17+08:00" content="2014-09-25">
-              2014-09-25
+            <time itemprop="dateCreated" datetime="2015-03-24T15:51:27+08:00" content="2015-03-24">
+              2015-03-24
             </time>
           </span>
 
@@ -386,14 +388,17 @@ oneIndicatorView<span class="variable">.activityIndicatorViewStyle</span> = <spa
 
       
         
-          <pre><code><span class="comment">// UIAlertView的常用方法</span>
-<span class="comment">// 标准样式</span>
-UIAlertView *oneAlertView = [[UIAlertView alloc] <span class="string">initWithTitle:</span>@<span class="string">"标题"</span> <span class="string">message:</span>@<span class="string">"提示内容"</span> <span class="string">delegate:</span>self <span class="string">cancelButtonTitle:</span>@<span class="string">"关闭"</span> <span class="string">otherButtonTitles:</span>@<span class="string">"OK"</span>, nil];
-[oneAlertView show]; <span class="comment">// 显示出来</span>
-[oneAlertView release], oneAlertView = nil; <span class="comment">// 释放内存</span>
-</code></pre>
+          <h3 id="友盟_http://www-umeng-com">友盟 <a href="http://www.umeng.com">http://www.umeng.com</a></h3><p>使用友盟分享</p>
+<p>需要引入框架</p>
+<ol>
+<li>SystemConfiguration.framework</li>
+<li>CoreGraphics.framework</li>
+<li>libsqlite3.dylib</li>
+<li>CoreTelephony.framework</li>
+<li>libstdc++.dylib,</li>
+<li>libz.dylib
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/25/UIAlertView的使用方法/#more" rel="contents">
+            <a class="btn" href="/2015/03/24/第三方分享-友盟分享/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -436,8 +441,8 @@ UIAlertView *oneAlertView = [[UIAlertView alloc] <span class="string">initWithTi
             
               
                 
-                <a class="post-title-link" href="/2014/09/24/UISegmentedControl的使用方法详细/" itemprop="url">
-                  UISegmentedControl的使用方法详细
+                <a class="post-title-link" href="/2015/03/20/AFNetworking的使用/" itemprop="url">
+                  AFNetworking的使用
                 </a>
               
             
@@ -447,8 +452,8 @@ UIAlertView *oneAlertView = [[UIAlertView alloc] <span class="string">initWithTi
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-09-24T18:03:25+08:00" content="2014-09-24">
-              2014-09-24
+            <time itemprop="dateCreated" datetime="2015-03-20T15:48:13+08:00" content="2015-03-20">
+              2015-03-20
             </time>
           </span>
 
@@ -487,14 +492,14 @@ UIAlertView *oneAlertView = [[UIAlertView alloc] <span class="string">initWithTi
 
       
         
-          <pre><code><span class="comment">// UISegmentedControl的使用</span>
-<span class="built_in">NSArray</span> *oneArrayForSegmentedControl = [<span class="built_in">NSArray</span> arrayWithObjects:<span class="string">@"1"</span>, <span class="string">@"2"</span>, <span class="string">@"3"</span>, <span class="string">@"4"</span>, <span class="literal">nil</span>];
-<span class="built_in">UISegmentedControl</span> *oneSegmentedControl = [[<span class="built_in">UISegmentedControl</span> alloc] initWithItems:oneArrayForSegmentedControl]; <span class="comment">// 初始化时加入items</span>
-oneSegmentedControl<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">20</span>, <span class="number">280</span>, <span class="number">40</span>);
-oneSegmentedControl<span class="variable">.tintColor</span> = [<span class="built_in">UIColor</span> redColor]; <span class="comment">// 选中的颜色</span>
-</code></pre>
+          <ol>
+<li>需要加入SystemConfiguration.framework、MobileCoreServices.framework、Security.framework三个框架</li>
+<li>消除警告在pch文件中添加 #import #import</li>
+<li>引入AFNetworking框架  #import “AFNetworking.h”</li>
+<li>下面是详细代码，包括：简单网络请求、图片请求、JSON数据请求、XML数据请求、流媒体播放功能</li>
+</ol>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/24/UISegmentedControl的使用方法详细/#more" rel="contents">
+            <a class="btn" href="/2015/03/20/AFNetworking的使用/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -537,8 +542,8 @@ oneSegmentedControl<span class="variable">.tintColor</span> = [<span class="buil
             
               
                 
-                <a class="post-title-link" href="/2014/09/23/UIStepper的使用方法详细/" itemprop="url">
-                  UIStepper的使用方法详细
+                <a class="post-title-link" href="/2015/03/19/简单玩转Hexo/" itemprop="url">
+                  简单玩转Hexo
                 </a>
               
             
@@ -548,8 +553,8 @@ oneSegmentedControl<span class="variable">.tintColor</span> = [<span class="buil
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-09-23T18:01:39+08:00" content="2014-09-23">
-              2014-09-23
+            <time itemprop="dateCreated" datetime="2015-03-19T14:06:53+08:00" content="2015-03-19">
+              2015-03-19
             </time>
           </span>
 
@@ -558,8 +563,8 @@ oneSegmentedControl<span class="variable">.tintColor</span> = [<span class="buil
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术篇/" itemprop="url" rel="index">
-                    <span itemprop="name">技术篇</span>
+                  <a href="/categories/兴趣篇/" itemprop="url" rel="index">
+                    <span itemprop="name">兴趣篇</span>
                   </a>
                 </span>
 
@@ -588,15 +593,11 @@ oneSegmentedControl<span class="variable">.tintColor</span> = [<span class="buil
 
       
         
-          <pre><code><span class="comment">// UIStepper的常用方法</span>
-UIStepper *oneStepper = [[UIStepper alloc] init];
-oneStepper.frame = CGRectMake(<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>);
-oneStepper.backgroundColor = [UIColor blueColor]; <span class="comment">// 设置背景色</span>
-oneStepper.tintColor = [UIColor yellowColor]; <span class="comment">// 设置按钮的颜色</span>
-oneStepper.alpha = <span class="number">1.0</span>; <span class="comment">// 设置透明度 范围0.0-1.0之间</span>
-</code></pre>
+          <h1 id="简介">简介</h1><hr>
+<p>Hexo是一个很好的博客，个人觉得他的界面干净利落，阅读体验也是很好。初次接触Hexo是在朋友的介绍下才知道的，hexo是需要手动搭建（觉得B格很高），在朋友的帮助下也终于是完成了。<br>开篇记录一下搭建的过程希望能帮助到浏览到这里的朋友<br>我的系统为OS X，windows也可以参考。</p>
+<p>hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github上。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/23/UIStepper的使用方法详细/#more" rel="contents">
+            <a class="btn" href="/2015/03/19/简单玩转Hexo/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -639,8 +640,8 @@ oneStepper.alpha = <span class="number">1.0</span>; <span class="comment">// 设
             
               
                 
-                <a class="post-title-link" href="/2014/09/22/UIProgressView的使用方法详细/" itemprop="url">
-                  UIProgressView的使用方法详细
+                <a class="post-title-link" href="/2015/03/14/JSON解析使用JSONKit/" itemprop="url">
+                  JSON解析使用JSONKit
                 </a>
               
             
@@ -650,8 +651,8 @@ oneStepper.alpha = <span class="number">1.0</span>; <span class="comment">// 设
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-09-22T18:00:29+08:00" content="2014-09-22">
-              2014-09-22
+            <time itemprop="dateCreated" datetime="2015-03-14T15:46:17+08:00" content="2015-03-14">
+              2015-03-14
             </time>
           </span>
 
@@ -690,14 +691,15 @@ oneStepper.alpha = <span class="number">1.0</span>; <span class="comment">// 设
 
       
         
-          <pre><code><span class="comment">// UIProgressView的使用 常用于歌曲的和下载的进度条</span>
-UIProgressView *oneProgressView = [[UIProgressView alloc] init];
-oneProgressView.frame = CGRectMake(<span class="number">0</span>, <span class="number">30</span>, <span class="number">320</span>, <span class="number">30</span>); <span class="comment">// 设置UIProgressView的位置和大小</span>
-oneProgressView.backgroundColor = [UIColor clearColor]; <span class="comment">// 设置背景色</span>
-oneProgressView.alpha = <span class="number">1.0</span>; <span class="comment">// 设置透明度 范围在0.0-1.0之间 0.0为全透明</span>
-</code></pre>
+          <p>JSONKit的使用</p>
+<ol>
+<li>下载文件：<a href="https://github.com/johnezang/JSONKit">https://github.com/johnezang/JSONKit</a> </li>
+<li>引入到工程中</li>
+<li>添加libz.1.2.5.dylib到工程中</li>
+<li>在需要使用的类中引入头文件: #import “JSONKit.h”</li>
+<li><p>下面看代码</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/22/UIProgressView的使用方法详细/#more" rel="contents">
+            <a class="btn" href="/2015/03/14/JSON解析使用JSONKit/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -724,7 +726,7 @@ oneProgressView.alpha = <span class="number">1.0</span>; <span class="comment">/
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -765,7 +767,7 @@ oneProgressView.alpha = <span class="number">1.0</span>; <span class="comment">/
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">63</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -779,7 +781,7 @@ oneProgressView.alpha = <span class="number">1.0</span>; <span class="comment">/
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

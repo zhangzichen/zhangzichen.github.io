@@ -350,8 +350,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/06/15/UITableViewCell的自定义以及重用/" itemprop="url">
-                  UITableViewCell的自定义以及重用
+                <a class="post-title-link" href="/2015/08/26/VisualFormatLanguage可视格式语言/" itemprop="url">
+                  VisualFormatLanguage可视格式语言
                 </a>
               
             
@@ -361,8 +361,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-06-15T20:52:44+08:00" content="2015-06-15">
-              2015-06-15
+            <time itemprop="dateCreated" datetime="2015-08-26T16:29:44+08:00" content="2015-08-26">
+              2015-08-26
             </time>
           </span>
 
@@ -401,9 +401,11 @@
 
       
         
-          <p>在UITableView中，我们通常来展示各色各样的信息，这时，系统自带的cell形式就无法满足我们的需求了。此时，我们就需要用到自定义cell。</p>
+          <p>Visual Format Language 可视格式语言：这种语言是对视觉描述的一种抽象，看起来是这样的：</p>
+<p>accept 按钮在 cancel 按钮右侧默认间距处：</p>
+<p><img src="http://cekav.img47.wal8.com/img47/534061_20151212184528/145016835316.jpeg" alt=""><br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/15/UITableViewCell的自定义以及重用/#more" rel="contents">
+            <a class="btn" href="/2015/08/26/VisualFormatLanguage可视格式语言/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -446,8 +448,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/06/13/UITableView的编辑和移动/" itemprop="url">
-                  UITableView的编辑和移动
+                <a class="post-title-link" href="/2015/08/18/正则表达式判断手机号、邮箱、车牌号/" itemprop="url">
+                  正则表达式判断手机号、邮箱、车牌号
                 </a>
               
             
@@ -457,8 +459,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-06-13T13:42:36+08:00" content="2015-06-13">
-              2015-06-13
+            <time itemprop="dateCreated" datetime="2015-08-18T16:27:24+08:00" content="2015-08-18">
+              2015-08-18
             </time>
           </span>
 
@@ -497,9 +499,136 @@
 
       
         
-          <p>上一篇记录了UITableView基本的用法，包括创建、设置代理以及代理方法的实现。这一篇来记录一下UITableView的编辑和移动。<br>
+          <span itemprop="articleBody">
+            
+              <pre><code><span class="preprocessor">#pragma mark - 私有方法</span>
+<span class="preprocessor">#pragma mark 邮箱验证</span>
+- (<span class="built_in">BOOL</span>)isValidateEmail:(<span class="built_in">NSString</span> *)email
+{
+<span class="built_in">NSString</span> *emailRegex = <span class="string">@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"</span>;
+<span class="built_in">NSPredicate</span> *emailTest = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"SELF MATCHES %@"</span>, emailRegex];
+<span class="keyword">return</span> [emailTest evaluateWithObject:email];
+}
+
+
+<span class="preprocessor">#pragma mark 手机号码验证</span>
+- (<span class="built_in">BOOL</span>)isValidateMobile:(<span class="built_in">NSString</span> *)mobile
+{
+<span class="comment">// 手机号以13， 15，18开头，八个 \d 数字字符</span>
+<span class="built_in">NSString</span> *phoneRegex = <span class="string">@"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$"</span>;
+<span class="built_in">NSPredicate</span> *phoneTest = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"SELF MATCHES %@"</span>, phoneRegex];
+<span class="comment">// NSLog(@"phoneTest is %@",phoneTest);</span>
+<span class="keyword">return</span> [phoneTest evaluateWithObject:mobile];
+}
+
+
+<span class="preprocessor">#pragma mark 车牌号验证</span>
+- (<span class="built_in">BOOL</span>)isValidateCarNo:(<span class="built_in">NSString</span>*)carNo
+{
+<span class="built_in">NSString</span> *carRegex = <span class="string">@"^[A-Za-z]{1}[A-Za-z_0-9]{5}$"</span>;
+<span class="built_in">NSPredicate</span> *carTest = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"SELF MATCHES %@"</span>, carRegex];
+<span class="built_in">NSLog</span>(<span class="string">@"carTest is %@"</span>, carTest);
+<span class="keyword">return</span> [carTest evaluateWithObject:carNo];
+}
+</code></pre>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/08/06/TouchID的简单使用/" itemprop="url">
+                  TouchID的简单使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-08-06T16:24:13+08:00" content="2015-08-06">
+              2015-08-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术篇/" itemprop="url" rel="index">
+                    <span itemprop="name">技术篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <ol>
+<li>引入TouchID的库#import</li>
+<li>在页面上添加一个UIButton，并绑定事件</li>
+<li><p>事件</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/13/UITableView的编辑和移动/#more" rel="contents">
+            <a class="btn" href="/2015/08/06/TouchID的简单使用/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -542,8 +671,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/06/11/UITableView/" itemprop="url">
-                  UITableView
+                <a class="post-title-link" href="/2015/07/10/iOS8沙盒路径的变化/" itemprop="url">
+                  iOS8沙盒路径的变化
                 </a>
               
             
@@ -553,8 +682,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-06-11T20:49:05+08:00" content="2015-06-11">
-              2015-06-11
+            <time itemprop="dateCreated" datetime="2015-07-10T16:22:30+08:00" content="2015-07-10">
+              2015-07-10
             </time>
           </span>
 
@@ -593,109 +722,23 @@
 
       
         
-          <p>今天写一下UITableView控件以及一个使用率非常高的视图控制器UITableViewController</p>
-<h2 id="简介">简介</h2><p>UITableView经常被用来展示一系列相似的信息，有点类似于平时所见的列表，它有两种形式，一种为UITableViewStylePlain，另一种为UITableViewStyleGrouped。其实二者没有多大差别，第二种只是在第一种的基础上按分组进行显示。我们平时常用第二种形式。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/11/UITableView/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <span itemprop="articleBody">
             
-            
-              
-                
-                <a class="post-title-link" href="/2015/06/06/iOS开发常用控件总结/" itemprop="url">
-                  iOS开发常用控件总结
-                </a>
-              
-            
-          </h1>
-        
+              <p>iOS8之前：</p>
+<p>~/User/Library/Application Support/iPhone Simulator/7.1-64/Applications/5C379153-CD12-4BAC-9BBC-E75023F21BC2/…</p>
+<p>不管是Bundle还是Document、Library、tmp文件夹都在这里。</p>
+<p>iOS8之后，把Bundle和那三个文件夹分开放置了，分别存放在不同的文件夹中：</p>
+<p>Bundle路径：</p>
+<p>~/User/Library/Developer/CoreSimulator/Devices/FE29AAC6-3DB0-45AD-95B3-68E0907BA5A0/data/Contaners/Bundle/Application/9566EEA4-D274-4513-96BD-53FFFC4FAD4E/…</p>
+<p>沙盒路径：</p>
+<p>~/User/Library/Developer/CoreSimulator/Devices/FE29AAC6-3DB0-45AD-95B3-68E0907BA5A0/data/Containers/Data/Application/EDF4BF77-DD57-4764-9BFC-A74E91D8ACD2/Documents/…</p>
+<p>// 无论是Bundle，还是沙盒路径，在应用程序每次重新运行时，沙盒文件夹名称都会发生改变。</p>
+<p>NSUserDefaults路径也发生了改变，这个路径在模拟器和真机上是有一些区别的：</p>
+<p>~/User/Library/Developer/CoreSimulator/Devices/FE29AAC6-3DB0-45AD-95B3-68E0907BA5A0/data/资源库/Preferences/…</p>
+<p>需要注意的是：当我们删除应用程序后，在模拟器中，plist文件还是会存在的，并不会被删除。但是在真机中，plist文件是会被删除的</p>
 
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-06-06T20:09:32+08:00" content="2015-06-06">
-              2015-06-06
-            </time>
+            
           </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术篇/" itemprop="url" rel="index">
-                    <span itemprop="name">技术篇</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>总结一下iOS开发中最常用的控件<br><img src="/post_image/zhishidian.jpg" alt=""></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/06/iOS开发常用控件总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -719,7 +762,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -760,7 +803,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">63</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -774,7 +817,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
