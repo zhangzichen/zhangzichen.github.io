@@ -236,6 +236,109 @@
             
               
                 
+                <a class="post-title-link" href="/2014/10/04/手势控制的使用/" itemprop="url">
+                  手势控制的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2014-10-04T18:20:05+08:00" content="2014-10-04">
+              2014-10-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术篇/" itemprop="url" rel="index">
+                    <span itemprop="name">技术篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>手势识别是具有互斥的原则的，比如单击和双击，如果它识别出一种手势，其后的手势将不被识别</p>
+<pre><code><span class="comment">// 添加单击的手势</span>
+<span class="built_in">UITapGestureRecognizer</span> *tapGestureRecognizer = [[<span class="built_in">UITapGestureRecognizer</span> alloc] init];
+tapGestureRecognizer<span class="variable">.numberOfTapsRequired</span> = <span class="number">1</span>; <span class="comment">// 设置单击几次才触发方法</span>
+[tapGestureRecognizer addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(tapGestureAction:)]; <span class="comment">// 添加点击手势的方法</span>
+[<span class="keyword">self</span><span class="variable">.view</span> addGestureRecognizer:tapGestureRecognizer]; <span class="comment">// 添加到当前的View上</span>
+[tapGestureRecognizer release], tapGestureRecognizer = <span class="literal">nil</span>; <span class="comment">// 释放内存</span>
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/10/04/手势控制的使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2014/09/30/UISearchBar的使用方法详细/" itemprop="url">
                   UISearchBar的使用方法详细
                 </a>
@@ -619,105 +722,6 @@ onePageControl.backgroundColor = [UIColor redColor]; <span class="comment">// �
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/09/26/UIActivityIndicatorView的使用方法详细/" itemprop="url">
-                  UIActivityIndicatorView的使用方法详细
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2014-09-26T18:12:03+08:00" content="2014-09-26">
-              2014-09-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术篇/" itemprop="url" rel="index">
-                    <span itemprop="name">技术篇</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <pre><code><span class="comment">// UIActivityIndicatorView的常用方法 活动指示器，就是旋转进度轮</span>
-<span class="built_in">UIActivityIndicatorView</span> *oneIndicatorView = [[<span class="built_in">UIActivityIndicatorView</span> alloc] init];
-oneIndicatorView<span class="variable">.activityIndicatorViewStyle</span> = <span class="built_in">UIActivityIndicatorViewStyleWhiteLarge</span>; <span class="comment">// 设置显示的样式</span>
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/26/UIActivityIndicatorView的使用方法详细/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -764,7 +768,7 @@ oneIndicatorView<span class="variable">.activityIndicatorViewStyle</span> = <spa
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -778,7 +782,7 @@ oneIndicatorView<span class="variable">.activityIndicatorViewStyle</span> = <spa
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

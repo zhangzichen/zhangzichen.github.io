@@ -236,6 +236,95 @@
             
               
                 
+                <a class="post-title-link" href="/2014/09/22/UISwitch的使用方法详细/" itemprop="url">
+                  UISwitch的使用方法详细 - 技术篇
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2014-09-22T17:58:57+08:00" content="2014-09-22">
+              2014-09-22
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <pre><code><span class="comment">// UISwitch的使用</span>
+<span class="built_in">UISwitch</span> *oneSwitch = [[<span class="built_in">UISwitch</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">20</span>, <span class="number">0</span>, <span class="number">0</span>)]; <span class="comment">// 默认尺寸为79 * 27。</span>
+oneSwitch<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> greenColor]; <span class="comment">// 设置背景色</span>
+oneSwitch<span class="variable">.alpha</span> = <span class="number">1.0</span>; <span class="comment">// 设置透明度 范围在0.0-1.0之间 0.0是完全透明</span>
+
+oneSwitch<span class="variable">.onTintColor</span> = [<span class="built_in">UIColor</span> redColor]; <span class="comment">// 在oneSwitch开启的状态显示的颜色 默认是blueColor</span>
+oneSwitch<span class="variable">.tintColor</span> = [<span class="built_in">UIColor</span> purpleColor]; <span class="comment">// 设置关闭状态的颜色</span>
+oneSwitch<span class="variable">.thumbTintColor</span> = [<span class="built_in">UIColor</span> blueColor]; <span class="comment">// 设置开关上左右滑动的小圆点的颜色</span>
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/09/22/UISwitch的使用方法详细/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2014/09/21/UISlider的使用方法详细/" itemprop="url">
                   UISlider的使用方法详细
                 </a>
@@ -639,105 +728,6 @@ oneLabel<span class="variable">.alpha</span> = <span class="number">1.0</span>; 
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/09/16/一些常用的小知识总结/" itemprop="url">
-                  iOS基础 -- 一些常用的小知识总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2014-09-16T11:26:35+08:00" content="2014-09-16">
-              2014-09-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术篇/" itemprop="url" rel="index">
-                    <span itemprop="name">技术篇</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="把图片做成圆形图标">把图片做成圆形图标</h3><pre><code><span class="keyword">self</span><span class="variable">.headIconImageView</span> = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">10</span>, <span class="number">10</span>, <span class="number">40</span>, <span class="number">40</span>)] ;
-<span class="keyword">self</span><span class="variable">.headIconImageView</span><span class="variable">.layer</span><span class="variable">.cornerRadius</span> = <span class="number">20</span> ; <span class="comment">// 设置半径</span>
-<span class="keyword">self</span><span class="variable">.headIconImageView</span><span class="variable">.layer</span><span class="variable">.masksToBounds</span> = <span class="literal">YES</span> ; <span class="comment">// 边界是否允许截取</span>
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/16/一些常用的小知识总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -784,7 +774,7 @@ oneLabel<span class="variable">.alpha</span> = <span class="number">1.0</span>; 
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -798,7 +788,7 @@ oneLabel<span class="variable">.alpha</span> = <span class="number">1.0</span>; 
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

@@ -1,0 +1,828 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="KVC,KVO,NSNotification,delegate," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="KVCKVC，即是指 NSKeyValueCoding，一个非正式的Protocol，提供一种机制来间接访问对象的属性。而不是通过调用Setter、Getter方法访问。KVO 就是基于 KVC 实现的关键技术之一。
+Demo:@interface myPerson : NSObject
+
+{    
+
+    NSString*_name;    
+
+    int      _age;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KVC、KVO、NSNotification、delegate 总结及区别">
+<meta property="og:url" content="http://yoursite.com/2015/12/15/KVC、KVO、NSNotification、delegate-总结及区别/index.html">
+<meta property="og:site_name" content="张飞">
+<meta property="og:description" content="KVCKVC，即是指 NSKeyValueCoding，一个非正式的Protocol，提供一种机制来间接访问对象的属性。而不是通过调用Setter、Getter方法访问。KVO 就是基于 KVC 实现的关键技术之一。
+Demo:@interface myPerson : NSObject
+
+{    
+
+    NSString*_name;    
+
+    int      _age;">
+<meta property="og:updated_time" content="2015-12-15T06:02:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KVC、KVO、NSNotification、delegate 总结及区别">
+<meta name="twitter:description" content="KVCKVC，即是指 NSKeyValueCoding，一个非正式的Protocol，提供一种机制来间接访问对象的属性。而不是通过调用Setter、Getter方法访问。KVO 就是基于 KVC 实现的关键技术之一。
+Demo:@interface myPerson : NSObject
+
+{    
+
+    NSString*_name;    
+
+    int      _age;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> KVC、KVO、NSNotification、delegate 总结及区别 | 张飞 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">张飞</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'YZFopNXEX1srXxTxv-Ms','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                KVC、KVO、NSNotification、delegate 总结及区别
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-15T13:46:18+08:00" content="2015-12-15">
+              2015-12-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术篇/" itemprop="url" rel="index">
+                    <span itemprop="name">技术篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h3 id="KVC">KVC</h3><p>KVC，即是指 NSKeyValueCoding，一个非正式的Protocol，提供一种机制来间接访问对象的属性。而不是通过调用Setter、Getter方法访问。KVO 就是基于 KVC 实现的关键技术之一。</p>
+<h4 id="Demo:">Demo:</h4><pre><code><span class="class"><span class="keyword">@interface</span> <span class="title">myPerson</span> : <span class="title">NSObject</span></span>
+
+{    
+
+    <span class="built_in">NSString</span>*_name;    
+
+    <span class="keyword">int</span>      _age;    
+
+    <span class="keyword">int</span>      _height;    
+
+    <span class="keyword">int</span>      _weight;
+
+} <span class="keyword">@end</span>
+</code></pre><a id="more"></a>
+<pre><code><span class="annotation">@interface</span> <span class="string">testViewController :</span>UIViewController 
+
+
+
+<span class="annotation">@property</span> (nonatomic, retain) myPerson*testPerson; 
+
+
+
+<span class="annotation">@end</span>
+
+- (<span class="typename">void</span>)testKVC
+
+{    
+
+testPerson = [[myPerson alloc] init];        
+
+ NSLog(@<span class="string">"testPerson‘s init height =%@"</span>, [testPerson <span class="string">valueForKey:</span>@<span class="string">"height"</span>]);    
+
+[testPerson <span class="string">setValue:</span>[NSNumber <span class="string">numberWithInt:</span><span class="number">168</span>]<span class="string">forKey:</span>@<span class="string">"height"</span>];    NSLog(@<span class="string">"testPerson‘s height = %@"</span>, [testPerson <span class="string">valueForKey:</span>@<span class="string">"height"</span>]);
+
+}
+</code></pre><p>第一段代码是定义了一个myPerson的类，这个类有一个_height的属性，但是没有提供任何getter／setter的访问方法。同时在testViewController这个类里面有一个myPerson的对象指针。</p>
+<p>当myPerson实例化后，常规来说是无法访问这个对象的_height属性的，不过通过KVC我们做到了，代码就是testKVC这个函数。</p>
+<p>运行之后打印值就是：</p>
+<pre><code><span class="number">2015</span>-<span class="number">3</span>-<span class="number">13</span> <span class="number">11</span>:<span class="number">16</span>:<span class="number">21.970</span> test[<span class="number">408</span>:c07] testPerson‘s init height = <span class="number">0</span>
+
+<span class="number">2015</span>-<span class="number">3</span>-<span class="number">13</span> <span class="number">11</span>:<span class="number">16</span>:<span class="number">21.971</span> test[<span class="number">408</span>:c07] testPerson‘s height = <span class="number">168</span>
+</code></pre><p>这就说明确实读写了_height属性。</p>
+<h4 id="KVC的常用方法：">KVC的常用方法：</h4><pre><code><span class="pp">- <span class="params">(id)</span>valueForKey:<span class="params">(<span class="variable">NSString</span> *)</span>key; -<span class="params">(void)</span>setValue:<span class="params">(id)</span>value forKey:<span class="params">(<span class="variable">NSString</span> *)</span>key;</span>
+</code></pre><p>valueForKey的方法根据key的值读取对象的属性，setValue:forKey:是根据key的值来写对象的属性。</p>
+<h3 id="注意：">注意：</h3><p>（1）. key的值必须正确，如果拼写错误，会出现异常</p>
+<p>（2）. 当key的值是没有定义的，valueForUndefinedKey:这个方法会被调用，如果你自己写了这个方法，key的值出错就会调用到这里来</p>
+<p>（3）. 因为类key反复嵌套，所以有个keyPath的概念，keyPath就是用.号来把一个一个key链接起来，这样就可以根据这个路径访问下去</p>
+<p>（4）. NSArray／NSSet等都支持KVC</p>
+<h4 id="KVO">KVO</h4><p>KVO的是KeyValue Observe的缩写，中文是键值观察。这是一个典型的观察者模式，观察者在键值改变时会得到通知。iOS中有个Notification的机制，也可以获得通知，但这个机制需要有个Center，相比之下KVO更加简洁而直接。</p>
+<h5 id="KVO的使用也很简单，就是简单的3步。">KVO的使用也很简单，就是简单的3步。</h5><pre><code><span class="number">1.</span>注册需要观察的对象的属性<span class="string">addObserver:</span><span class="string">forKeyPath:</span><span class="string">options:</span><span class="string">context:</span>
+<span class="number">2.</span>实现<span class="string">observeValueForKeyPath:</span><span class="string">ofObject:</span><span class="string">change:</span><span class="string">context:</span>方法，这个方法当观察的属性变化时会自动调用
+<span class="number">3.</span>取消注册观察<span class="string">removeObserver:</span><span class="string">forKeyPath:</span><span class="string">context:</span>
+</code></pre><h4 id="Demo：">Demo：</h4><pre><code><span class="annotation">@interface</span> <span class="string">myPerson :</span> NSObject  
+{  
+NSString *_name;  
+<span class="typename">int</span>      _age;  
+<span class="typename">int</span>      _height;  
+<span class="typename">int</span>      _weight;  
+}  
+<span class="annotation">@end</span>  
+
+<span class="annotation">@interface</span> <span class="string">testViewController :</span> UIViewController  
+<span class="annotation">@property</span> (nonatomic, retain) myPerson *testPerson;  
+
+- (IBAction)<span class="string">onBtnTest:</span>(id)sender;  
+<span class="annotation">@end</span>  
+
+- (<span class="typename">void</span>)testKVO  
+{  
+testPerson = [[myPerson alloc] init];  
+
+[testPerson <span class="string">addObserver:</span>self <span class="string">forKeyPath:</span>@<span class="string">"height"</span> <span class="string">options:</span>NSKeyValueObservingOptionNew <span class="string">context:</span>nil];  
+}  
+
+- (<span class="typename">void</span>)<span class="string">observeValueForKeyPath:</span>(NSString *)keyPath <span class="string">ofObject:</span>(id)object <span class="string">change:</span>(NSDictionary *)change <span class="string">context:</span>(<span class="typename">void</span> *)context  
+{  
+<span class="keyword">if</span> ([keyPath <span class="string">isEqualToString:</span>@<span class="string">"height"</span>]) {  
+    NSLog(@<span class="string">"Height is changed! new=%@"</span>, [change <span class="string">valueForKey:</span>NSKeyValueChangeNewKey]);  
+} <span class="keyword">else</span> {  
+    [<span class="keyword">super</span> <span class="string">observeValueForKeyPath:</span>keyPath <span class="string">ofObject:</span>object <span class="string">change:</span>change <span class="string">context:</span>context];  
+}  
+}  
+
+- (IBAction)<span class="string">onBtnTest:</span>(id)sender {  
+<span class="typename">int</span> h = [[testPerson <span class="string">valueForKey:</span>@<span class="string">"height"</span>] intValue];      
+[testPerson <span class="string">setValue:</span>[NSNumber <span class="string">numberWithInt:</span>h+<span class="number">1</span>] <span class="string">forKey:</span>@<span class="string">"height"</span>];  
+NSLog(@<span class="string">"person height=%@"</span>, [testPerson <span class="string">valueForKey:</span>@<span class="string">"height"</span>]);  
+}  
+
+- (<span class="typename">void</span>)dealloc  
+{  
+[testPerson <span class="string">removeObserver:</span>self <span class="string">forKeyPath:</span>@<span class="string">"height"</span> <span class="string">context:</span>nil];  
+[<span class="keyword">super</span> dealloc];  
+}  
+</code></pre><p>第一段代码声明了myPerson类，里面有个_height的属性。在testViewController有一个testPerson的对象指针。<br>      在testKVO这个方法里面，我们注册了testPerson这个对象height属性的观察，这样当testPerson的height属性变化时， 会得到通知。在这个方法中还通过NSKeyValueObservingOptionNew这个参数要求把新值在dictionary中传递过来。<br>      重写了observeValueForKeyPath:ofObject:change:context:方法，这个方法里的change这个NSDictionary对象包含了相应的值。<br>      需要强调的是KVO的回调要被调用，属性必须是通过KVC的方法来修改的，如果是调用类的其他方法来修改属性，这个观察者是不会得到通知的。</p>
+<h4 id="delegate和NSNotification的区别：">delegate和NSNotification的区别：</h4><h4 id="delegate的优点：">delegate的优点：</h4><pre><code><span class="number">1.</span>非常严格的语法。所有将听到的事件必须是在delegate协议中有清晰的定义。
+<span class="number">2.</span>如果delegate中的一个方法没有实现那么就会出现编译警告/错误
+<span class="number">3.</span>协议必须在controller的作用域范围内定义
+<span class="number">4.</span>在一个应用中的控制流程是可跟踪的并且是可识别的；
+<span class="number">5.</span>在一个控制器中可以定义定义多个不同的协议，每个协议有不同的delegates
+<span class="number">6.</span>没有第三方对象要求保持/监视通信过程。
+<span class="number">7.</span>能够接收调用的协议方法的返回值。这意味着delegate能够提供反馈信息给controller
+</code></pre><h4 id="缺点：">缺点：</h4><pre><code><span class="number">1</span>.需要定义很多代码：<span class="number">1</span>.协议定义；<span class="number">2</span>.controller的<span class="keyword">delegate</span>属性；<span class="number">3</span>.在<span class="keyword">delegate</span>本身中实现<span class="keyword">delegate</span>方法定义
+<span class="number">2</span>.在释放代理对象时，需要小心的将<span class="keyword">delegate</span>改为<span class="keyword">nil</span>。一旦设定失败，那么调用释放对象的方法将会出现内存crash
+<span class="number">3</span>.在一个controller中有多个<span class="keyword">delegate</span>对象，并且<span class="keyword">delegate</span>是遵守同一个协议，但还是很难告诉多个对象同一个事件，不过有可能。
+</code></pre><h4 id="notification的_优势_：">notification的 优势 ：</h4><p>1.不需要编写多少代码，实现比较简单；</p>
+<p>2.对于一个发出的通知，多个对象能够做出反应，即1对多的方式实现简单</p>
+<p>3.controller能够传递context对象（dictionary），context对象携带了关于发送通知的自定义的信息</p>
+<h4 id="缺点：-1">缺点：</h4><p>1.在编译期不会检查通知是否能够被观察者正确的处理； </p>
+<p>2.在释放注册的对象时，需要在通知中心取消注册；</p>
+<p>3.在调试的时候应用的工作以及控制过程难跟踪；</p>
+<p>4.需要第三方对喜爱那个来管理controller与观察者对象之间的联系；</p>
+<p>5.controller和观察者需要提前知道通知名称、UserInfodictionary keys。如果这些没有在工作区间定义，那么会出现不同步的情况；</p>
+<p>6.通知发出后，controller不能从观察者获得任何的反馈信息。</p>
+<h4 id="KVO的_优势_：">KVO的 优势 ：</h4><p>1.能够提供一种简单的方法实现两个对象间的同步。例如：model和view之间同步；</p>
+<p>2.能够对非我们创建的对象，即内部对象的状态改变作出响应，而且不需要改变内部对象（SKD对象）的实现；</p>
+<p>3.能够提供观察的属性的最新值以及先前值；</p>
+<p>4.用key paths来观察属性，因此也可以观察嵌套对象；</p>
+<p>5.完成了对观察对象的抽象，因为不需要额外的代码来允许观察值能够被观察</p>
+<h4 id="缺点：-2">缺点：</h4><p>1.我们观察的属性必须使用strings来定义。因此在编译器不会出现警告以及检查；</p>
+<p>2.对属性重构将导致我们的观察代码不再可用；</p>
+<p>3.复杂的“IF”语句要求对象正在观察多个值。这是因为所有的观察代码通过一个方法来指向；</p>
+<p>4.当释放观察者时不需要移除观察者。</p>
+<h4 id="效率肯定是delegate比NSNotification高">效率肯定是delegate比NSNotification高</h4><p>delegate方法比notification更加直接，最典型的特征是，delegate方法往往需要关注返回值，也就是delegate方法的结果。比如-windowShouldClose:，需要关心返回的是yes还是no。所以delegate方法往往包含 should这个很传神的词。也就是好比你做我的delegate，我会问你我想关闭窗口你愿意吗？你需要给我一个答案，我根据你的答案来决定如何做下一步。相反的，notification最大的特色就是不关心接受者的态度，我只管把通告放出来，你接受不接受就是你的事情，同时我也不关心结果。所以notification往往用did这个词汇，比如NSWindowDidResizeNotification，那么NSWindow对象放出这个notification后就什么都不管了也不会等待接 受者的反应。</p>
+<h4 id="KVO和NSNotification的区别：">KVO和NSNotification的区别：</h4><p>和delegate一样，KVO和NSNotification的作用也是类与类之间的通信，与delegate不同的是1）这两个都是负责发出通知，剩下的事情就不管了，所以没有返回值；2）delegate只是一对一，而这两个可以一对多。这两者也有各自的特点。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/KVC/" rel="tag">#KVC</a>
+          
+            <a href="/tags/KVO/" rel="tag">#KVO</a>
+          
+            <a href="/tags/NSNotification/" rel="tag">#NSNotification</a>
+          
+            <a href="/tags/delegate/" rel="tag">#delegate</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/15/UITableViewCell的自定义以及重用/" rel="next" title="UITableViewCell的自定义以及重用">
+                <i class="fa fa-chevron-left"></i> UITableViewCell的自定义以及重用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="张飞" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">张飞</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">有很多有故事的人，但他们都有一个共性：他们有生活</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://baidu.com/" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 百度
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#KVC"><span class="nav-number">1.</span> <span class="nav-text">KVC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo:"><span class="nav-number">1.1.</span> <span class="nav-text">Demo:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KVC的常用方法："><span class="nav-number">1.2.</span> <span class="nav-text">KVC的常用方法：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意："><span class="nav-number">2.</span> <span class="nav-text">注意：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#KVO"><span class="nav-number">2.1.</span> <span class="nav-text">KVO</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#KVO的使用也很简单，就是简单的3步。"><span class="nav-number">2.1.1.</span> <span class="nav-text">KVO的使用也很简单，就是简单的3步。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo："><span class="nav-number">2.2.</span> <span class="nav-text">Demo：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#delegate和NSNotification的区别："><span class="nav-number">2.3.</span> <span class="nav-text">delegate和NSNotification的区别：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#delegate的优点："><span class="nav-number">2.4.</span> <span class="nav-text">delegate的优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点："><span class="nav-number">2.5.</span> <span class="nav-text">缺点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#notification的_优势_："><span class="nav-number">2.6.</span> <span class="nav-text">notification的 优势 ：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点：-1"><span class="nav-number">2.7.</span> <span class="nav-text">缺点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KVO的_优势_："><span class="nav-number">2.8.</span> <span class="nav-text">KVO的 优势 ：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点：-2"><span class="nav-number">2.9.</span> <span class="nav-text">缺点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效率肯定是delegate比NSNotification高"><span class="nav-number">2.10.</span> <span class="nav-text">效率肯定是delegate比NSNotification高</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KVO和NSNotification的区别："><span class="nav-number">2.11.</span> <span class="nav-text">KVO和NSNotification的区别：</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张飞</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>
